@@ -1,0 +1,1538 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>改變談話與維持談話｜朗讀稿</title>
+<meta name="description" content="動機式晤談改變談話辨識練習．兩人一組朗讀與聆聽">
+<meta name="theme-color" content="#5A6472">
+<style>
+:root{
+  --ink:#2E343D; --slate:#5A6472; --taupe:#9C8F82;
+  --sand:#EFEAE3; --paper:#FAF8F5; --card:#FFFFFF; --line:#E2DCD4;
+  --chg:#3F6B4E; --chg-bg:#DDE8DE; --chg-mid:#7FA88E;
+  --sus:#8E4E58; --sus-bg:#F0DFE0; --sus-mid:#C08E96;
+  --neu:#D9D3CB;
+  --serif:"Songti TC","Noto Serif TC","Source Han Serif TC",
+          "PMingLiU","MingLiU",Georgia,"Times New Roman",serif;
+  --sans:"PingFang TC","Noto Sans TC","Source Han Sans TC",
+         "Microsoft JhengHei","Helvetica Neue",Helvetica,Arial,sans-serif;
+  --fs:19px; --lh:2.0;
+  --wrap:720px;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0}
+body{
+  background:var(--paper); color:var(--ink);
+  font-family:var(--sans); font-size:16px; line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+  padding-bottom:env(safe-area-inset-bottom);
+}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 20px}
+button{font-family:inherit;font-size:inherit;color:inherit;background:none;border:none;cursor:pointer}
+button:focus-visible,a:focus-visible{outline:2px solid var(--slate);outline-offset:3px;border-radius:3px}
+
+/* ---------- 頁首 ---------- */
+.top{background:var(--slate);color:#fff;padding:16px 0 14px}
+.top .wrap{display:block}
+.brand{font-family:var(--serif);font-size:20px;font-weight:700;letter-spacing:.02em;line-height:1.3}
+.brand small{display:block;font-family:var(--sans);font-size:11.5px;font-weight:400;
+  letter-spacing:.06em;color:#C3CAD3;margin-top:3px}
+
+/* ---------- 首頁 ---------- */
+.intro{padding:26px 0 4px}
+.intro p{margin:0;font-size:14.5px;color:#6A7280;line-height:1.85}
+.intro .hint{margin-top:9px;font-size:13px;color:var(--taupe)}
+
+.filters{display:flex;flex-wrap:wrap;gap:6px;padding:18px 0 6px}
+.filters button{border:1px solid var(--line);background:var(--card);border-radius:999px;
+  padding:6px 12px;font-size:12.5px;color:#6A7280;transition:.16s;white-space:nowrap}
+.filters button[aria-pressed="true"]{background:var(--slate);border-color:var(--slate);color:#fff}
+.filters .sep{width:1px;background:var(--line);margin:5px 3px}
+
+.list{padding:8px 0 40px;display:flex;flex-direction:column;gap:11px}
+.card{display:block;width:100%;text-align:left;background:var(--card);border:1px solid var(--line);
+  border-radius:12px;padding:15px 17px 16px;transition:.16s}
+.card:hover,.card:focus-visible{border-color:var(--taupe);transform:translateY(-1px)}
+.card-h{display:flex;align-items:baseline;gap:11px;margin-bottom:5px}
+.card-n{font-family:var(--serif);font-size:22px;font-weight:700;color:var(--slate);flex:none;line-height:1}
+.card-t{font-size:16px;font-weight:600;color:var(--ink);line-height:1.45}
+.card-m{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.tag{font-size:11.5px;padding:2px 8px;border-radius:4px;letter-spacing:.03em}
+.tag-a{background:var(--sand);color:#6E6257}
+.card-s{font-size:12px;color:var(--taupe);margin-left:auto}
+
+/* ---------- 語言脈絡帶 ---------- */
+.ribbon{display:flex;height:9px;border-radius:5px;overflow:hidden;background:var(--neu)}
+.ribbon span{display:block;height:100%;transition:background .5s ease}
+.ribbon.plain span{background:var(--neu)!important}
+.rb-c{background:var(--chg-mid)}
+.rb-s{background:var(--sus-mid)}
+.rb-n{background:var(--neu)}
+.ribbon.big{height:13px;border-radius:7px}
+.ribbon.reveal span{animation:fill .5s ease both}
+@keyframes fill{from{opacity:.25}to{opacity:1}}
+.rb-legend{display:flex;gap:14px;font-size:11.5px;color:var(--taupe);margin-top:7px}
+.rb-legend i{display:inline-block;width:9px;height:9px;border-radius:2px;margin-right:5px;vertical-align:-1px}
+
+/* ---------- 段落頁 ---------- */
+.back{display:inline-flex;align-items:center;gap:6px;font-size:14px;color:#6A7280;padding:16px 0 4px}
+.head{padding:2px 0 16px;border-bottom:1px solid var(--line)}
+.head-n{font-family:var(--serif);font-size:13.5px;letter-spacing:.08em;color:var(--taupe);margin-bottom:5px}
+.head-t{font-family:var(--serif);font-size:26px;font-weight:700;line-height:1.4;color:var(--ink);margin:0 0 11px}
+.head-m{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-bottom:13px}
+
+.tabs{display:flex;gap:0;border-bottom:1px solid var(--line);margin-top:2px;position:sticky;top:0;
+  background:var(--paper);z-index:5}
+.tabs button{flex:1;padding:14px 4px 12px;font-size:14.5px;color:#8A9099;border-bottom:2px solid transparent;
+  transition:.16s;font-weight:500}
+.tabs button[aria-selected="true"]{color:var(--slate);border-bottom-color:var(--slate);font-weight:700}
+.tabs button[disabled]{color:#C4C8CE;cursor:default}
+
+.pane{padding:22px 0 56px}
+.tools{display:flex;align-items:center;gap:8px;margin-bottom:20px}
+.tools span{font-size:12.5px;color:var(--taupe);margin-right:2px}
+.tools button{border:1px solid var(--line);background:var(--card);border-radius:7px;
+  min-width:38px;padding:5px 10px;font-size:13px;color:#6A7280}
+.tools button[aria-pressed="true"]{background:var(--slate);border-color:var(--slate);color:#fff}
+
+.script p{font-size:var(--fs);line-height:var(--lh);margin:0 0 1.15em;letter-spacing:.01em}
+.script mark{background:none;color:inherit;padding:0}
+.script.marked mark.c{background:var(--chg-bg);color:var(--chg);font-weight:600;
+  padding:2px 1px;border-radius:2px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.script.marked mark.s{background:var(--sus-bg);color:var(--sus);font-weight:600;
+  padding:2px 1px;border-radius:2px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+
+.note{background:var(--sand);border-radius:10px;padding:14px 17px;font-size:13.5px;
+  line-height:1.85;color:#5F5449;margin:0 0 22px}
+.note b{color:var(--ink)}
+
+/* ---------- 計數 ---------- */
+.count-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
+.counter{border-radius:14px;padding:20px 12px 16px;text-align:center;border:1px solid transparent;
+  transition:transform .08s}
+.counter:active{transform:scale(.97)}
+.counter.c{background:var(--chg-bg);border-color:#C6DACB}
+.counter.s{background:var(--sus-bg);border-color:#E4CBCE}
+.counter-l{font-size:13.5px;font-weight:700;letter-spacing:.04em}
+.counter.c .counter-l{color:var(--chg)}
+.counter.s .counter-l{color:var(--sus)}
+.counter-v{font-family:var(--serif);font-size:52px;font-weight:700;line-height:1.1;margin:4px 0 2px}
+.counter.c .counter-v{color:var(--chg)}
+.counter.s .counter-v{color:var(--sus)}
+.counter-h{font-size:11.5px;color:#8A8078}
+.count-row{display:flex;gap:8px;justify-content:center;margin-bottom:22px}
+.count-row button{border:1px solid var(--line);background:var(--card);border-radius:8px;
+  padding:7px 16px;font-size:13px;color:#6A7280}
+
+/* ---------- 對答案 ---------- */
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:24px}
+.cmp{border:1px solid var(--line);border-radius:11px;padding:13px 15px;background:var(--card)}
+.cmp-l{font-size:12.5px;font-weight:700;margin-bottom:7px}
+.cmp.c .cmp-l{color:var(--chg)}
+.cmp.s .cmp-l{color:var(--sus)}
+.cmp-r{display:flex;align-items:baseline;gap:8px;font-size:13px;color:var(--taupe)}
+.cmp-r b{font-family:var(--serif);font-size:26px;font-weight:700;color:var(--ink)}
+
+table.key{width:100%;border-collapse:collapse;font-size:14px;margin-bottom:8px}
+table.key th{background:var(--taupe);color:#fff;font-weight:700;text-align:left;
+  padding:9px 12px;font-size:12.5px;letter-spacing:.03em}
+table.key td{padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.6}
+table.key tr:nth-child(even) td{background:#FBF9F7}
+table.key td.j{white-space:nowrap;font-weight:600;font-size:13px}
+table.key td.j.c{color:var(--chg)}
+table.key td.j.s{color:var(--sus)}
+table.key td.j.n{color:var(--taupe)}
+
+.stats{display:flex;flex-wrap:wrap;gap:18px;font-size:12.5px;color:var(--taupe);
+  padding:14px 0 0;border-top:1px solid var(--line);margin-top:20px}
+.stats b{color:var(--ink);font-weight:600}
+
+
+h3.sec{font-family:var(--serif);font-size:17px;font-weight:700;color:var(--slate);
+  margin:30px 0 12px;padding-bottom:7px;border-bottom:1px solid var(--line)}
+
+.foot{padding:30px 0 46px;font-size:12px;color:#B3ADA5;text-align:center;line-height:1.9}
+
+@media(max-width:520px){
+  .head-t{font-size:22px}
+  .counter-v{font-size:44px}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+}
+@media print{
+  .top,.tabs,.tools,.back,.filters,.foot,.count-row{display:none!important}
+  body{background:#fff;font-size:12pt}
+  .script p{font-size:12pt;line-height:1.9}
+  .pane{padding:0}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <div class="brand">改變談話與維持談話
+      <small>朗讀稿．兩人一組</small>
+    </div>
+  </div>
+</header>
+
+<main id="app"></main>
+
+<div class="wrap foot">
+  改變談話與維持談話辨識練習｜菜桃老師的遊聊室<br>
+  練習素材，非真實個案。
+</div>
+
+<!-- ===================================================================
+     朗讀稿資料。要新增或修改段落，改這一段就好。
+     paras：每段由若干 [文字, 類型] 組成
+     類型　c = 改變談話　s = 維持談話　n = 中性
+     key 的判讀欄開頭必須是「改變」或「維持」，程式靠這個上色
+     =================================================================== -->
+<script>
+// 改變談話與維持談話｜朗讀稿資料
+// 新增段落：在陣列最後加一筆，欄位照舊。
+// paras 是段落陣列，每段由若干 [文字, 類型] 組成；類型 c = 改變談話，s = 維持談話，n = 中性。
+// stats 若留空會自動計算，這裡先寫死以免每次載入重算。
+window.SEGMENTS = [
+  {
+    "id": 1,
+    "num": "一",
+    "title": "要不要多稱讚這個孩子",
+    "audience": "教師",
+    "level": "入門",
+    "paras": [
+      [
+        [
+          "我跟你講小安喔，我真的……唉。他不是壞小孩，這點我很確定，他就是停不下來。上課我在講，他就在下面接話，全班笑成一團，那節課就沒了。",
+          "n"
+        ],
+        [
+          "我罵過，扣過點數，當下有效，隔天照舊。",
+          "c"
+        ]
+      ],
+      [
+        [
+          "可是上禮拜很奇怪，有一節數學，他不知道怎麼了坐了快十分鐘沒動，我就順口說了一句，欸小安今天很不一樣喔。就這樣而已，結果他那個下午整個變了一個人。我自己都嚇到。",
+          "c"
+        ]
+      ],
+      [
+        [
+          "可是你說要我每天這樣，我做不到啊。三十個人耶，光聯絡簿我就改到七點。而且說真的我心裡也怪怪的，他做到的只是別人本來就在做的事，我為什麼要特別誇他？那那些乖了一整年都沒被誇過的孩子呢？他們不會覺得搗蛋才有糖吃嗎？",
+          "s"
+        ]
+      ],
+      [
+        [
+          "……不過我最近有在想，",
+          "n"
+        ],
+        [
+          "我跟他之間，除了罵好像也沒別的了。他現在看到我會低頭欸。他才三年級。我是想試試看啦，",
+          "c"
+        ],
+        [
+          "就是不知道能撐多久。",
+          "s"
+        ]
+      ]
+    ],
+    "key": [
+      [
+        "我罵過，扣過點數，當下有效，隔天照舊",
+        "改變　R 理由"
+      ],
+      [
+        "我就順口說了一句……他那個下午整個變了一個人",
+        "改變　R 理由 ＋ T 行動"
+      ],
+      [
+        "可是你說要我每天這樣，我做不到啊。三十個人耶",
+        "維持　現實負荷"
+      ],
+      [
+        "他做到的只是別人本來就在做的事",
+        "維持　公平性"
+      ],
+      [
+        "他們不會覺得搗蛋才有糖吃嗎",
+        "維持　擔心後果"
+      ],
+      [
+        "我跟他之間，除了罵好像也沒別的了",
+        "改變　R 理由"
+      ],
+      [
+        "他現在看到我會低頭欸。他才三年級",
+        "改變　N 需要"
+      ],
+      [
+        "我是想試試看啦",
+        "改變　D 渴望"
+      ],
+      [
+        "就是不知道能撐多久",
+        "維持　折價"
+      ]
+    ],
+    "stats": {
+      "chars": 290,
+      "chg": 42,
+      "sus": 36,
+      "neu": 21,
+      "ratio": 1.17,
+      "sec": 78,
+      "nChg": 5,
+      "nSus": 4
+    }
+  },
+  {
+    "id": 2,
+    "num": "二",
+    "title": "制止分心，還是維持教學流暢",
+    "audience": "教師",
+    "level": "入門",
+    "paras": [
+      [
+        [
+          "小恩喔……他不吵，他就是不在。上課眼睛看著我，你知道那種眼神吧，人不在。玩筆，翻課本，翻來翻去。",
+          "n"
+        ],
+        [
+          "我每次看到都想叫他，我在上課耶，你這樣坐在那邊一節課不就白來了？老師看到學生放空是很難裝作沒看到的。",
+          "s"
+        ]
+      ],
+      [
+        [
+          "可是我最近發現一件事，很奇怪，每次我一停下來點他的名，全班就散了，後面那幾個開始交頭接耳，我要再拉回來要五分鐘跑不掉。一節課停個三四次，進度就沒了。",
+          "c"
+        ]
+      ],
+      [
+        [
+          "上禮拜有一堂我忍住，我就不看他，結果那堂課順到不行，我還超前。我那時候心裡就想，是不是真的不用每次都管？",
+          "c"
+        ],
+        [
+          "可是不管他，他會不會以為這樣可以？而且我們是開放教室啊，隔壁老師走過去看到我放著一個學生在那邊發呆……算了。",
+          "s"
+        ]
+      ],
+      [
+        [
+          "我想想也是啦，那些時間拿去教，受益的是三十個人。",
+          "c"
+        ],
+        [
+          "我不是要放棄他，我只是……",
+          "n"
+        ],
+        [
+          "我也不知道這樣算不算在逃避。",
+          "s"
+        ]
+      ]
+    ],
+    "key": [
+      [
+        "我在上課耶，你這樣坐在那邊一節課不就白來了",
+        "維持　角色責任"
+      ],
+      [
+        "老師看到學生放空是很難裝作沒看到的",
+        "維持　角色責任"
+      ],
+      [
+        "每次我一停下來點他的名，全班就散了",
+        "改變　R 理由"
+      ],
+      [
+        "一節課停個三四次，進度就沒了",
+        "改變　R 理由"
+      ],
+      [
+        "上禮拜有一堂我忍住……那堂課順到不行，我還超前",
+        "改變　T 行動"
+      ],
+      [
+        "是不是真的不用每次都管",
+        "改變　D 渴望（萌芽）"
+      ],
+      [
+        "他會不會以為這樣可以",
+        "維持　擔心後果"
+      ],
+      [
+        "隔壁老師走過去看到我放著一個學生在那邊發呆",
+        "維持　在意他人看法"
+      ],
+      [
+        "那些時間拿去教，受益的是三十個人",
+        "改變　R 理由"
+      ],
+      [
+        "我不是要放棄他",
+        "中性　值得肯認的價值訊號"
+      ],
+      [
+        "我也不知道這樣算不算在逃避",
+        "維持　折價"
+      ]
+    ],
+    "stats": {
+      "chars": 288,
+      "chg": 46,
+      "sus": 37,
+      "neu": 17,
+      "ratio": 1.24,
+      "sec": 78,
+      "nChg": 5,
+      "nSus": 5
+    }
+  },
+  {
+    "id": 3,
+    "num": "三",
+    "title": "孩子一鬧脾氣就忍不住吼他",
+    "audience": "家長",
+    "level": "入門",
+    "paras": [
+      [
+        [
+          "昨天他又滾了。就在客廳，為了一支湯匙，我沒騙你，一支湯匙。我講第一次他不理，第二次我大聲，第三次我就爆了。",
+          "n"
+        ]
+      ],
+      [
+        [
+          "我知道啦，我每次吼完他只會哭更大聲，一點用都沒有，我知道。罵完換我躲在廚房掉眼淚。我姐跟我說，你就先讓自己冷靜下來啊，再好好講。她講得對，她帶小孩就是比我穩。",
+          "c"
+        ]
+      ],
+      [
+        [
+          "可是你沒聽過他那個哭，尖叫那種，整棟樓都聽得到，我耳朵嗡嗡的，那個當下什麼道理都沒有用。而且我媽一直在旁邊念，說我對他太客氣，說我這樣以後上小學誰管得動他。我也怕啊。",
+          "s"
+        ]
+      ],
+      [
+        [
+          "可是前幾天有一次，我真的太累了，累到沒力氣吼，我就把他抱著，等他哭完。就這樣而已。結果那天睡前他自己跟我說對不起。他從來沒有這樣過。",
+          "c"
+        ],
+        [
+          "……我不知道啦，可能剛好而已。",
+          "s"
+        ]
+      ]
+    ],
+    "key": [
+      [
+        "我每次吼完他只會哭更大聲，一點用都沒有",
+        "改變　R 理由"
+      ],
+      [
+        "罵完換我躲在廚房掉眼淚",
+        "改變　N 需要"
+      ],
+      [
+        "我姐跟我說……她講得對",
+        "改變　A 能力"
+      ],
+      [
+        "那個當下什麼道理都沒有用",
+        "維持　情緒壓力"
+      ],
+      [
+        "我媽一直在旁邊念，說我對他太客氣",
+        "維持　家庭壓力"
+      ],
+      [
+        "我這樣以後上小學誰管得動他。我也怕啊",
+        "維持　擔心後果"
+      ],
+      [
+        "我就把他抱著，等他哭完",
+        "改變　T 行動"
+      ],
+      [
+        "那天睡前他自己跟我說對不起。他從來沒有這樣過",
+        "改變　R 理由"
+      ],
+      [
+        "可能剛好而已",
+        "維持　折價"
+      ]
+    ],
+    "stats": {
+      "chars": 257,
+      "chg": 49,
+      "sus": 33,
+      "neu": 18,
+      "ratio": 1.49,
+      "sec": 69,
+      "nChg": 5,
+      "nSus": 4
+    }
+  },
+  {
+    "id": 4,
+    "num": "四",
+    "title": "3C 使用的拉扯",
+    "audience": "家長",
+    "level": "入門",
+    "paras": [
+      [
+        [
+          "他一回來書包一丟，平板就拿走了。叫他寫功課要叫五次，第五次我發火他才動。我先生說收掉就好了嘛，講得很輕鬆，帶的人又不是他。",
+          "n"
+        ]
+      ],
+      [
+        [
+          "我覺得全收掉不行，現在小孩下課都在講遊戲，你不給他用他在學校插不上話，回來又要跟我番。而且說實話，他安靜在那邊滑的那一個小時，是我唯一可以煮飯的時間，妹妹又在旁邊拉我。收掉？那晚餐是要幾點吃。",
+          "s"
+        ]
+      ],
+      [
+        [
+          "……可是他上個月配眼鏡又加深，老師也在聯絡簿寫兩次了，說他上課眼神飄。我心裡是知道的，不能再這樣下去。我有想過跟他講好，一天就一個小時，講清楚。",
+          "c"
+        ]
+      ],
+      [
+        [
+          "上禮拜有一天真的做到，那天他晚上居然自己去把書架上的書翻出來看，我在旁邊看著他……我還蠻感動的。",
+          "c"
+        ],
+        [
+          "結果隔天就破功了。所以我就想說，算了吧，反正也堅持不了。",
+          "s"
+        ]
+      ]
+    ],
+    "key": [
+      [
+        "你不給他用他在學校插不上話",
+        "維持　擔心社交排擠"
+      ],
+      [
+        "那一個小時是我唯一可以煮飯的時間",
+        "維持　現實考量"
+      ],
+      [
+        "上個月配眼鏡又加深，老師也在聯絡簿寫兩次",
+        "改變　R 理由"
+      ],
+      [
+        "我心裡是知道的，不能再這樣下去",
+        "改變　N 需要"
+      ],
+      [
+        "我有想過跟他講好，一天就一個小時",
+        "改變　D 渴望"
+      ],
+      [
+        "上禮拜有一天真的做到，他自己去把書翻出來看",
+        "改變　T 行動"
+      ],
+      [
+        "我在旁邊看著他……我還蠻感動的",
+        "改變　R 理由（價值訊號）"
+      ],
+      [
+        "算了吧，反正也堅持不了",
+        "維持　折價"
+      ]
+    ],
+    "stats": {
+      "chars": 269,
+      "chg": 39,
+      "sus": 41,
+      "neu": 20,
+      "ratio": 0.95,
+      "sec": 73,
+      "nChg": 5,
+      "nSus": 3
+    }
+  },
+  {
+    "id": 5,
+    "num": "五",
+    "title": "多元創意教學，還是先把結構立起來",
+    "audience": "教師",
+    "level": "進階",
+    "paras": [
+      [
+        [
+          "這一屆真的不一樣。我不知道是不是我運氣不好，我帶第三屆了，前面兩屆我都這樣教，都沒問題。我很喜歡做那種活動課，闖關啊、分組專題啊，之前學校辦研習還推我出去分享過。可是這一屆……你知道我們班有三個特殊生嘛，還有幾個雖然沒有鑑定但狀況也不太穩。",
+          "n"
+        ]
+      ],
+      [
+        [
+          "我上禮拜設計一個社會科的闖關，我準備了兩個晚上，海報都做好了，結果第一關還沒跑完就亂掉，有兩個直接離開座位跑到走廊，我在那邊喊，喊到後來我自己都不知道我在幹嘛。",
+          "n"
+        ],
+        [
+          "收拾秩序收了十五分鐘，剩下的時間什麼都沒教到。",
+          "c"
+        ]
+      ],
+      [
+        [
+          "有人跟我說，要不要就先弄得結構一點，座位排整齊、規則講清楚、每個步驟寫在黑板上。",
+          "n"
+        ],
+        [
+          "我聽得懂啦。其實那三個孩子在流程清楚的課上，狀況真的比較好，這我自己也看得出來。",
+          "c"
+        ],
+        [
+          "可是那個不是我啊。我如果變成那樣，我幹嘛當老師？我小時候就是那種被排排坐坐到死的，我最討厭那樣。而且你把規矩弄那麼緊，那些本來很享受討論的孩子怎麼辦？他們才是大多數欸。",
+          "s"
+        ]
+      ],
+      [
+        [
+          "……不過說起來也奇怪，",
+          "n"
+        ],
+        [
+          "上次有一次闖關前我臨時多花了十分鐘，先示範一次給他們看，講清楚每一關要幹嘛。那次意外地還好。",
+          "c"
+        ],
+        [
+          "可是我也不確定是不是剛好那天他們比較穩。反正就是很累啦。可能就這一屆吧，明年換一批應該就好了。",
+          "s"
+        ]
+      ]
+    ],
+    "key": [
+      [
+        "收拾秩序收了十五分鐘，剩下的時間什麼都沒教到",
+        "改變　R 理由"
+      ],
+      [
+        "我聽得懂啦",
+        "改變　A 能力（很弱，一句話就過去）"
+      ],
+      [
+        "那三個孩子在流程清楚的課上，狀況真的比較好",
+        "改變　R 理由"
+      ],
+      [
+        "上次闖關前我臨時多花了十分鐘先示範……那次意外地還好",
+        "改變　T 行動"
+      ],
+      [
+        "那個不是我啊。我如果變成那樣，我幹嘛當老師",
+        "維持　教學信念"
+      ],
+      [
+        "我小時候就是那種被排排坐坐到死的",
+        "維持　個人經驗"
+      ],
+      [
+        "那些本來很享受討論的孩子怎麼辦？他們才是大多數欸",
+        "維持　擔心後果"
+      ],
+      [
+        "我也不確定是不是剛好那天他們比較穩",
+        "維持　折價"
+      ],
+      [
+        "反正就是很累啦",
+        "維持　無力感"
+      ],
+      [
+        "可能就這一屆吧，明年換一批應該就好了",
+        "維持　折價"
+      ]
+    ],
+    "stats": {
+      "chars": 441,
+      "chg": 22,
+      "sus": 27,
+      "neu": 51,
+      "ratio": 0.83,
+      "sec": 119,
+      "nChg": 4,
+      "nSus": 6
+    }
+  },
+  {
+    "id": 6,
+    "num": "六",
+    "title": "孩子確診 ADHD，猶豫要不要用藥",
+    "audience": "家長",
+    "level": "進階",
+    "paras": [
+      [
+        [
+          "醫生開了藥。上個月就開了，處方箋還在我皮包裡，我一直沒去領。那個門診我們等了快半年才排到，那天光候診就兩個多小時，我還跟公司請了半天假，中間他在椅子上翻來翻去，我一直跟旁邊的人說不好意思。我不是不相信醫生喔，那天他問的那些，什麼常常坐不住啦、東西一直掉啦、話講到一半就跑掉啦，",
+          "n"
+        ],
+        [
+          "我一條一條聽，我在那邊眼淚就掉下來，因為真的全部都中。",
+          "c"
+        ],
+        [
+          "可是……",
+          "n"
+        ]
+      ],
+      [
+        [
+          "我先生說，哪有小孩不好動，你小時候還不是這樣。我婆婆更不用講，她連過動兩個字都不准我在家裡講，她說會被人家聽到。",
+          "s"
+        ],
+        [
+          "我上網查，正面的負面的我都看了，看到最後我更亂。",
+          "n"
+        ],
+        [
+          "有人說會長不高、吃不下、整個人呆呆的。那如果他吃了以後變成另外一個人，那還是我兒子嗎？我寧可他吵一點。而且學校那邊，一旦知道他在吃藥，是不是就把他當成有問題的孩子？",
+          "s"
+        ]
+      ],
+      [
+        [
+          "這幾個禮拜我每天晚上都在想這件事，洗碗的時候想，躺下來也想。我姐是叫我不要想那麼多啦，可是她又沒有小孩。",
+          "n"
+        ],
+        [
+          "……可是他上禮拜跟我說一句話，他說媽媽我也不想這樣啊，我控制不了。他七歲欸，講這種話。他最近開始說自己很笨，說不想上學。我最怕的就是這個，成績我真的沒有那麼在意。",
+          "c"
+        ]
+      ],
+      [
+        [
+          "回診單我貼在冰箱上，貼了三個禮拜了，每天煮飯都看到。我也知道不能一直這樣拖。",
+          "c"
+        ],
+        [
+          "可是我一個人，就我一個人在想這件事。想到最後就算了，再看看好了，說不定大一點就自己好了，很多人都這樣說。",
+          "s"
+        ]
+      ]
+    ],
+    "key": [
+      [
+        "我一條一條聽，我在那邊眼淚就掉下來，因為真的全部都中",
+        "改變　R 理由"
+      ],
+      [
+        "他說媽媽我也不想這樣啊，我控制不了",
+        "改變　R 理由"
+      ],
+      [
+        "他最近開始說自己很笨，說不想上學。我最怕的就是這個",
+        "改變　N 需要"
+      ],
+      [
+        "回診單我貼在冰箱上，貼了三個禮拜了",
+        "改變　T 行動（非常小的一步）"
+      ],
+      [
+        "我也知道不能一直這樣拖",
+        "改變　N 需要"
+      ],
+      [
+        "我先生說，哪有小孩不好動",
+        "維持　家人反對"
+      ],
+      [
+        "她連過動兩個字都不准我在家裡講",
+        "維持　家人反對"
+      ],
+      [
+        "有人說會長不高、吃不下、整個人呆呆的",
+        "維持　擔心副作用"
+      ],
+      [
+        "那還是我兒子嗎？我寧可他吵一點",
+        "維持　擔心副作用"
+      ],
+      [
+        "一旦知道他在吃藥，是不是就把他當成有問題的孩子",
+        "維持　怕貼標籤"
+      ],
+      [
+        "可是我一個人，就我一個人在想這件事",
+        "維持　孤立無援"
+      ],
+      [
+        "再看看好了，說不定大一點就自己好了",
+        "維持　折價"
+      ]
+    ],
+    "stats": {
+      "chars": 491,
+      "chg": 26,
+      "sus": 34,
+      "neu": 40,
+      "ratio": 0.76,
+      "sec": 133,
+      "nChg": 5,
+      "nSus": 7
+    }
+  },
+  {
+    "id": 7,
+    "num": "七",
+    "title": "拒學，幫忙請假的矛盾",
+    "audience": "家長",
+    "level": "進階",
+    "paras": [
+      [
+        [
+          "今天早上又是這樣。六點半我叫她，她說爸爸我肚子痛。我摸她額頭沒有燒，我說那我們慢慢來，先起來吃個東西。她就開始哭，坐在床上哭，哭到後來整個人躲進棉被裡。我看時間快來不及了，我就說好啦好啦，那今天就先休息一天。",
+          "n"
+        ]
+      ],
+      [
+        [
+          "這樣已經第幾次我自己都算不清楚了。",
+          "c"
+        ],
+        [
+          "導師上禮拜打給我，她說爸爸這樣不行喔，缺太多天了。我知道她是好意啦，可是她那個講法，好像我在包庇她一樣。我一個人早上要弄她、要弄弟弟、店裡九點要開，我也是很想把她送進去啊。",
+          "s"
+        ]
+      ],
+      [
+        [
+          "我太太那邊工作走不開，早上都是我在處理。",
+          "n"
+        ],
+        [
+          "每天晚上她都跟我說爸爸我明天一定去，結果每天早上都一樣。我後來想想，每天都說明天，那就是永遠都是明天，這樣下去不行。",
+          "c"
+        ]
+      ],
+      [
+        [
+          "可是你看到她那樣哭，你就下不了手。我沒有辦法把一個哭成那樣的小孩硬塞進校門，我做不到。而且我也在想，是不是學校裡面有什麼事情是我不知道的？她從小就比較敏感，人家講一句她可以記三天。",
+          "s"
+        ]
+      ],
+      [
+        [
+          "……不過有一次，大概兩個禮拜前吧，那天我陪她走到校門口，我沒有催她，我就站在旁邊。她在那邊站了大概十分鐘，一直低著頭，然後她就自己走進去了。我那天在門口站了好久。",
+          "c"
+        ]
+      ],
+      [
+        [
+          "那天她放學回來，還跟我講他們美勞課在做什麼，講了好久。我那時候心裡想，她其實不是不想去。",
+          "c"
+        ]
+      ],
+      [
+        [
+          "我不知道啦。我也不確定那次是不是剛好。可能她長大一點就好了，我小時候也不喜歡上學啊，後來還不是這樣過來了。",
+          "s"
+        ]
+      ]
+    ],
+    "key": [
+      [
+        "這樣已經第幾次我自己都算不清楚了",
+        "改變　N 需要（微弱的問題覺察）"
+      ],
+      [
+        "每天都說明天，那就是永遠都是明天，這樣下去不行",
+        "改變　N 需要"
+      ],
+      [
+        "我也是很想把她送進去啊",
+        "改變　D 渴望（夾在抱怨裡）"
+      ],
+      [
+        "那天我陪她走到校門口……她就自己走進去了",
+        "改變　T 行動"
+      ],
+      [
+        "那天她放學回來，還跟我講他們美勞課在做什麼",
+        "改變　R 理由"
+      ],
+      [
+        "導師那個講法，好像我在包庇她一樣",
+        "維持　對學校的防衛"
+      ],
+      [
+        "我一個人早上要弄她、要弄弟弟、店裡九點要開",
+        "維持　現實負荷"
+      ],
+      [
+        "你看到她那樣哭，你就下不了手",
+        "維持　情感無法承受"
+      ],
+      [
+        "是不是學校裡面有什麼事情是我不知道的",
+        "維持　對學校的疑慮"
+      ],
+      [
+        "她從小就比較敏感",
+        "維持　歸因於特質"
+      ],
+      [
+        "我也不確定那次是不是剛好",
+        "維持　折價"
+      ],
+      [
+        "我小時候也不喜歡上學啊，後來還不是這樣過來了",
+        "維持　折價"
+      ]
+    ],
+    "stats": {
+      "chars": 493,
+      "chg": 36,
+      "sus": 42,
+      "neu": 22,
+      "ratio": 0.86,
+      "sec": 133,
+      "nChg": 5,
+      "nSus": 7
+    }
+  },
+  {
+    "id": 8,
+    "num": "八",
+    "title": "隔代教養，管教不一致",
+    "audience": "家長",
+    "level": "進階",
+    "paras": [
+      [
+        [
+          "我先講一下我們家的狀況好了，不然你可能會聽不懂。他平常住阿嬤家，禮拜一到禮拜五都在那邊，因為我上班的地方比較遠，早上六點多就要出門。我禮拜五晚上去接他，禮拜天晚上再送回去。這樣已經三年了。",
+          "n"
+        ]
+      ],
+      [
+        [
+          "阿嬤對他很好啦，這個我要講。是真的很好，好到什麼都可以。想吃什麼就有什麼，晚上要看電視看到幾點都沒關係，功課寫不完阿嬤還會幫他寫。",
+          "n"
+        ],
+        [
+          "然後禮拜五接回來，我叫他九點半睡覺，他就在那邊給我盧，說阿嬤都沒有這樣。我一講他就爆炸，我們兩個就吵起來。老師上次也跟我說他上課會打瞌睡，",
+          "c"
+        ],
+        [
+          "我聽了心裡真的……",
+          "n"
+        ]
+      ],
+      [
+        [
+          "我知道要跟阿嬤講。我也知道啊。可是你要我怎麼講？她帶大三個小孩欸，我去跟她說你這樣帶不對，她會怎麼想？而且說穿了，沒有她我根本不能上班。這個現實就擺在那裡。",
+          "s"
+        ]
+      ],
+      [
+        [
+          "還有一件事我沒跟人講過。我一個禮拜只看到他兩天，那兩天我如果都在管他、都在念他，那他會不會覺得回來很痛苦？他有一次跟我說，媽媽你比較兇。我聽到那句話我整個晚上都在想。",
+          "s"
+        ]
+      ],
+      [
+        [
+          "……上禮拜我打電話回去，我就跟阿嬤說，媽，最近老師說他上課會想睡，可不可以稍微早一點睡。她那時候沒有回我，就嗯了一聲，我以為她不高興。結果那兩天他真的十點就睡了。",
+          "c"
+        ],
+        [
+          "我後來有想過，是不是可以寫一張紙條，貼在她家冰箱上。",
+          "c"
+        ]
+      ],
+      [
+        [
+          "可是我一直沒有寫。我不知道，可能想太多。反正再兩年他就上國中了，到時候我就把他接回來自己帶，現在就先這樣吧。",
+          "s"
+        ]
+      ]
+    ],
+    "key": [
+      [
+        "我叫他九點半睡覺，他就在那邊給我盧……我一講他就爆炸",
+        "改變　R 理由"
+      ],
+      [
+        "老師上次也跟我說他上課會打瞌睡",
+        "改變　R 理由"
+      ],
+      [
+        "我知道要跟阿嬤講。我也知道啊",
+        "改變　N 需要（隨即被自己駁回）"
+      ],
+      [
+        "上禮拜我打電話回去……結果那兩天他真的十點就睡了",
+        "改變　T 行動"
+      ],
+      [
+        "是不是可以寫一張紙條，貼在她家冰箱上",
+        "改變　D 渴望（講得很含糊，一句就過）"
+      ],
+      [
+        "她帶大三個小孩欸，我去跟她說你這樣帶不對，她會怎麼想",
+        "維持　怕傷長輩"
+      ],
+      [
+        "沒有她我根本不能上班。這個現實就擺在那裡",
+        "維持　現實依賴"
+      ],
+      [
+        "那兩天我如果都在管他，他會不會覺得回來很痛苦",
+        "維持　怕失去親子關係"
+      ],
+      [
+        "他有一次跟我說，媽媽你比較兇",
+        "維持　情感壓力"
+      ],
+      [
+        "可是我一直沒有寫。我不知道，可能想太多",
+        "維持　折價"
+      ],
+      [
+        "反正再兩年他就上國中了……現在就先這樣吧",
+        "維持　折價"
+      ]
+    ],
+    "stats": {
+      "chars": 497,
+      "chg": 31,
+      "sus": 39,
+      "neu": 30,
+      "ratio": 0.81,
+      "sec": 134,
+      "nChg": 5,
+      "nSus": 6
+    }
+  },
+  {
+    "id": 9,
+    "num": "九",
+    "title": "家長難以溝通，想放棄親師聯繫",
+    "audience": "教師",
+    "level": "進階",
+    "paras": [
+      [
+        [
+          "我先講喔，我不是那種會跟家長吵架的人。我帶班十年了，聯絡簿我寫得很勤，一天不會少於三行，我一直覺得親師之間就是要溝通，有什麼講開就好了。以前那幾屆的家長跟我都處得不錯。",
+          "n"
+        ]
+      ],
+      [
+        [
+          "可是這個媽媽……我每次傳訊息給她，她都會反問我。我說今天他跟同學有一點小衝突，她就回，所以老師的意思是我兒子有問題嗎。我說沒有，我只是讓您知道一下，她就回，那您為什麼要特別跟我說。你知道那種感覺嗎，我明明是在報告，可是我覺得我在被審問。",
+          "s"
+        ]
+      ],
+      [
+        [
+          "上學期有一次我在聯絡簿上寫了幾句，我自認已經寫得很客氣了，結果她拍照傳到班群裡面，說老師這樣寫合適嗎。那天晚上我手機一直響。我到現在打開班群還是會……就是那個感覺還在。",
+          "s"
+        ]
+      ],
+      [
+        [
+          "這一年下來，我自己算過，我花在她一個人身上的時間，比其他三十個家長加起來還多。每次要傳訊息之前我都要先深呼吸，打了刪、刪了打。",
+          "n"
+        ]
+      ],
+      [
+        [
+          "不過說真的，那個孩子沒有錯。他在學校其實還好，就是他媽媽在的時候他會特別緊張。上禮拜他跟我說，老師你不要跟我媽講好不好。",
+          "c"
+        ],
+        [
+          "我聽了心裡真的很不舒服。",
+          "n"
+        ],
+        [
+          "我後來一直在想，如果連我都不聯絡了，那這個孩子在學校就真的沒有人幫他講話了。而且我也不想變成那種把學生當麻煩的老師。",
+          "c"
+        ]
+      ],
+      [
+        [
+          "我有想過，是不是不要每次都寫問題，改成先寫他做得好的地方。上次有一件事我試了，他那天主動幫忙搬椅子，我就寫了兩行。她那次回了一個貼圖，沒有反問我。",
+          "c"
+        ],
+        [
+          "可是我也不知道啦，可能剛好那天她心情比較好。",
+          "s"
+        ]
+      ],
+      [
+        [
+          "而且說真的我也累了。主任也跟我講，能少一事是一事。反正剩這一學期，撐過去就換人帶了。",
+          "s"
+        ]
+      ]
+    ],
+    "key": [
+      [
+        "上禮拜他跟我說，老師你不要跟我媽講好不好",
+        "改變　R 理由"
+      ],
+      [
+        "如果連我都不聯絡了，這個孩子在學校就真的沒有人幫他講話了",
+        "改變　R 理由"
+      ],
+      [
+        "我也不想變成那種把學生當麻煩的老師",
+        "改變　N 需要"
+      ],
+      [
+        "是不是不要每次都寫問題，改成先寫他做得好的地方",
+        "改變　D 渴望"
+      ],
+      [
+        "上次我試了……她那次回了一個貼圖，沒有反問我",
+        "改變　T 行動"
+      ],
+      [
+        "我明明是在跟她報告，可是我覺得我在被審問",
+        "維持　情緒耗損"
+      ],
+      [
+        "她拍照傳到班群裡面……到現在打開班群還是會",
+        "維持　受傷經驗"
+      ],
+      [
+        "可能剛好那天她心情比較好",
+        "維持　折價"
+      ],
+      [
+        "主任也跟我講，盡量不要跟家長正面衝突",
+        "維持　行政壓力"
+      ],
+      [
+        "反正剩這一學期而已，撐過去就換人帶了",
+        "維持　折價"
+      ]
+    ],
+    "stats": {
+      "chars": 553,
+      "chg": 31,
+      "sus": 43,
+      "neu": 26,
+      "ratio": 0.73,
+      "sec": 149,
+      "nChg": 5,
+      "nSus": 5
+    }
+  },
+  {
+    "id": 10,
+    "num": "十",
+    "title": "精細動作不成熟，要不要提供替代方式",
+    "audience": "教師",
+    "level": "進階",
+    "paras": [
+      [
+        [
+          "我們班有個孩子，我從三年級帶上來的。他很乖，真的很乖，上課也認真，你叫他做什麼他都做。就是寫字。他寫一行字要二十分鐘，字大大小小，格子都框不住。剛開學我以為是習慣不好，我就每天留他下來練，一天練十五分鐘，練了一年多。",
+          "n"
+        ]
+      ],
+      [
+        [
+          "上禮拜我看到他把橡皮擦捏碎，整個捏碎在手裡，然後就趴在桌上哭。",
+          "c"
+        ],
+        [
+          "說真的，練了一年多，我自己也知道沒有變好多少。",
+          "c"
+        ],
+        [
+          "他前陣子還問我，老師我是不是很笨。",
+          "c"
+        ]
+      ],
+      [
+        [
+          "特教老師跟我說，可以讓他用平板打字，作業也可以減量。",
+          "n"
+        ],
+        [
+          "我聽完第一個反應是，那其他人呢？三十個孩子一筆一畫在那邊寫，就他一個人在那邊打字，我要怎麼跟全班講？而且他現在三年級就不練，以後國中怎麼辦？考試又不能帶平板進去。",
+          "s"
+        ]
+      ],
+      [
+        [
+          "還有他媽媽。他媽媽上次跟我說，老師拜託你不要給他特殊待遇，她說這樣他會被人家看不起。她講得很堅持，我也不知道該聽誰的。",
+          "s"
+        ]
+      ],
+      [
+        [
+          "不過上次月考，有一科我讓他用講的，我幫他寫下來。結果他那科分數跟平常差超多。我那天晚上改考卷改到那一張，我坐在那邊看了很久。原來他都會，他只是寫不出來。",
+          "c"
+        ]
+      ],
+      [
+        [
+          "特教老師講的那個平板，我其實有偷偷查過要怎麼用。",
+          "c"
+        ],
+        [
+          "可是查完我又想，會不會是我自己想太多，會不會是我在幫他找理由。可能再等一等看看吧，四年級手部力量說不定就長好了，人家不是都說大隻雞慢啼。",
+          "s"
+        ]
+      ]
+    ],
+    "key": [
+      [
+        "我看到他把橡皮擦捏碎……然後就趴在桌上哭",
+        "改變　R 理由"
+      ],
+      [
+        "練了一年多，我自己也知道沒有變好多少",
+        "改變　R 理由"
+      ],
+      [
+        "他前陣子還問我，老師我是不是很笨",
+        "改變　N 需要"
+      ],
+      [
+        "上次月考我讓他用講的……他那科分數跟平常差超多",
+        "改變　T 行動 ＋ R 理由"
+      ],
+      [
+        "那個平板，我其實有偷偷查過要怎麼用",
+        "改變　T 行動（很小的一步）"
+      ],
+      [
+        "那其他人呢？三十個孩子一筆一畫，就他一個人打字",
+        "維持　公平性"
+      ],
+      [
+        "現在三年級就不練，以後國中怎麼辦",
+        "維持　擔心後果"
+      ],
+      [
+        "他媽媽說不要給他特殊待遇，這樣會被人家看不起",
+        "維持　家長態度"
+      ],
+      [
+        "會不會是我在幫他找理由",
+        "維持　自我懷疑"
+      ],
+      [
+        "四年級手部力量說不定就長好了",
+        "維持　折價"
+      ]
+    ],
+    "stats": {
+      "chars": 458,
+      "chg": 33,
+      "sus": 41,
+      "neu": 26,
+      "ratio": 0.81,
+      "sec": 124,
+      "nChg": 5,
+      "nSus": 5
+    }
+  }
+];
+</script>
+<script>
+(function(){
+  "use strict";
+  var S = window.SEGMENTS || [];
+  var app = document.getElementById("app");
+
+  if(!S.length){
+    app.innerHTML='<div class="wrap" style="padding:60px 20px;text-align:center;color:#6A7280">'+
+      '<p style="font-size:16px;margin:0 0 10px"><b>找不到朗讀稿資料</b></p>'+
+      '<p style="font-size:14px;line-height:1.9;margin:0">這一頁需要和 data.js 放在同一個資料夾才會有內容。<br>'+
+      '如果你用的是單檔版，代表檔案不完整，請重新下載。</p></div>';
+    return;
+  }
+
+  /* ---------- 狀態 ---------- */
+  var store = {
+    get:function(k,d){ try{ var v=localStorage.getItem("mi_"+k); return v===null?d:JSON.parse(v); }catch(e){ return d; } },
+    set:function(k,v){ try{ localStorage.setItem("mi_"+k, JSON.stringify(v)); }catch(e){} }
+  };
+  var state = {
+    fs:   store.get("fs",1),   // 0 小 1 中 2 大
+    fa:   "全部",
+    tab:  "read",
+    tally:{c:0,s:0}, tallyId:null
+  };
+  var FS=["17px","19px","22px"], LH=["1.95","2.0","2.05"];
+
+  function applyFS(){
+    document.documentElement.style.setProperty("--fs",FS[state.fs]);
+    document.documentElement.style.setProperty("--lh",LH[state.fs]);
+  }
+  applyFS();
+
+  /* ---------- 工具 ---------- */
+  function el(tag,cls,txt){ var e=document.createElement(tag); if(cls)e.className=cls;
+    if(txt!==undefined)e.textContent=txt; return e; }
+  function len(t){ return t.replace(/[，。？…、！　]/g,"").length; }
+  function runs(seg){ var r=[]; seg.paras.forEach(function(p){ p.forEach(function(x){ r.push(x); }); }); return r; }
+
+  function ribbon(seg,opts){
+    opts=opts||{};
+    var wrap=el("div","ribbon"+(opts.big?" big":"")+(opts.plain?" plain":"")+(opts.reveal?" reveal":""));
+    var rs=runs(seg), total=0;
+    rs.forEach(function(x){ total+=len(x[0]); });
+    rs.forEach(function(x){
+      var s=el("span"); s.className="rb-"+x[1];
+      s.style.flex=len(x[0])+" 0 0"; wrap.appendChild(s);
+    });
+    wrap.setAttribute("role","img");
+    wrap.setAttribute("aria-label", opts.plain ? "語言脈絡帶，尚未顯示" :
+      "語言脈絡帶：改變談話 "+seg.stats.chg+"%，維持談話 "+seg.stats.sus+"%，中性 "+seg.stats.neu+"%");
+    return wrap;
+  }
+
+  /* ---------- 首頁 ---------- */
+  function home(){
+    app.innerHTML="";
+    var w=el("div","wrap");
+
+    var intro=el("div","intro");
+    intro.appendChild(el("p","","兩人一組，一個人念，另一個人聽。挑一段開始。"));
+    var h=el("p","hint");
+    h.textContent="念的人看「朗讀稿」，聽的人用「計數」。念完之後一起打開「對答案」。";
+    intro.appendChild(h);
+    w.appendChild(intro);
+
+    // 篩選
+    var f=el("div","filters");
+    ["全部","教師","家長"].forEach(function(v){
+      var b=el("button",null,v); b.setAttribute("aria-pressed",state.fa===v);
+      b.onclick=function(){ state.fa=v; home(); }; f.appendChild(b);
+    });
+    w.appendChild(f);
+
+    // 清單
+    var list=el("div","list");
+    var shown=S.filter(function(s){
+      return (state.fa==="全部"||s.audience===state.fa);
+    });
+    if(!shown.length){
+      var none=el("p"); none.style.cssText="color:#8A9099;font-size:14px;padding:20px 0";
+      none.textContent="這個條件下沒有段落。"; list.appendChild(none);
+    }
+    shown.forEach(function(seg){
+      var c=el("button","card");
+      c.onclick=function(){ location.hash="#/"+seg.id; };
+
+      var hd=el("div","card-h");
+      hd.appendChild(el("div","card-n",seg.num));
+      hd.appendChild(el("div","card-t",seg.title));
+      c.appendChild(hd);
+
+      var m=el("div","card-m");
+      m.appendChild(el("span","tag tag-a",seg.audience+"諮詢"));
+      m.appendChild(el("span","card-s","約 "+seg.stats.sec+" 秒"));
+      c.appendChild(m);
+      list.appendChild(c);
+    });
+    w.appendChild(list);
+    app.appendChild(w);
+    window.scrollTo(0,0);
+  }
+
+  /* ---------- 段落頁 ---------- */
+  function detail(seg){
+    if(state.tallyId!==seg.id){ state.tally={c:0,s:0}; state.tallyId=seg.id; }
+    app.innerHTML="";
+    var w=el("div","wrap");
+
+    var back=el("button","back","← 全部段落");
+    back.onclick=function(){ location.hash=""; };
+    w.appendChild(back);
+
+    var hd=el("div","head");
+    hd.appendChild(el("div","head-n","段落"+seg.num));
+    hd.appendChild(el("h1","head-t",seg.title));
+    var m=el("div","head-m");
+    m.appendChild(el("span","tag tag-a",seg.audience+"諮詢"));
+    var sp=el("span","card-s","約 "+seg.stats.sec+" 秒　"+seg.stats.chars+" 字");
+    sp.style.marginLeft="auto"; m.appendChild(sp);
+    hd.appendChild(m);
+    hd.appendChild(ribbon(seg,{big:true, plain: state.tab!=="key", reveal: state.tab==="key"}));
+    w.appendChild(hd);
+
+    // 分頁
+    var tabs=el("div","tabs"); tabs.setAttribute("role","tablist");
+    [["read","朗讀稿"],["count","計數"],["key","對答案"]].forEach(function(t){
+      var b=el("button",null,t[1]);
+      b.setAttribute("role","tab");
+      b.setAttribute("aria-selected", state.tab===t[0]);
+      b.onclick=function(){ state.tab=t[0]; detail(seg); };
+      tabs.appendChild(b);
+    });
+    w.appendChild(tabs);
+
+    var pane=el("div","pane");
+    if(state.tab==="read") readPane(pane,seg);
+    else if(state.tab==="count") countPane(pane,seg);
+    else keyPane(pane,seg);
+    w.appendChild(pane);
+
+    app.appendChild(w);
+    window.scrollTo(0,0);
+  }
+
+  function fontTools(pane,seg,extra){
+    var t=el("div","tools");
+    t.appendChild(el("span",null,"字級"));
+    ["小","中","大"].forEach(function(lb,i){
+      var b=el("button",null,lb);
+      b.setAttribute("aria-pressed", state.fs===i);
+      b.onclick=function(){ state.fs=i; store.set("fs",i); applyFS(); detail(seg); };
+      t.appendChild(b);
+    });
+    if(extra) t.appendChild(extra);
+    pane.appendChild(t);
+  }
+
+  function scriptEl(seg,marked){
+    var d=el("div","script"+(marked?" marked":""));
+    seg.paras.forEach(function(p){
+      var pe=el("p");
+      p.forEach(function(x){
+        var mk=el("mark",x[1]); mk.textContent=x[0]; pe.appendChild(mk);
+      });
+      d.appendChild(pe);
+    });
+    return d;
+  }
+
+  function readPane(pane,seg){
+    fontTools(pane,seg);
+    var n=el("div","note");
+    n.innerHTML="<b>念之前先默讀一遍。</b>當作在跟朋友抱怨，不要當作在讀課文。語速正常就好。同一段念兩遍，中間停三十秒。<br>負責聽的人先不要看這一頁，直接切到「計數」。";
+    pane.appendChild(n);
+    pane.appendChild(scriptEl(seg,false));
+  }
+
+  function countPane(pane,seg){
+    var n=el("div","note");
+    n.innerHTML="<b>第一遍只聽，不寫字。</b>每聽到一句就點一下。第二遍再回頭記關鍵詞。";
+    pane.appendChild(n);
+
+    var g=el("div","count-grid");
+    [["c","改變談話"],["s","維持談話"]].forEach(function(x){
+      var b=el("button","counter "+x[0]);
+      b.appendChild(el("div","counter-l",x[1]));
+      b.appendChild(el("div","counter-v",String(state.tally[x[0]])));
+      b.appendChild(el("div","counter-h","點一下 +1"));
+      b.setAttribute("aria-label",x[1]+"計數，目前 "+state.tally[x[0]]);
+      b.onclick=function(){
+        state.tally[x[0]]++;
+        b.querySelector(".counter-v").textContent=state.tally[x[0]];
+        b.setAttribute("aria-label",x[1]+"計數，目前 "+state.tally[x[0]]);
+        if(navigator.vibrate) navigator.vibrate(8);
+      };
+      g.appendChild(b);
+    });
+    pane.appendChild(g);
+
+    var row=el("div","count-row");
+    var m1=el("button",null,"改變 −1");
+    m1.onclick=function(){ if(state.tally.c>0){state.tally.c--; detail(seg);} };
+    var m2=el("button",null,"維持 −1");
+    m2.onclick=function(){ if(state.tally.s>0){state.tally.s--; detail(seg);} };
+    var rs=el("button",null,"歸零");
+    rs.onclick=function(){ state.tally={c:0,s:0}; detail(seg); };
+    row.appendChild(m1); row.appendChild(m2); row.appendChild(rs);
+    pane.appendChild(row);
+
+    var tip=el("div","note");
+    tip.innerHTML="兩種語言常出現在同一口氣裡，順序通常是<b>改變在前、維持在後</b>。聽到「我是想試試看啦」的時候，就要準備好接住後面那半句。";
+    pane.appendChild(tip);
+  }
+
+  function keyPane(pane,seg){
+    // 你數到 vs 實際
+    if(state.tally.c || state.tally.s){
+      var cmp=el("div","compare");
+      [["c","改變談話",state.tally.c,seg.stats.nChg],["s","維持談話",state.tally.s,seg.stats.nSus]]
+      .forEach(function(x){
+        var d=el("div","cmp "+x[0]);
+        d.appendChild(el("div","cmp-l",x[1]));
+        var r=el("div","cmp-r");
+        var b=el("b",null,x[2]+" / "+x[3]);
+        r.appendChild(b);
+        r.appendChild(el("span",null,"你數到 / 實際"));
+        d.appendChild(r);
+        cmp.appendChild(d);
+      });
+      pane.appendChild(cmp);
+    }
+
+    fontTools(pane,seg);
+
+    var lg=el("div","rb-legend");
+    lg.innerHTML='<span><i style="background:var(--chg-bg);border:1px solid var(--chg)"></i>改變談話</span>'+
+                 '<span><i style="background:var(--sus-bg);border:1px solid var(--sus)"></i>維持談話</span>'+
+                 '<span><i style="background:#fff;border:1px solid var(--line)"></i>中性或值得肯認的價值訊號</span>';
+    lg.style.marginBottom="16px";
+    pane.appendChild(lg);
+
+    pane.appendChild(scriptEl(seg,true));
+
+    pane.appendChild(el("h3","sec","語句整理"));
+    var tb=el("table","key");
+    var thead=el("thead"), tr=el("tr");
+    ["語句","判讀"].forEach(function(h){ var th=el("th",null,h); tr.appendChild(th); });
+    thead.appendChild(tr); tb.appendChild(thead);
+    var tbody=el("tbody");
+    seg.key.forEach(function(k){
+      var r=el("tr");
+      r.appendChild(el("td",null,k[0]));
+      var kind = k[1].indexOf("改變")===0 ? "c" : (k[1].indexOf("維持")===0 ? "s" : "n");
+      r.appendChild(el("td","j "+kind,k[1]));
+      tbody.appendChild(r);
+    });
+    tb.appendChild(tbody);
+    pane.appendChild(tb);
+
+    var st=el("div","stats");
+    st.innerHTML =
+      "<span>改變談話 <b>"+seg.stats.chg+"%</b></span>"+
+      "<span>維持談話 <b>"+seg.stats.sus+"%</b></span>"+
+      "<span>中性 <b>"+seg.stats.neu+"%</b></span>"+
+      "<span>改／維字數比 <b>"+seg.stats.ratio+"</b></span>";
+    pane.appendChild(st);
+
+    var last=el("div","note"); last.style.marginTop="22px";
+    last.innerHTML="<b>先討論最後一句。</b>每一段都以一句折價收尾。聽的人常常因為那一句，把整段的印象記成「這個人沒有動機」，回頭數的時候就低估了改變談話。";
+    pane.appendChild(last);
+  }
+
+  /* ---------- 路由 ---------- */
+  function route(){
+    var h=location.hash.replace(/^#\/?/,"");
+    var id=parseInt(h,10);
+    if(id && S.some(function(s){return s.id===id;})){
+      detail(S.filter(function(s){return s.id===id;})[0]);
+    } else {
+      state.tab="read";
+      home();
+    }
+  }
+  window.addEventListener("hashchange",route);
+  route();
+})();
+</script>
+</body>
+</html>
