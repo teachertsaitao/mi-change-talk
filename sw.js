@@ -1,5 +1,5 @@
-// Build: 20261101235408
-const CACHE_NAME = 'mi-practice-20261101235408';
+// Build: 20261102003221
+const CACHE_NAME = 'mi-practice-20261102003221';
 const ASSETS = ['./', './index.html', './manifest.json', './icon-192.png', './icon-512.png', './icon-maskable-512.png', './apple-touch-icon.png'];
 
 self.addEventListener('install', e => {
