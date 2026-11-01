@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- 動機式晤談練習　v9　2026-11-01 -->
+<!-- 動機式晤談練習　v10　2026-11-01 -->
 <html lang="zh-Hant">
 <head>
 <meta charset="utf-8">
@@ -7,6 +7,13 @@
 <title>動機式晤談練習</title>
 <meta name="description" content="OARS初階練習、OARS諮詢情境練習、辨識改變型對話與 AI諮詢技巧練習機器人，工作坊用的練習工具">
 <meta name="theme-color" content="#5A6472">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" type="image/png" href="icon-192.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="MI練習">
 <style>
 :root{
   --ink:#2E343D; --slate:#5A6472; --taupe:#9C8F82;
@@ -34,7 +41,7 @@ button{font-family:inherit;font-size:inherit;color:inherit;background:none;borde
 button:focus-visible,a:focus-visible,summary:focus-visible{outline:2px solid var(--slate);outline-offset:3px;border-radius:3px}
 
 /* ---------- 頁首 ---------- */
-.top{background:var(--slate);color:#fff;padding:16px 0 14px}
+.top{background:var(--slate);color:#fff;padding:calc(16px + env(safe-area-inset-top)) 0 14px}
 .top .wrap{display:flex;align-items:center;justify-content:space-between;gap:14px}
 a.brand{display:inline-block;color:#fff;text-decoration:none;font-family:var(--serif);font-size:20px;
   font-weight:700;letter-spacing:.02em;line-height:1.3}
@@ -44,7 +51,7 @@ a.brand small{display:block;font-family:var(--sans);font-size:11.5px;font-weight
 /* ---------- 首頁：兩個活動 ---------- */
 .intro{padding:26px 0 4px}
 .intro p{margin:0;font-size:14.5px;color:#6A7280;line-height:1.85}
-.acts{display:flex;flex-direction:column;gap:14px;padding:24px 0 40px}
+.acts{display:flex;flex-direction:column;gap:14px;padding:24px 0 18px}
 .act{display:block;width:100%;text-align:left;background:var(--card);border:1px solid var(--line);
   border-radius:14px;padding:20px 20px 18px;transition:.16s}
 .act:hover,.act:focus-visible{border-color:var(--taupe);transform:translateY(-1px)}
@@ -302,12 +309,29 @@ table.refs td.v{white-space:nowrap;font-family:var(--serif);font-weight:700}
 .safe li b{display:block;color:var(--ink)}
 .safe-n{font-size:12.5px;color:var(--taupe);margin:4px 0 0;line-height:1.7}
 
+/* ---------- 安裝到手機 ---------- */
+.inst{display:flex;align-items:center;gap:14px;background:var(--card);border:1px dashed #D3CCC3;border-radius:14px;
+  padding:14px 14px 14px 16px;margin:0 0 40px}
+.inst img{flex:none;width:52px;height:52px;border-radius:12px}
+.inst-b{flex:1;min-width:0}
+.inst-t{font-size:15px;font-weight:700;color:var(--ink);line-height:1.5}
+.inst-d{font-size:12.5px;color:#6A7280;line-height:1.7}
+.inst-steps{margin:6px 0 12px;padding-left:1.3em;font-size:14.5px;line-height:1.9;color:var(--ink)}
+.inst-steps li{margin-bottom:6px}
+.upd{position:fixed;left:0;right:0;bottom:0;z-index:80;display:none;align-items:center;justify-content:center;
+  gap:10px;flex-wrap:wrap;background:var(--slate);color:#fff;font-size:14px;
+  padding:12px 16px calc(12px + env(safe-area-inset-bottom));box-shadow:0 -2px 12px rgba(0,0,0,.15)}
+.upd.on{display:flex}
+.upd button{border-radius:8px;padding:6px 14px;font-size:13px;font-weight:600}
+.upd .go{background:#fff;color:var(--slate)}
+.upd .later{color:rgba(255,255,255,.75)}
+
 /* ---------- QR code ---------- */
 .qr-btn{flex:none;display:inline-flex;align-items:center;gap:6px;border:1px solid rgba(255,255,255,.4);
   color:#fff;border-radius:999px;padding:7px 13px;font-size:13px;line-height:1;transition:.16s}
 .qr-btn:hover{background:rgba(255,255,255,.12)}
 .qr-bg{position:fixed;inset:0;background:var(--paper);z-index:70;display:flex;align-items:center;
-  justify-content:center;padding:24px 20px calc(24px + env(safe-area-inset-bottom));overflow:auto}
+  justify-content:center;padding:calc(24px + env(safe-area-inset-top)) 20px calc(24px + env(safe-area-inset-bottom));overflow:auto}
 .qr-box{width:100%;max-width:640px;text-align:center}
 .qr-eye{font-size:13px;letter-spacing:.14em;color:var(--taupe);margin-bottom:6px}
 .qr-title{font-family:var(--serif);font-size:24px;font-weight:700;color:var(--ink);line-height:1.45;margin-bottom:18px}
@@ -354,7 +378,7 @@ table.refs td.v{white-space:nowrap;font-family:var(--serif);font-weight:700}
 
 <div class="wrap foot">
   蔡政霖｜菜桃老師的遊聊室<br>
-  練習素材，非真實個案。v9．2026-11-01
+  練習素材，非真實個案。v10．2026-11-01
 </div>
 
 <script>
@@ -2115,6 +2139,7 @@ window.BASICBOT = {
       acts.appendChild(c);
     });
     w.appendChild(acts);
+    if(!isStandalone()) w.appendChild(installCard());
     app.appendChild(w);
     window.scrollTo(0,0);
   }
@@ -2933,6 +2958,108 @@ window.BASICBOT = {
   if(qrBtn){
     if(window.qrcode) qrBtn.onclick=openQR;
     else qrBtn.style.display="none";
+  }
+
+  /* ==========================================================
+     安裝到手機（PWA）
+     ========================================================== */
+  var installEvt=null, instCard=null, instBtn=null;
+  function isStandalone(){
+    return (window.matchMedia && window.matchMedia("(display-mode: standalone)").matches) || window.navigator.standalone===true;
+  }
+  function isIOS(){
+    return /iphone|ipad|ipod/i.test(navigator.userAgent) || (navigator.platform==="MacIntel" && navigator.maxTouchPoints>1);
+  }
+
+  function installHelp(){
+    var bg=el("div","sheet-bg"), sh=el("div","sheet");
+    sh.setAttribute("role","dialog");
+    sh.appendChild(el("div","sheet-t","裝到手機主畫面"));
+    var steps = isIOS() ? [
+      "用 Safari 打開這個網頁。如果是在 LINE 裡打開的，先從選單改用 Safari 開啟。",
+      "點分享按鈕。找不到的話，先點「⋯」再找「分享」。",
+      "選「加入主畫面」，再按「新增」。"
+    ] : [
+      "用 Chrome 打開這個網頁。如果是在 LINE 裡打開的，先從選單改用 Chrome 開啟。",
+      "點右上角的「⋮」。",
+      "選「安裝應用程式」或「加到主畫面」。"
+    ];
+    var ol=el("ol","inst-steps");
+    steps.forEach(function(s){ ol.appendChild(el("li",null,s)); });
+    sh.appendChild(ol);
+    sh.appendChild(el("p","sheet-p","裝好之後，從主畫面的「MI練習」打開，像 App 一樣沒有網址列。"));
+    var close=el("button","btn1","知道了");
+    function shut(){ if(bg.parentNode) bg.parentNode.removeChild(bg); }
+    close.onclick=shut;
+    bg.onclick=function(e){ if(e.target===bg) shut(); };
+    sh.appendChild(close);
+    bg.appendChild(sh);
+    document.body.appendChild(bg);
+    close.focus();
+  }
+
+  function installCard(){
+    var c=el("div","inst");
+    var img=document.createElement("img");
+    img.src="icon-192.png"; img.alt=""; img.width=52; img.height=52;
+    img.onerror=function(){ img.style.display="none"; };
+    c.appendChild(img);
+    var b=el("div","inst-b");
+    b.appendChild(el("div","inst-t","裝到手機主畫面"));
+    b.appendChild(el("div","inst-d","像 App 一樣從主畫面打開，沒有網址列。"));
+    c.appendChild(b);
+    var btn=el("button","cp", installEvt ? "安裝" : "怎麼裝");
+    btn.onclick=function(){
+      if(installEvt){
+        var ev=installEvt;
+        ev.prompt();
+        ev.userChoice.then(function(){ installEvt=null; btn.textContent="怎麼裝"; });
+      } else {
+        installHelp();
+      }
+    };
+    c.appendChild(btn);
+    instCard=c; instBtn=btn;
+    return c;
+  }
+
+  // Android 與電腦版 Chrome：可以直接跳出安裝視窗
+  window.addEventListener("beforeinstallprompt",function(e){
+    e.preventDefault();
+    installEvt=e;
+    if(instBtn) instBtn.textContent="安裝";
+  });
+  window.addEventListener("appinstalled",function(){
+    installEvt=null;
+    if(instCard && instCard.parentNode) instCard.parentNode.removeChild(instCard);
+  });
+
+  // Service worker：離線也能打開；部署新版後提示更新（第一次開啟不提示）
+  if("serviceWorker" in navigator && /^https?:$/.test(location.protocol)){
+    var hadController=!!navigator.serviceWorker.controller;
+    var showUpdate=function(){
+      if(!hadController) return;
+      var u=document.querySelector(".upd");
+      if(!u){
+        u=el("div","upd"); u.setAttribute("role","status");
+        u.appendChild(el("span",null,"有新版本可用"));
+        var go=el("button","go","立即更新"); go.onclick=function(){ location.reload(); };
+        var later=el("button","later","稍後"); later.onclick=function(){ u.classList.remove("on"); };
+        u.appendChild(go); u.appendChild(later);
+        document.body.appendChild(u);
+      }
+      u.classList.add("on");
+    };
+    navigator.serviceWorker.register("./sw.js").then(function(reg){
+      setInterval(function(){ reg.update(); }, 30*60*1000);
+      reg.addEventListener("updatefound",function(){
+        var nw=reg.installing;
+        if(nw) nw.addEventListener("statechange",function(){ if(nw.state==="activated") showUpdate(); });
+      });
+    }).catch(function(){});
+    navigator.serviceWorker.addEventListener("message",function(e){
+      if(e.data && e.data.type==="SW_UPDATED") showUpdate();
+    });
   }
 
   /* ==========================================================
