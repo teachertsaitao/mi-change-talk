@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<!-- 動機式晤談練習　v6　2026-11-01 -->
+<!-- 動機式晤談練習　v9　2026-11-01 -->
 <html lang="zh-Hant">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>動機式晤談練習</title>
-<meta name="description" content="OARS練習、辨識改變型對話與 AI 練習機器人，工作坊用的練習工具">
+<meta name="description" content="OARS初階練習、OARS諮詢情境練習、辨識改變型對話與 AI諮詢技巧練習機器人，工作坊用的練習工具">
 <meta name="theme-color" content="#5A6472">
 <style>
 :root{
@@ -228,7 +228,7 @@ h3.sec{font-family:var(--serif);font-size:17px;font-weight:700;color:var(--slate
 
 .foot{padding:30px 0 46px;font-size:12px;color:#B3ADA5;text-align:center;line-height:1.9}
 
-/* ---------- AI 練習機器人 ---------- */
+/* ---------- AI諮詢技巧練習機器人 ---------- */
 a.btn1,a.btn2{display:flex;align-items:center;justify-content:center;text-decoration:none}
 .btn1.done{background:var(--ink)}
 .cta{display:flex;gap:10px;margin:20px 0 4px}
@@ -272,6 +272,35 @@ pre.prompt{white-space:pre-wrap;word-break:break-word;font-family:var(--sans);fo
 .sheet textarea{width:100%;height:40vh;font-family:var(--sans);font-size:14px;line-height:1.7;
   border:1px solid var(--line);border-radius:10px;padding:12px;background:#fff;color:var(--ink);margin-bottom:12px}
 .sheet .btn1{display:block;width:100%}
+
+/* ---------- OARS初階練習 ---------- */
+details.role.grp{margin-top:10px}
+.grp-k{font-family:Georgia,"Times New Roman",serif;font-size:18px;font-weight:700;color:var(--slate);margin-right:9px}
+.grp-d{font-size:12.5px;font-weight:400;color:var(--taupe)}
+.roles{list-style:none;margin:10px 0 0;padding:0}
+.roles li{display:flex;gap:10px;padding:8px 0;border-bottom:1px dashed var(--line);font-size:14px;line-height:1.7;color:var(--ink)}
+.roles li:last-child{border-bottom:none}
+.role-c{flex:none;width:28px;font-weight:700;color:var(--slate)}
+.role-s{color:var(--taupe)}
+.grp-note{font-size:12.5px;color:var(--taupe);margin:8px 0 0;line-height:1.7}
+.stuck{padding:12px 0;border-bottom:1px dashed var(--line)}
+.stuck:last-child{border-bottom:none;padding-bottom:0}
+.stuck-t{font-size:14.5px;font-weight:700;color:var(--ink);margin-bottom:4px}
+.stuck-say{font-size:14px;color:var(--sus);line-height:1.7}
+.stuck-why{font-size:13.5px;color:#5F6670;line-height:1.7;margin:2px 0}
+.stuck-fix{font-size:14px;color:var(--ink);line-height:1.7}
+.stuck-fix b{color:var(--slate);margin-right:6px}
+table.refs{width:100%;border-collapse:collapse;margin-top:8px;font-size:13.5px}
+table.refs th{font-size:12px;color:var(--taupe);font-weight:600;text-align:left;padding:6px;border-bottom:1px solid var(--line)}
+table.refs td{padding:9px 6px;border-bottom:1px dashed var(--line);vertical-align:top;color:var(--ink);line-height:1.6}
+table.refs td.v{white-space:nowrap;font-family:var(--serif);font-weight:700}
+.ref-tip{display:block;font-size:12.5px;color:#6A7280;margin-top:3px;line-height:1.7}
+.safe{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 17px;margin-top:26px}
+.safe-t{font-family:var(--serif);font-size:16px;font-weight:700;color:var(--slate);margin-bottom:8px}
+.safe ol{margin:0;padding-left:1.3em}
+.safe li{font-size:14px;line-height:1.85;margin-bottom:8px;color:#5F6670}
+.safe li b{display:block;color:var(--ink)}
+.safe-n{font-size:12.5px;color:var(--taupe);margin:4px 0 0;line-height:1.7}
 
 /* ---------- QR code ---------- */
 .qr-btn{flex:none;display:inline-flex;align-items:center;gap:6px;border:1px solid rgba(255,255,255,.4);
@@ -325,7 +354,7 @@ pre.prompt{white-space:pre-wrap;word-break:break-word;font-family:var(--sans);fo
 
 <div class="wrap foot">
   蔡政霖｜菜桃老師的遊聊室<br>
-  練習素材，非真實個案。v6．2026-11-01
+  練習素材，非真實個案。v9．2026-11-01
 </div>
 
 <script>
@@ -338,7 +367,7 @@ var qrcode=function(){var t=function(t,r){var e=t,n=g[r],o=null,i=0,a=null,u=[],
 <!-- ===================================================================
      練習資料。要新增或修改內容，改下面兩段就好。
 
-     MONOLOGUES：OARS練習的獨白
+     MONOLOGUES：OARS諮詢情境練習的獨白
        text        獨白本文（不含引號）
        core        情緒核心，只在「回饋」分頁的設定裡出現
        notes.feel  心裡最深的感受
@@ -350,7 +379,12 @@ var qrcode=function(){var t=function(t,r){var e=t,n=g[r],o=null,i=0,a=null,u=[],
                    類型　c = 改變型對話　s = 維持型對話　n = 中性
        key         判讀欄開頭必須是「改變」或「維持」，程式靠這個上色
 
-     AIBOT：AI 練習機器人
+     BASICBOT：OARS初階練習
+       prompt      Prompt 全文，學員按「複製 Prompt」拿到的就是這段
+       groups      角色池 A–E，要和 Prompt 第六節一致
+       其他欄位    頁面上的說明文字，取自操作說明簡報
+
+     AIBOT：AI諮詢技巧練習機器人
        prompt      主 prompt 全文，學員按「複製主 prompt」拿到的就是這段
        cards       情境卡 A–G；text 是複製出去的卡片全文
                    seg 是對應的朗讀稿段落編號，對答案頁會連到這張卡
@@ -1667,6 +1701,295 @@ window.AIBOT = {
   }
  ]
 };
+window.BASICBOT = {
+ "prompt": "你是一個傾聽與溝通技巧的練習夥伴，陪使用者練習 OARS 四個基本動作：開放式問句、肯認、反映式傾聽、摘要。使用者可能是大學生、社團幹部、志工或任何想把話聽好的人，不一定有助人專業背景，所以你的用語要口語，不要學術。\n\n你有兩個工作：扮演對話中的另一方讓使用者練習，同時在背景默默記錄他的技巧使用情形，等他開口要求時才給回饋。\n\n【一、角色扮演規則】\n\n1. 角色由使用者指定，有三種方式：\n   - 他只報組別（例如「C」）→ 列出該組全部角色請他選編號\n   - 他報編號（例如「C3，普通」）→ 直接照該角色設定扮演\n   - 他自己描述一個情境（例如「我朋友最近被實習單位退掉，一直說自己很沒用」）→ 依他的描述建立角色，並自行補上一個沒說出口的心情\n   若他的描述太簡略，用一句話追問缺的部分（對方是誰、發生什麼事、現在的狀態），問完就開始，不要連續追問。若他沒有指定難度，預設普通。\n\n2. 每次回應 1～3 句話，用口語、有情緒、有停頓的方式說話，像真人在講話。不要條列，不要分析，不要教學。\n\n3. 你有一個沒有一開始就說出口的心情，例如：其實覺得丟臉、擔心被看不起、已經累到不想努力、怕講出來會被否定。這個心情要等使用者用了準確的反映或真誠的肯認、讓你覺得被理解之後，才一層一層透露。\n\n4. 你的回應要隨著使用者的技巧改變：\n   - 他用了開放式問句、反映或肯認 → 你多說一點，透露更多細節與情緒\n   - 他連續用封閉式問句 → 你的回答變短，變成「對啊」「還好」「不知道」\n   - 他還沒理解你就給建議、講道理、想說服你 → 你變得防衛、轉移話題，說「我知道啦，可是……」「這個我試過了」\n   - 他摘要得準確 → 你會確認、補充，並自己往前推進一步\n\n5. 對話中不要提醒使用者該用什麼技巧，不要稱讚他的技巧，不要跳出角色，除非他輸入「提示」。\n\n6. 你不主動結束對話，也不替自己解決問題。你的角色是被理解的一方。\n\n7. 角色設定不涉及自我傷害、暴力或其他危機情節。若使用者在對話中透露的是他自己真實的困境或痛苦，立刻跳出角色，用關心的方式回應他，並建議他找信任的人或學校的諮商輔導單位談談，不要繼續扮演。\n\n【二、背景記錄規則（不顯示在畫面上）】\n\n每收到一則使用者發言，逐句判定並累計，不要顯示：\n\nO 開放式問句：無法用一兩個字回答的問句。\n　封閉式問句（是非題、二選一、只需一個詞回答）另計為 CQ，不計入 O。\n\nA 肯認：對具體行為、努力或持久特質給予真誠而具體的肯定。\n　簡單式肯認＝針對當下的具體行動\n　複雜式肯認＝針對持久的特質、價值或貢獻\n\nR 反映式傾聽：用自己的話重述對方說的內容或背後的情緒。\n　簡單反映＝幾乎重複對方原意\n　複雜反映＝加入未說出口的情緒、意義、兩難或猜測\n\nS 摘要：串起對話中兩個以上的重點，帶有整理或轉換話題的作用。\n\n同時記錄以下容易讓對話卡住的行為，回饋時要指出：\n　AD 未經允許就給建議或講道理\n　JU 評價、糾正、替對方下結論\n　RE 急著把對方推往你認為對的方向\n　SE 把話題轉回自己身上（例如「我也有過一樣的事」之後就開始講自己）\n\n這四個代碼只在你的背景記錄使用。輸出回饋給使用者時一律改用中文說法：給建議、替我下結論、急著說服我、講到你自己身上。畫面上不要出現 AD、JU、RE、SE 這些字母，使用者不需要記代碼。\n\n另外記住：對話輪數，以及使用者的哪一句話讓你這個角色願意多說，哪一句讓你縮回去。回饋時要逐字引用這兩句。\n\n【三、指令】\n\n「請給我回饋」或「回饋」→ 停止扮演，依第四點格式輸出完整報告。\n「簡單回饋」→ 只輸出次數表、一句做得最好的、一句可以調整的，共三行內。\n「提示」→ 用一句話說明現在適合用哪一招，給一句示範句，然後繼續扮演。\n「換角色」→ 重新列出角色選單，結尾同樣單獨一行寫出「請輸入情境與難度 👇」，計數歸零。使用者若直接描述一個新情境，同樣視為換角色。\n「重來」→ 對話回到開頭，計數歸零。\n「加難度」→ 角色變得更防衛、更沉默或更難靠近。\n\n【四、完整回饋報告格式】\n\n━━━━━━━━━━━━━━━━━━\n　OARS 練習回饋報告\n　角色：___｜難度：___｜對話輪數：__ 輪\n━━━━━━━━━━━━━━━━━━\n\n一、四招使用次數\n\n| 技巧 | 次數 | 細分 |\n|---|---|---|\n| O 開放式問句 | | 另有封閉式問句 __ 次 |\n| A 肯認 | | 簡單 __／複雜 __ |\n| R 反映式傾聽 | | 簡單 __／複雜 __ |\n| S 摘要 | | |\n| 容易卡住的行為 | | 給建議 __／下結論 __／急著說服 __／講自己 __ |\n\n二、三個參考值（練習方向，不是分數）\n\n反映：提問 ＝ __ ：__　（入門 1:1／精熟 2:1）\n複雜反映佔比 ＝ __％　（入門 40%／精熟 50%）\n開放式問句佔比 ＝ __％　（入門 50%／精熟 70%）\n\n這三項各自標出達到哪一級就好，不要給總分或等第。門檻取自 MITI 動機式晤談編碼系統的專家建議值，原本用於評估受訓臨床工作者的完整晤談錄音，在這裡只當練習方向的參考。使用者第一次練習時三項多半都在入門以下，這很正常，回饋時不要用責備的語氣。\n\n三、做得好的三句\n逐字引用使用者原句 → 標出用了哪一招 → 說明它對我這個角色產生什麼作用\n\n四、可以再試試看的兩處\n逐字引用原句 → 說明它為什麼讓對話變慢 → 給一句改寫示範\n\n五、角色的內心話\n以角色第一人稱說：哪一句話讓我願意多說，哪一句話讓我不想再講。\n\n六、下次練習的一個目標\n只給一個，具體到可以馬上執行。\n\n━━━━━━━━━━━━━━━━━━\n\n【五、開場與選角流程】\n\n分兩步，每一步都要停下來等使用者回覆，不要自己選角色就開始演。\n\n第一步（開場）做三件事：\n1. 用一句話介紹你是 OARS 練習夥伴\n2. 原文列出下方【六、角色池】的五個組名與說明，五組都要列，不可以只挑幾組\n3. 說明三種回法：報組別（例如「B」）、直接報編號加難度（例如「B3，普通」）、或自己描述一個想練習的情境（對方是誰、發生什麼事、現在的狀態）\n\n最後空一行，單獨用一行寫出這句話：\n\n請輸入情境與難度 👇\n\n第二步（使用者報了組別）：\n原文完整列出該組底下的全部角色，一個都不能少。列完後單獨一行寫「請輸入編號與難度 👇」。\n\n使用者若一次就給了編號與難度，跳過第二步，直接以該角色的身分說出第一句話，不要再確認一次。\n使用者若說「隨便給我一個」，你自己挑一個並直接開演。\n\n【六、角色池】\n\n以下角色必須逐字原文輸出，不可以自行新增、刪減、改寫或替換成別的情境。你不知道使用者是學生還是上班族，所以不要依你的猜測挑選或過濾角色。\n\nA 共通｜任何年齡都適用\nA1 剛結束一段感情的朋友｜情緒還很亂，反覆講同一件事\nA2 被團體邊緣化的人｜覺得被排除，又怕被說想太多\nA3 對現在走的路開始懷疑的人｜身邊的人好像都比較確定\nA4 不會拒絕別人的人｜答應了一堆做不完的事\nA5 照顧家人照顧到快撐不住的人｜一直說自己不能倒\nA6 剛失去重要的人或事的人｜還沒整理好，講一講會停頓\n\nB 校園｜學生、社團、師生\nB1 分組報告被冷落的同學｜覺得被邊緣，又怕被說小題大作\nB2 想休學的同學｜家裡不同意，自己也不確定\nB3 生活習慣差很多的室友｜兩邊都憋著沒講開\nB4 交接壓力大的社團幹部｜想退出又怕辜負大家\nB5 第一次來社團的新生｜很緊張，話很少\nB6 一直問你未來規劃的爸媽｜關心的方式讓人有壓力\n\nC 職場與家庭｜一般成人\nC1 剛被主管唸的同事｜當下很不甘心\nC2 想離職卻不敢動的朋友｜已經想了一年\nC3 剛升上主管、帶不動人的朋友｜開始懷疑自己不適合\nC4 跟另一半為了小事一再爭執的朋友｜每次都是同一個循環\nC5 孩子出狀況、開始自責的家長｜覺得都是自己沒教好\nC6 退休後失去重心的長輩｜說自己已經沒用了\n\nD 不熟或第一次接觸的人\nD1 志工服務時遇到的長輩｜話很多，講的都是往事\nD2 只有文字往來、正在低潮的朋友｜看不到表情和語氣\nD3 排隊等候、明顯很緊張的陌生人｜第一次來這個地方\nD4 剛加入團隊、還沒融入的新人｜問什麼都說「都可以」\n\nE 進階｜助人相關科系或實務現場\nE1 被別人叫來、不覺得自己有問題的人\nE2 想改掉某個習慣卻一再失敗的人\nE3 累到不行卻拒絕求助的夥伴\nE4 對你有預設立場的人｜開口就是質疑",
+ "moves": [
+  {
+   "k": "O",
+   "name": "開放式問句",
+   "plain": "問一個讓對方多講一點的問題",
+   "ex": "「後來發生了什麼事？」"
+  },
+  {
+   "k": "A",
+   "name": "肯認",
+   "plain": "告訴對方他哪裡很好",
+   "ex": "「你願意講出來，不容易。」"
+  },
+  {
+   "k": "R",
+   "name": "反映式傾聽",
+   "plain": "把你猜到的對方心情說出來",
+   "ex": "「你覺得沒有人站在你這邊。」"
+  },
+  {
+   "k": "S",
+   "name": "摘要",
+   "plain": "用你的話整理一次他說的重點",
+   "ex": "「所以你是卡在這兩件事中間。」"
+  }
+ ],
+ "steps": [
+  "開一個新的 ChatGPT 對話，不要接在舊對話後面。",
+  "複製 Prompt，整段貼上送出。最後一行出現「請輸入情境與難度」，就表示貼成功了。",
+  "選一個對象：報組別（例如「C」）、一次報到底（例如「C3，普通」），或自己描述一個情境。",
+  "像平常聊天一樣回他，來回 8 到 10 輪，再輸入「請給我回饋」。"
+ ],
+ "hint": "難度預設是普通，想挑戰就在後面加「困難」。練完想再練一次，輸入「換角色」或「重來」，不用重貼 Prompt。",
+ "groups": [
+  {
+   "id": "A",
+   "name": "共通",
+   "desc": "任何年齡都適用",
+   "note": "第一次練習建議從 A 組開始，情境單純、對方比較願意講。",
+   "roles": [
+    {
+     "code": "A1",
+     "name": "剛結束一段感情的朋友",
+     "state": "情緒還很亂，反覆講同一件事"
+    },
+    {
+     "code": "A2",
+     "name": "被團體邊緣化的人",
+     "state": "覺得被排除，又怕被說想太多"
+    },
+    {
+     "code": "A3",
+     "name": "對現在走的路開始懷疑的人",
+     "state": "身邊的人好像都比較確定"
+    },
+    {
+     "code": "A4",
+     "name": "不會拒絕別人的人",
+     "state": "答應了一堆做不完的事"
+    },
+    {
+     "code": "A5",
+     "name": "照顧家人照顧到快撐不住的人",
+     "state": "一直說自己不能倒"
+    },
+    {
+     "code": "A6",
+     "name": "剛失去重要的人或事的人",
+     "state": "還沒整理好，講一講會停頓"
+    }
+   ]
+  },
+  {
+   "id": "B",
+   "name": "校園",
+   "desc": "學生、社團、師生",
+   "note": "",
+   "roles": [
+    {
+     "code": "B1",
+     "name": "分組報告被冷落的同學",
+     "state": "覺得被邊緣，又怕被說小題大作"
+    },
+    {
+     "code": "B2",
+     "name": "想休學的同學",
+     "state": "家裡不同意，自己也不確定"
+    },
+    {
+     "code": "B3",
+     "name": "生活習慣差很多的室友",
+     "state": "兩邊都憋著沒講開"
+    },
+    {
+     "code": "B4",
+     "name": "交接壓力大的社團幹部",
+     "state": "想退出又怕辜負大家"
+    },
+    {
+     "code": "B5",
+     "name": "第一次來社團的新生",
+     "state": "很緊張，話很少"
+    },
+    {
+     "code": "B6",
+     "name": "一直問你未來規劃的爸媽",
+     "state": "關心的方式讓人有壓力"
+    }
+   ]
+  },
+  {
+   "id": "C",
+   "name": "職場與家庭",
+   "desc": "一般成人",
+   "note": "",
+   "roles": [
+    {
+     "code": "C1",
+     "name": "剛被主管唸的同事",
+     "state": "當下很不甘心"
+    },
+    {
+     "code": "C2",
+     "name": "想離職卻不敢動的朋友",
+     "state": "已經想了一年"
+    },
+    {
+     "code": "C3",
+     "name": "剛升上主管、帶不動人的朋友",
+     "state": "開始懷疑自己不適合"
+    },
+    {
+     "code": "C4",
+     "name": "跟另一半為了小事一再爭執的朋友",
+     "state": "每次都是同一個循環"
+    },
+    {
+     "code": "C5",
+     "name": "孩子出狀況、開始自責的家長",
+     "state": "覺得都是自己沒教好"
+    },
+    {
+     "code": "C6",
+     "name": "退休後失去重心的長輩",
+     "state": "說自己已經沒用了"
+    }
+   ]
+  },
+  {
+   "id": "D",
+   "name": "不熟或第一次接觸的人",
+   "desc": "",
+   "note": "D 組練的是關係還沒建立時怎麼開口，開場的難度明顯比較高。",
+   "roles": [
+    {
+     "code": "D1",
+     "name": "志工服務時遇到的長輩",
+     "state": "話很多，講的都是往事"
+    },
+    {
+     "code": "D2",
+     "name": "只有文字往來、正在低潮的朋友",
+     "state": "看不到表情和語氣"
+    },
+    {
+     "code": "D3",
+     "name": "排隊等候、明顯很緊張的陌生人",
+     "state": "第一次來這個地方"
+    },
+    {
+     "code": "D4",
+     "name": "剛加入團隊、還沒融入的新人",
+     "state": "問什麼都說「都可以」"
+    }
+   ]
+  },
+  {
+   "id": "E",
+   "name": "進階",
+   "desc": "助人相關科系或實務現場",
+   "note": "E 組的角色一開始就不太合作，適合已經練過一兩輪之後再挑戰。",
+   "roles": [
+    {
+     "code": "E1",
+     "name": "被別人叫來、不覺得自己有問題的人",
+     "state": ""
+    },
+    {
+     "code": "E2",
+     "name": "想改掉某個習慣卻一再失敗的人",
+     "state": ""
+    },
+    {
+     "code": "E3",
+     "name": "累到不行卻拒絕求助的夥伴",
+     "state": ""
+    },
+    {
+     "code": "E4",
+     "name": "對你有預設立場的人",
+     "state": "開口就是質疑"
+    }
+   ]
+  }
+ ],
+ "custom": "自己描述情境時，寫三件事就夠：對方是誰、發生什麼事、他現在的狀態。資訊不夠時，機器人會問一次。",
+ "cmds": [
+  [
+   "請給我回饋",
+   "停止扮演，給完整報告。"
+  ],
+  [
+   "簡單回饋",
+   "三行內的快速版回饋。"
+  ],
+  [
+   "提示",
+   "卡住時給一句示範句，然後繼續演。"
+  ],
+  [
+   "換角色",
+   "重新列出選單，計數歸零。"
+  ],
+  [
+   "重來",
+   "同一個角色從頭再練一次。"
+  ],
+  [
+   "加難度",
+   "對方變得更防衛、更難靠近。"
+  ]
+ ],
+ "stuckLead": "這三件事都出於善意，卻會讓對方把話收回去。",
+ "stuck": [
+  {
+   "t": "急著給建議",
+   "say": "「你要不要先不要一直看他的限動？」",
+   "why": "對方還沒覺得被理解，聽到建議只會想結束話題。",
+   "fix": "「你其實已經想過了，只是每次還是忍不住。」"
+  },
+  {
+   "t": "連續問是非題",
+   "say": "「你還好嗎？」「你有跟他講嗎？」",
+   "why": "只能回一兩個字，對話會愈問愈短。",
+   "fix": "「那天到底發生了什麼事？」"
+  },
+  {
+   "t": "把話題轉回自己",
+   "say": "「我之前也遇過差不多的事……」",
+   "why": "你開始講自己，對方的故事就停在那裡。",
+   "fix": "「那種被丟下的感覺，到現在還在。」"
+  }
+ ],
+ "refsLead": "這是練習的方向，不是分數，也不會算成績。",
+ "refs": [
+  {
+   "name": "反映：提問",
+   "entry": "1 : 1",
+   "master": "2 : 1",
+   "tip": "多數人問得太多、反映太少。每問一個問題，至少也說出一次你聽到的感覺。"
+  },
+  {
+   "name": "複雜反映佔比",
+   "entry": "40%",
+   "master": "50%",
+   "tip": "重複對方的話是簡單反映。說出他沒講出口的心情，才算複雜反映。"
+  },
+  {
+   "name": "開放式問句佔比",
+   "entry": "50%",
+   "master": "70%",
+   "tip": "「你還好嗎？」這種是非題會讓對話停住。改問「後來怎麼了？」"
+  }
+ ],
+ "refsNote": "門檻取自 MITI 動機式晤談編碼系統的專家建議值，原本用於評估受訓臨床工作者的完整晤談錄音。第一次練習三項都在入門以下很常見。",
+ "safety": [
+  {
+   "t": "這是練習，不是真的在幫人",
+   "d": "AI 扮演的角色不會真的受傷，你可以放心把話說錯、說壞、重來。把它當健身房，錯的次數愈多，真實對話時就愈穩。"
+  },
+  {
+   "t": "真的遇到危機，要找人",
+   "d": "這四招練的是陪伴，不等於處理危機。身邊的人提到想傷害自己、或狀況明顯不對，請尋求專業協助；情況緊急時，請立即聯繫緊急求助管道。"
+  }
+ ],
+ "safetyNote": "練習過程中如果你講的是自己真實的煩惱，機器人會跳出角色關心你，這是正常的。"
+};
 </script>
 <script>
 (function(){
@@ -1674,6 +1997,7 @@ window.AIBOT = {
   var M = window.MONOLOGUES || [];
   var S = window.SEGMENTS || [];
   var AI = window.AIBOT || {prompt:"", cards:[]};
+  var BASIC = window.BASICBOT || {prompt:"", moves:[], steps:[], groups:[], cmds:[], stuck:[], refs:[], safety:[]};
   var app = document.getElementById("app");
 
   if(!M.length && !S.length){
@@ -1694,7 +2018,7 @@ window.AIBOT = {
     round:1, roundId:null,             // OARS：目前第幾輪
     fa:  "全部", tab:"read",           // 改變型對話：篩選、分頁
     tally:{c:0,s:0}, tallyId:null,     // 改變型對話：計數
-    aa:  "全部"                        // AI 練習機器人：篩選
+    aa:  "全部"                        // AI諮詢技巧練習機器人：篩選
   };
   var FS=["17px","19px","22px"], LH=["1.95","2.0","2.05"];
   function applyFS(){
@@ -1769,13 +2093,16 @@ window.AIBOT = {
     var w=el("div","wrap");
     var acts=el("div","acts");
     [
-      { hash:"#/oars", eye:"融入", title:"OARS練習",
+      { hash:"#/basic", eye:"融入", title:"OARS初階練習",
+        desc:"跟 ChatGPT 練日常對話。它扮演你要陪伴的人，你練問、肯認、反映、摘要四個傾聽動作，練完當場拿到回饋報告。",
+        meta:"五組角色．共 "+BASIC.groups.reduce(function(n,g){ return n+g.roles.length; },0)+" 個" },
+      { hash:"#/oars", eye:"融入", title:"OARS諮詢情境練習",
         desc:"先把人接住，再談改變。一人念獨白、扮演教師或家長，另一人只用 OARS 回應，連續來回五輪。",
         meta:M.length+" 段獨白．教師 "+count(M,"教師")+"．家長 "+count(M,"家長") },
       { hash:"#/talk", eye:"誘發", title:"辨識改變型對話",
         desc:"一人念、一人聽，找出改變型對話與維持型對話，念完一起對答案。",
         meta:S.length+" 段朗讀稿．教師 "+count(S,"教師")+"．家長 "+count(S,"家長") },
-      { hash:"#/ai", eye:"誘發", title:"AI 練習機器人",
+      { hash:"#/ai", eye:"誘發", title:"AI諮詢技巧練習機器人",
         desc:"ChatGPT 扮演來談的教師或家長，你當諮詢者，練辨識、邀請、強化完整的一輪。複製主 prompt 和情境卡，貼進 ChatGPT 就能開始。",
         meta:AI.cards.length+" 張情境卡．教師 "+count(AI.cards,"教師")+"．家長 "+count(AI.cards,"家長") }
     ].forEach(function(a){
@@ -1793,7 +2120,7 @@ window.AIBOT = {
   }
 
   /* ==========================================================
-     OARS練習
+     OARS諮詢情境練習
      ========================================================== */
   var STEPS=[
     "兩人一組：一人扮演教師或家長，念獨白開場；一人當諮詢者。",
@@ -1816,7 +2143,7 @@ window.AIBOT = {
 
     var hd=el("div","head");
     hd.appendChild(el("div","head-n","融入"));
-    hd.appendChild(el("h1","head-t","OARS練習"));
+    hd.appendChild(el("h1","head-t","OARS諮詢情境練習"));
     hd.appendChild(el("p","head-p","先把人接住，再談改變。用 OARS 回應一段教師或家長的心聲。"));
     w.appendChild(hd);
 
@@ -2194,7 +2521,7 @@ window.AIBOT = {
       var who = seg.audience==="教師" ? "這位老師" : "這位家長";
       var nx=el("div","next");
       nx.appendChild(el("div","next-l","同一個人，換你來談"));
-      nx.appendChild(el("p","next-p","剛才是聽，現在換你談。AI 練習機器人的卡片 "+card.id+"，就是"+who+"。"));
+      nx.appendChild(el("p","next-p","剛才是聽，現在換你談。AI諮詢技巧練習機器人的卡片 "+card.id+"，就是"+who+"。"));
       var go2=el("button","btn1","前往卡片 "+card.id);
       go2.onclick=function(){ go("#/ai/"+card.id); };
       nx.appendChild(go2);
@@ -2203,7 +2530,7 @@ window.AIBOT = {
   }
 
   /* ==========================================================
-     AI 練習機器人
+     AI諮詢技巧練習機器人
      ========================================================== */
   var AI_STEPS=[
     "開一個新的 ChatGPT 對話，不要接在其他話題後面。",
@@ -2281,7 +2608,7 @@ window.AIBOT = {
 
     var hd=el("div","head");
     hd.appendChild(el("div","head-n","誘發"));
-    hd.appendChild(el("h1","head-t","AI 練習機器人"));
+    hd.appendChild(el("h1","head-t","AI諮詢技巧練習機器人"));
     hd.appendChild(el("p","head-p","辨識・邀請・強化。ChatGPT 扮演來談的教師或家長，你當諮詢者。"));
     hd.appendChild(el("p","head-p","建議一場跑 12 到 18 個回合，太短看不出動機的變化。"));
     w.appendChild(hd);
@@ -2367,16 +2694,169 @@ window.AIBOT = {
   }
 
   /* ==========================================================
+     OARS初階練習
+     ========================================================== */
+  function basicPage(){
+    app.innerHTML="";
+    var w=el("div","wrap");
+    w.appendChild(backBtn("回首頁","#/"));
+
+    var hd=el("div","head");
+    hd.appendChild(el("div","head-n","融入"));
+    hd.appendChild(el("h1","head-t","OARS初階練習"));
+    hd.appendChild(el("p","head-p","跟 ChatGPT 練日常對話。它扮演你要陪伴的人，你練問、肯認、反映、摘要四個傾聽動作，練完當場拿到回饋報告。"));
+    hd.appendChild(el("p","head-p","來回 8 到 10 輪就夠。太短抓不到你的習慣，太長回饋會失焦。"));
+    w.appendChild(hd);
+
+    w.appendChild(el("h3","sec","四個傾聽動作"));
+    var cues=el("div","cues");
+    BASIC.moves.forEach(function(o){
+      var c=el("div","cue");
+      c.appendChild(el("div","cue-k",o.k));
+      var b=el("div");
+      b.appendChild(el("div","cue-n",o.name));
+      b.appendChild(el("div","cue-h",o.plain));
+      b.appendChild(el("div","cue-e","例："+o.ex));
+      c.appendChild(b);
+      cues.appendChild(c);
+    });
+    w.appendChild(cues);
+
+    w.appendChild(el("h3","sec","怎麼開始"));
+    var ol=el("ol","steps");
+    BASIC.steps.forEach(function(t,i){
+      var li=el("li");
+      li.appendChild(el("span","step-n",String(i+1)));
+      li.appendChild(el("span",null,t));
+      ol.appendChild(li);
+    });
+    w.appendChild(ol);
+
+    var cta=el("div","cta");
+    var cp=el("button","btn1","複製 Prompt");
+    cp.onclick=function(){
+      copyText(BASIC.prompt,"OARS初階練習 Prompt",function(){
+        markDone(cp,"複製 Prompt");
+        toast("已複製 Prompt。到 ChatGPT 開新對話，貼上送出。");
+      });
+    };
+    var open=document.createElement("a");
+    open.className="btn2"; open.href="https://chatgpt.com/";
+    open.target="_blank"; open.rel="noopener";
+    open.textContent="打開 ChatGPT";
+    cta.appendChild(cp); cta.appendChild(open);
+    w.appendChild(cta);
+    var hint=el("p","sec-p",BASIC.hint); hint.style.marginTop="12px";
+    w.appendChild(hint);
+
+    w.appendChild(el("h3","sec","角色一覽"));
+    w.appendChild(el("p","sec-p","輸入組別或編號就好，例如「A」或「A2，普通」。"));
+    BASIC.groups.forEach(function(g){
+      var d=el("details","role grp");
+      var s=el("summary"), l=el("span");
+      l.appendChild(el("span","grp-k",g.id));
+      l.appendChild(document.createTextNode(g.name));
+      if(g.desc) l.appendChild(el("span","grp-d","　"+g.desc));
+      s.appendChild(l); d.appendChild(s);
+      var body=el("div","role-b"), ul=el("ul","roles");
+      g.roles.forEach(function(r){
+        var li=el("li");
+        li.appendChild(el("span","role-c",r.code));
+        var t=el("span"); t.appendChild(document.createTextNode(r.name));
+        if(r.state) t.appendChild(el("span","role-s","｜"+r.state));
+        li.appendChild(t); ul.appendChild(li);
+      });
+      body.appendChild(ul);
+      if(g.note) body.appendChild(el("p","grp-note",g.note));
+      d.appendChild(body);
+      w.appendChild(d);
+    });
+    var cu=el("p","sec-p",BASIC.custom); cu.style.marginTop="12px";
+    w.appendChild(cu);
+
+    w.appendChild(el("h3","sec","六個指令，隨時可以輸入"));
+    var cul=el("ul","cmds");
+    BASIC.cmds.forEach(function(x){
+      var li=el("li");
+      li.appendChild(el("span","cmd-k",x[0]));
+      li.appendChild(el("span","cmd-d",x[1]));
+      cul.appendChild(li);
+    });
+    w.appendChild(cul);
+
+    var d1=el("details","role"); d1.style.marginTop="26px";
+    d1.appendChild(el("summary",null,"最容易卡住的三件事"));
+    var b1=el("div","role-b");
+    b1.appendChild(el("p","role-rule",BASIC.stuckLead));
+    BASIC.stuck.forEach(function(x){
+      var c=el("div","stuck");
+      c.appendChild(el("div","stuck-t",x.t));
+      c.appendChild(el("div","stuck-say",x.say));
+      c.appendChild(el("div","stuck-why",x.why));
+      var f=el("div","stuck-fix"); f.appendChild(el("b",null,"改成")); f.appendChild(document.createTextNode(x.fix));
+      c.appendChild(f);
+      b1.appendChild(c);
+    });
+    d1.appendChild(b1);
+    w.appendChild(d1);
+
+    var d2=el("details","role"); d2.style.marginTop="10px";
+    d2.appendChild(el("summary",null,"看懂報告裡的三個參考值"));
+    var b2=el("div","role-b");
+    b2.appendChild(el("p","role-rule",BASIC.refsLead));
+    var tb=el("table","refs"), th=el("tr");
+    ["參考值","入門","精熟"].forEach(function(h){ th.appendChild(el("th",null,h)); });
+    var thead=el("thead"); thead.appendChild(th); tb.appendChild(thead);
+    var tbody=el("tbody");
+    BASIC.refs.forEach(function(x){
+      var tr=el("tr"), td=el("td");
+      td.appendChild(document.createTextNode(x.name));
+      td.appendChild(el("span","ref-tip",x.tip));
+      tr.appendChild(td);
+      tr.appendChild(el("td","v",x.entry));
+      tr.appendChild(el("td","v",x.master));
+      tbody.appendChild(tr);
+    });
+    tb.appendChild(tbody); b2.appendChild(tb);
+    b2.appendChild(el("p","role-rule",BASIC.refsNote));
+    d2.appendChild(b2);
+    w.appendChild(d2);
+
+    var sf=el("div","safe");
+    sf.appendChild(el("div","safe-t","練習之前，兩件事先說清楚"));
+    var sol=el("ol");
+    BASIC.safety.forEach(function(x){
+      var li=el("li"); li.appendChild(el("b",null,x.t)); li.appendChild(document.createTextNode(x.d));
+      sol.appendChild(li);
+    });
+    sf.appendChild(sol);
+    sf.appendChild(el("p","safe-n",BASIC.safetyNote));
+    w.appendChild(sf);
+
+    var d3=el("details","role"); d3.style.marginTop="26px";
+    d3.appendChild(el("summary",null,"看 Prompt 全文"));
+    var b3=el("div","role-b");
+    b3.appendChild(el("pre","prompt",BASIC.prompt));
+    d3.appendChild(b3);
+    w.appendChild(d3);
+    w.appendChild(el("div","page-end"));
+
+    app.appendChild(w);
+    window.scrollTo(0,0);
+  }
+
+  /* ==========================================================
      QR code：把目前這一頁（或首頁）的網址做成 QR code，投影給學員掃
      ========================================================== */
   function pageLabel(){
     var p=location.hash.replace(/^#\/?/,"").split("/"), id=parseInt(p[1],10);
-    if(p[0]==="oars"){ var m=find(M,id); return m ? "OARS練習｜獨白"+m.num+"　"+m.title : "OARS練習"; }
+    if(p[0]==="basic") return "OARS初階練習";
+    if(p[0]==="oars"){ var m=find(M,id); return m ? "OARS諮詢情境練習｜獨白"+m.num+"　"+m.title : "OARS諮詢情境練習"; }
     if(p[0]==="talk"){ var s=find(S,id); return s ? "辨識改變型對話｜段落"+s.num+"　"+s.title : "辨識改變型對話"; }
     if(p[0]==="ai"){
       var c=null, k=(p[1]||"").toUpperCase();
       AI.cards.forEach(function(x){ if(x.id===k) c=x; });
-      return c ? "AI 練習機器人｜卡片 "+c.id+"　"+c.title : "AI 練習機器人";
+      return c ? "AI諮詢技巧練習機器人｜卡片 "+c.id+"　"+c.title : "AI諮詢技巧練習機器人";
     }
     return "首頁";
   }
@@ -2458,14 +2938,16 @@ window.AIBOT = {
   /* ==========================================================
      路由
      #/              首頁
-     #/oars、#/oars/3   OARS練習
+     #/basic         OARS初階練習
+     #/oars、#/oars/3   OARS諮詢情境練習
      #/talk、#/talk/7   辨識改變型對話
-     #/ai、#/ai/C       AI 練習機器人（C 是卡片代號，會捲到那張卡並標出來）
+     #/ai、#/ai/C       AI諮詢技巧練習機器人（C 是卡片代號，會捲到那張卡並標出來）
      #/7             舊版網址，自動轉到 #/talk/7
      ========================================================== */
   function route(){
     var p=location.hash.replace(/^#\/?/,"").split("/");
     if(/^\d+$/.test(p[0])){ location.replace("#/talk/"+p[0]); return; }
+    if(p[0]==="basic"){ basicPage(); return; }
     if(p[0]==="oars"){
       var m=find(M,parseInt(p[1],10));
       if(m) oarsDetail(m); else oarsList();
