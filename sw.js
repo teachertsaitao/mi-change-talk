@@ -1,5 +1,5 @@
-// Build: 20261102224056
-const CACHE_NAME = 'mi-practice-20261102224056';
+// Build: 20261103011814
+const CACHE_NAME = 'mi-practice-20261103011814';
 const ASSETS = ['./', './index.html', './manifest.json', './icon-192.png', './icon-512.png', './icon-maskable-512.png', './apple-touch-icon.png'];
 const OPTIONAL = ['./backend.js'];   // 講師後台網址；沒有這個檔也照常安裝
 

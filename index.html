@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<!-- 動機式晤談練習　v12　2026-11-02 -->
+<!-- 動機式晤談練習　v13　2026-11-03 -->
 <html lang="zh-Hant">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>動機式晤談練習</title>
-<meta name="description" content="OARS初階練習、OARS諮詢情境練習、辨識改變型對話與 AI諮詢技巧練習機器人，工作坊用的練習工具">
+<meta name="description" content="OARS初階練習、OARS中階練習、OARS諮詢情境練習、辨識改變型對話與 AI諮詢技巧練習機器人，工作坊用的練習工具">
 <meta name="theme-color" content="#5A6472">
 <link rel="manifest" href="manifest.json">
 <link rel="icon" type="image/png" href="icon-192.png">
@@ -235,6 +235,10 @@ h3.sec{font-family:var(--serif);font-size:17px;font-weight:700;color:var(--slate
   margin:30px 0 12px;padding-bottom:7px;border-bottom:1px solid var(--line)}
 
 .foot{padding:30px 0 46px;font-size:12px;color:#B3ADA5;text-align:center;line-height:1.9}
+/* 個人介紹只放首頁；練習頁只留「練習素材，非真實個案」與版本號 */
+body:not(.is-home) .foot .me{display:none}
+body:not(.is-home) .foot{padding-top:6px}
+body:not(.is-home) .foot .ver{margin-top:0}
 .foot .who{font-size:13.5px;font-weight:700;color:#8F8880;letter-spacing:.06em;margin-bottom:2px}
 .foot .ttl{color:#A39C94}
 .foot .sep{margin:0 6px;color:#CFC8C0}
@@ -415,6 +419,79 @@ a.brand small{white-space:normal}
 .adm-more{display:flex;gap:10px;margin-top:22px}
 .adm-fn{margin:22px 0 0;font-size:12.5px;line-height:1.8;color:var(--taupe)}
 
+/* ---------- OARS中階練習 ---------- */
+.act-s{font-family:var(--serif);font-size:15px;font-weight:700;color:var(--slate);margin:-4px 0 8px}
+.head-s{font-family:var(--serif);font-size:16.5px;font-weight:700;color:var(--slate);margin:-6px 0 10px}
+.hook{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px}
+.hook-q{font-family:var(--serif);font-size:19px;font-weight:700;line-height:1.7;color:var(--ink)}
+.hook-p{margin:8px 0 0;font-size:14px;line-height:1.8;color:#6A7280}
+.task-pre{margin:-4px 0 12px;font-size:14px;line-height:1.8;color:var(--taupe)}
+.steps li.key .task-t{font-weight:700}
+.task-d{display:block;font-size:13px;line-height:1.75;color:#6A7280}
+.quote{margin:14px 0 0;font-family:Georgia,"Times New Roman",serif;font-style:italic;font-size:14px;line-height:1.7;color:var(--taupe)}
+.roles2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.role2{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:12px 14px}
+.role2-t{font-family:var(--serif);font-size:16px;font-weight:700;color:var(--slate);margin-bottom:3px}
+.role2-d{font-size:13.5px;line-height:1.7;color:#5F6670}
+.refs2{margin-top:24px}
+.seg2{display:flex;gap:4px;background:var(--sand);border-radius:999px;padding:4px}
+.seg2 button{flex:1;border-radius:999px;padding:8px 0;font-size:14.5px;color:#6A7280;transition:.16s}
+.seg2 button[aria-pressed="true"]{background:var(--card);color:var(--ink);font-weight:700;box-shadow:0 1px 3px rgba(46,52,61,.14)}
+.seg2-h{margin:7px 0 16px;font-size:12.5px;line-height:1.7;color:var(--taupe);text-align:center}
+.psteps{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
+.psteps button{min-width:34px;border:1px solid var(--line);background:var(--card);border-radius:999px;
+  padding:5px 11px;font-size:13px;color:#8A9099}
+.psteps button.done{color:var(--slate);border-color:#C9CDD3}
+.psteps button[aria-current="step"]{background:var(--slate);border-color:var(--slate);color:#fff;font-weight:700}
+.stage{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 18px 16px}
+.stage-h{display:flex;align-items:baseline;gap:9px;margin-bottom:14px}
+.stage-n{flex:none;font-size:12.5px;letter-spacing:.06em;color:var(--taupe)}
+.stage-t{font-family:var(--serif);font-size:18px;font-weight:700;color:var(--slate)}
+.stage-m{margin-left:auto;flex:none;font-size:12.5px;color:var(--taupe)}
+.stage-q{margin:0 0 12px;font-family:var(--serif);font-size:20px;font-weight:700;line-height:1.65;color:var(--ink)}
+.stage-p{margin:0 0 10px;font-size:14.5px;line-height:1.8;color:#5F6670}
+.listen{background:#EEF0F3;border-radius:11px;padding:13px 15px;margin:4px 0 12px}
+.listen-l{font-size:12px;font-weight:700;letter-spacing:.12em;color:var(--slate)}
+.listen-t{margin-top:3px;font-size:15.5px;font-weight:700;line-height:1.6;color:var(--ink)}
+.listen-d{margin-top:3px;font-size:13.5px;line-height:1.75;color:#5F6670}
+.listen-e{margin-top:7px;font-size:13px;line-height:1.75;color:var(--taupe)}
+.more-q{margin:10px 0 0;padding-left:1.2em;font-size:15px;line-height:1.85;color:var(--ink)}
+.more-q li{margin:4px 0}
+.ex-p{margin:12px 0 0;font-size:14.5px;line-height:1.9;color:var(--ink)}
+.stage-check{margin:12px 0 0;font-size:14px;font-weight:700;line-height:1.7;color:var(--ink)}
+.stage-nav{margin-top:16px}
+.notes4{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:4px 0 6px}
+.notes4 label{display:block;font-size:12.5px;font-weight:700;color:var(--slate);margin-bottom:4px}
+.notes4 textarea{display:block;width:100%;min-height:84px;resize:vertical;font-family:var(--sans);font-size:16px;line-height:1.5;
+  color:var(--ink);background:#FCFBF9;border:1px solid var(--line);border-radius:9px;padding:8px 10px}
+.notes4 textarea:focus{outline:none;border-color:var(--slate);background:#fff}
+.notes-act{text-align:right;margin-bottom:12px}
+.notes-act button{font-size:12.5px;color:var(--taupe);border-bottom:1px solid #D9D2C9;padding:0}
+.think{list-style:none;margin:0;padding:0}
+.think li{padding:11px 0;border-bottom:1px dashed var(--line);font-family:var(--serif);font-size:17px;font-weight:700;
+  line-height:1.7;color:var(--ink)}
+.think li:last-child{border-bottom:none}
+.fbq-l{margin:6px 0 0;padding-left:1.2em;font-size:15px;line-height:1.85;color:var(--ink)}
+.fbq-l li{margin:3px 0}
+.reveal{margin-top:18px}
+.reveal .btn1{display:block;width:100%}
+.ct{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 16px 6px}
+.ct + .ct{margin-top:10px}
+.ct-h{font-family:var(--serif);font-size:17px;font-weight:700;color:var(--slate)}
+.ct-d{margin:2px 0 8px;font-size:13px;line-height:1.7;color:var(--taupe)}
+.ct-row{display:flex;gap:12px;align-items:flex-start;padding:10px 0;border-top:1px dashed var(--line)}
+.ct-k{flex:none;width:30px;height:30px;margin-top:1px;border-radius:50%;background:var(--slate);color:#fff;
+  font-family:Georgia,"Times New Roman",serif;font-size:15px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.ct-n{font-size:15px;font-weight:700;line-height:1.5;color:var(--ink)}
+.ct-from{font-size:12.5px;line-height:1.6;color:var(--slate)}
+.ct-ex{font-size:14px;line-height:1.7;color:#5F6670}
+.ct.cats{background:var(--chg-bg);border-color:#C6DACB}
+.ct.cats .ct-h{color:var(--chg)}
+.ct.cats .ct-k{background:var(--chg)}
+.ct.cats .ct-row{border-top-color:#C6DACB}
+.ct-note{padding:6px 0 10px;font-size:13px;line-height:1.7;color:var(--chg)}
+.ct-ask{margin:14px 0 0;font-size:15px;font-weight:700;line-height:1.75;color:var(--ink)}
+
 @media(max-width:520px){
   .head-t{font-size:22px}
   .counter-v{font-size:44px}
@@ -454,11 +531,13 @@ a.brand small{white-space:normal}
 <main id="app"></main>
 
 <div class="wrap foot">
+  <div class="me">
   <div class="who">蔡政霖</div>
   <div class="ttl"><span class="seg">淡江大學通核中心、實踐大學社工系 講師</span><span class="sep">｜</span><span class="seg">臺師大社會情緒教育與發展研究中心 講師兼課程發展委員</span></div>
   <div class="ttl"><span class="seg">國小專輔教師</span><span class="sep">｜</span><span class="seg">臺北市立大學教育學系心輔組博士候選人</span></div>
   <div class="fb"><a href="https://www.facebook.com/share/1JGymQQPBy/" target="_blank" rel="noopener">菜桃老師的遊聊室</a></div>
-  <div class="ver">練習素材，非真實個案。v12．2026-11-02</div>
+  </div>
+  <div class="ver">練習素材，非真實個案。v13．2026-11-03</div>
 </div>
 
 <!-- 講師後台的網址寫在 backend.js（沒有這個檔案時，所有練習都開放） -->
@@ -489,6 +568,12 @@ var qrcode=function(){var t=function(t,r){var e=t,n=g[r],o=null,i=0,a=null,u=[],
        prompt      Prompt 全文，學員按「複製 Prompt」拿到的就是這段
        groups      角色池 A–E，要和 Prompt 第六節一致
        其他欄位    頁面上的說明文字，取自操作說明簡報
+
+     PEER：OARS中階練習｜認識你的教室夥伴
+       stages      四段訪談；q.teach 是教學版、q.counsel 是輔導版，main 主問題、more 備用問題
+       listen      「這段要聽」；listenD 補充說明，cues 是可以留意的話
+       sum、swap   整理與摘要、換你問
+       reveal      回顧最後揭曉的改變型對話類型（DARN、CATs），用詞與例句同工作坊簡報
 
      AIBOT：AI諮詢技巧練習機器人
        prompt      主 prompt 全文，學員按「複製主 prompt」拿到的就是這段
@@ -2096,6 +2181,336 @@ window.BASICBOT = {
  ],
  "safetyNote": "練習過程中如果你講的是自己真實的煩惱，機器人會跳出角色關心你，這是正常的。"
 };
+window.PEER = {
+ "hook": [
+  "你知道坐在你旁邊的這位夥伴，帶班或做輔導的時候最享受什麼嗎？最頭痛什麼嗎？",
+  "同樣在學校工作，我們卻很少有機會真正聊聊這件事。"
+ ],
+ "taskPre": "先不急著幫對方解決問題、給建議。",
+ "task": [
+  "聽懂對方在說什麼",
+  "聽見對方在意什麼",
+  "看見對方的優勢",
+  "找出能連到對方想改變的資訊"
+ ],
+ "taskKey": "對方在意什麼、已經做得到什麼、對現況哪裡不滿意、希望變成什麼樣子。",
+ "quote": "If you are not listening to them, they will not listen to you.",
+ "roles": [
+  {
+   "name": "傾聽者",
+   "d": "提問，用 OARS 回應，一邊聽一邊找資訊。"
+  },
+  {
+   "name": "分享者",
+   "d": "談自己的教學或輔導經驗，照真實的感覺說。"
+  }
+ ],
+ "how": [
+  "看分享者是老師還是輔導人員，選教學版或輔導版。",
+  "傾聽者提問，分享者談自己的經驗。",
+  "共四個階段，每段約 3 分鐘。跟著對話的節奏走，不用趕著問完。",
+  "四段談完，傾聽者花一分鐘整理聽到的資訊，再用摘要說給對方聽。",
+  "角色反過來，分享者問傾聽者一個問題，約 2 分鐘。",
+  "兩人各自在心裡想兩件事，再依角色整理經驗。"
+ ],
+ "oars": [
+  {
+   "k": "O",
+   "n": "開放式問句",
+   "d": "用「什麼」「怎麼」開頭，讓對方多說"
+  },
+  {
+   "k": "A",
+   "n": "肯認",
+   "d": "聽到對方的努力和付出，具體地說出來"
+  },
+  {
+   "k": "R",
+   "n": "反映式傾聽",
+   "d": "把聽到的用自己的話說回去：「所以你覺得……」"
+  },
+  {
+   "k": "S",
+   "n": "摘要",
+   "d": "幫對方整理重點，確認你有聽懂"
+  }
+ ],
+ "rule": [
+  {
+   "k": "R",
+   "n": "抵抗糾正反射",
+   "d": "聽到對方的做法跟你想的不同，忍住，先不要給建議"
+  },
+  {
+   "k": "U",
+   "n": "理解動機",
+   "d": "聽對方最在乎什麼，那才是改變的燃料"
+  },
+  {
+   "k": "L",
+   "n": "傾聽",
+   "d": "讓對方多說，你的話不要超過三成"
+  },
+  {
+   "k": "E",
+   "n": "賦能",
+   "d": "讓對方看到自己已經在做的、做得好的"
+  }
+ ],
+ "versions": [
+  {
+   "id": "teach",
+   "label": "教學版",
+   "who": "分享者是老師"
+  },
+  {
+   "id": "counsel",
+   "label": "輔導版",
+   "who": "分享者是輔導人員"
+  }
+ ],
+ "stages": [
+  {
+   "n": 1,
+   "name": "初衷與熱情",
+   "min": 3,
+   "q": {
+    "teach": {
+     "main": [
+      "你教書多久了？是什麼讓你決定成為老師的？",
+      "擔任教師最美好的事情是什麼？"
+     ],
+     "more": [
+      "是否一直都教同一個年級？",
+      "什麼讓你對教學感到熱情？"
+     ]
+    },
+    "counsel": {
+     "main": [
+      "你做輔導多久了？是什麼讓你決定走進這一行？",
+      "做輔導最美好的事情是什麼？"
+     ],
+     "more": [
+      "一直都在同一所學校、同一個學習階段嗎？",
+      "什麼讓你對輔導工作感到熱情？"
+     ]
+    }
+   },
+   "listen": "他在意的價值",
+   "listenD": "他為什麼走進這一行、覺得這份工作的意義在哪裡。這些是之後改變的燃料。",
+   "cues": [
+    "「我就是想讓孩子……」",
+    "「那一刻覺得做這個很值得」"
+   ]
+  },
+  {
+   "n": 2,
+   "name": "困難與消耗",
+   "min": 3,
+   "q": {
+    "teach": {
+     "main": [
+      "帶這個班到現在，最讓你覺得困難或消耗的是什麼？"
+     ],
+     "more": [
+      "你會怎麼描述現在這個班的狀況？",
+      "在一天當中，哪個時段讓你覺得最難管理？",
+      "最近有沒有什麼讓你覺得特別有挑戰性的地方？"
+     ]
+    },
+    "counsel": {
+     "main": [
+      "做輔導到現在，最讓你覺得困難或消耗的是什麼？"
+     ],
+     "more": [
+      "你會怎麼形容現在的工作狀況？",
+      "一學期當中，哪段時間讓你覺得最吃力？",
+      "最近有沒有什麼讓你覺得特別有挑戰的地方？"
+     ]
+    }
+   },
+   "listen": "他對現況的不滿，以及想改變的理由和需要",
+   "listenD": "抱怨和疲累底下，常常就是他在意的事。",
+   "cues": [
+    "「我真的需要改變」",
+    "「不能再這樣了」"
+   ]
+  },
+  {
+   "n": 3,
+   "name": "目前的做法",
+   "min": 3,
+   "q": {
+    "teach": {
+     "main": [
+      "你目前用哪些方式管理班級秩序？",
+      "哪些有效？哪些覺得沒什麼用？"
+     ],
+     "more": [
+      "你有設定班級規則嗎？是怎麼讓學生了解的？",
+      "你有使用獎勵制度嗎？是怎麼運作的？",
+      "當學生出現不當行為時，你通常如何處理？"
+     ]
+    },
+    "counsel": {
+     "main": [
+      "遇到學生的狀況，你目前用哪些方式處理？",
+      "哪些有效？哪些覺得沒什麼用？"
+     ],
+     "more": [
+      "你通常怎麼跟導師合作？",
+      "你有常用的工具或方法嗎？是怎麼用的？",
+      "學生不願意談，或同樣的狀況一再出現時，你通常怎麼處理？"
+     ]
+    }
+   },
+   "listen": "他已經做得到的事、有效的經驗",
+   "listenD": "這些是他的能力和優勢，也是改變做得到的證據。他說「沒什麼用」的地方，則透露他想調整的方向。",
+   "cues": [
+    "「這個方法用了之後……」",
+    "「我覺得我可以……」"
+   ]
+  },
+  {
+   "n": 4,
+   "name": "理想與改變",
+   "min": 3,
+   "q": {
+    "teach": {
+     "main": [
+      "你理想中的教室是什麼樣子？",
+      "你最希望孩子從你的班上帶走什麼？"
+     ],
+     "more": [
+      "你希望學生在學年末回想起你時，會記得你是一位怎樣的老師？",
+      "如果這次的合作能帶給你一個改變，你最希望是什麼？"
+     ]
+    },
+    "counsel": {
+     "main": [
+      "你理想中的輔導工作是什麼樣子？",
+      "你最希望孩子從你這裡帶走什麼？"
+     ],
+     "more": [
+      "你希望孩子以後想起你時，會記得你是一位怎樣的輔導老師？",
+      "如果接下來你的工作能有一個改變，你最希望是什麼？"
+     ]
+    }
+   },
+   "listen": "他想要的樣子，以及理想跟現況的落差",
+   "listenD": "",
+   "cues": [
+    "「我希望……」",
+    "「我想要……」"
+   ]
+  }
+ ],
+ "sum": {
+  "min": 2,
+  "boxes": [
+   "他在意的",
+   "他做得到的",
+   "他想改變的",
+   "他希望的樣子"
+  ],
+  "pre": "先花一分鐘，把聽到的資訊記下來。",
+  "how": "再用兩三句摘要說給對方聽，把在意的事、優勢和想改變的訊號串在一起。",
+  "ex": {
+   "teach": "「聽下來，你很在意孩子在你班上覺得安心，所以下午大家靜不下來、你一直喊安靜的時候，你特別累。你用小組加分讓孩子互相提醒，這個做法其實有效。你希望接下來，班上能少一點喊安靜，多一點笑聲。」",
+   "counsel": "「聽下來，你很在意每個孩子都有人接住，所以個案一多、只能救火的時候，你特別累。你跟導師合作的方式其實很有效，你希望接下來能多一點時間，做預防的工作。」"
+  },
+  "check": "分享者聽完回應：哪一句最貼近？哪一句還差一點？"
+ },
+ "swap": {
+  "min": 2,
+  "q": "在你現在的工作中，你最想突破或改善的是什麼？"
+ },
+ "think": [
+  "剛才的對話中，有沒有哪句話讓你印象特別深？",
+  "這個對話跟你平常和同事聊天，感覺有什麼不同？"
+ ],
+ "debrief": {
+  "share": [
+   "被這樣聽的感覺是什麼？",
+   "剛才的摘要，哪一句最貼近你？",
+   "跟平常同事之間的聊天，有什麼不一樣？"
+  ],
+  "listen": [
+   "對話中，有被感動到的地方嗎？",
+   "你找到哪些能連到對方改變動機的資訊？哪一段最好找，哪一段最難？",
+   "你聽到對方的優勢是什麼？",
+   "對方最在意的是什麼？",
+   "有沒有聽到對方想改變什麼的訊號？"
+  ]
+ },
+ "reveal": {
+  "btn": "揭曉：你聽到的改變型對話",
+  "darn": {
+   "name": "DARN　預備性改變型對話",
+   "d": "反映「想改變」的想法，但尚未付諸行動。四段問題各自最容易引出其中一種。",
+   "items": [
+    {
+     "k": "D",
+     "en": "Desire",
+     "zh": "渴望",
+     "stage": 4,
+     "from": "他希望的樣子",
+     "ex": "「我想要……」「我希望……」"
+    },
+    {
+     "k": "A",
+     "en": "Ability",
+     "zh": "能力",
+     "stage": 3,
+     "from": "他做得到的",
+     "ex": "「我覺得我可以……」「我做得到」"
+    },
+    {
+     "k": "R",
+     "en": "Reason",
+     "zh": "理由",
+     "stage": 1,
+     "from": "他在意的",
+     "ex": "「如果……那麼……」「這樣的好處是……」"
+    },
+    {
+     "k": "N",
+     "en": "Need",
+     "zh": "需要",
+     "stage": 2,
+     "from": "他想改變的",
+     "ex": "「我真的需要改變」「不能再這樣了」"
+    }
+   ]
+  },
+  "cats": {
+   "name": "CATs　啟動性改變型對話",
+   "d": "反映「已準備或正在行動」",
+   "items": [
+    {
+     "k": "C",
+     "en": "Commitment",
+     "zh": "承諾",
+     "ex": "「我會……」「我打算……」"
+    },
+    {
+     "k": "A",
+     "en": "Activation",
+     "zh": "啟動",
+     "ex": "「我準備好了」「我願意試試」"
+    },
+    {
+     "k": "T",
+     "en": "Taking Steps",
+     "zh": "行動",
+     "ex": "「我已經開始……」「昨天我試了……」"
+    }
+   ],
+   "note": "這一輪通常還聽不到，要等到開始規劃的時候。"
+  },
+  "ask": "回頭看你的四格筆記：哪些是對方自己說出口的改變型對話？"
+ }
+};
 </script>
 <script>
 (function(){
@@ -2104,6 +2519,7 @@ window.BASICBOT = {
   var S = window.SEGMENTS || [];
   var AI = window.AIBOT || {prompt:"", cards:[]};
   var BASIC = window.BASICBOT || {prompt:"", moves:[], steps:[], groups:[], cmds:[], stuck:[], refs:[], safety:[]};
+  var PEER = window.PEER || {stages:[], versions:[]};
   var app = document.getElementById("app");
 
   if(!M.length && !S.length){
@@ -2124,7 +2540,9 @@ window.BASICBOT = {
     round:1, roundId:null,             // OARS：目前第幾輪
     fa:  "全部", tab:"read",           // 改變型對話：篩選、分頁
     tally:{c:0,s:0}, tallyId:null,     // 改變型對話：計數
-    aa:  "全部"                        // AI諮詢技巧練習機器人：篩選
+    aa:  "全部",                       // AI諮詢技巧練習機器人：篩選
+    pt:"intro", ps:0, prv:false,       // OARS中階練習：分頁、第幾段、是否已揭曉
+    pv:  store.get("pv","teach")       // OARS中階練習：教學版或輔導版
   };
   var FS=["17px","19px","22px"], LH=["1.95","2.0","2.05"];
   function applyFS(){
@@ -2202,6 +2620,9 @@ window.BASICBOT = {
     { id:"basic", eye:"融入", title:"OARS初階練習", def:true,
       desc:"跟 ChatGPT 練日常對話。它扮演你要陪伴的人，你練問、肯認、反映、摘要四個傾聽動作，練完當場拿到回饋報告。",
       meta:function(){ return "五組角色．共 "+BASIC.groups.reduce(function(n,g){ return n+g.roles.length; },0)+" 個"; } },
+    { id:"peer", eye:"融入", title:"OARS中階練習", sub:"認識你的教室夥伴", def:false,
+      desc:"兩人一組，傾聽者用 OARS 問四段，分享者談自己的教學或輔導經驗。傾聽者要找出能連到對方改變動機的資訊，最後用摘要說給對方聽。",
+      meta:function(){ return PEER.stages.length+" 段訪談．教學版、輔導版"; } },
     { id:"oars", eye:"融入", title:"OARS諮詢情境練習", def:true,
       desc:"先把人接住，再談改變。一人念獨白、扮演教師或家長，另一人只用 OARS 回應，連續來回五輪。",
       meta:function(){ return M.length+" 段獨白．教師 "+count(M,"教師")+"．家長 "+count(M,"家長"); } },
@@ -2230,6 +2651,7 @@ window.BASICBOT = {
       if(!open) eye.appendChild(el("span","tag-off","這次未開放"));
       c.appendChild(eye);
       c.appendChild(el("div","act-t",a.title));
+      if(a.sub) c.appendChild(el("div","act-s",a.sub));
       c.appendChild(el("div","act-d",a.desc));
       c.appendChild(el("div","act-m",a.meta()));
       acts.appendChild(c);
@@ -2486,6 +2908,265 @@ window.BASICBOT = {
     b.appendChild(el("p","role-rule","你的反映，有沒有說到這個感受？"));
     d.appendChild(b);
     pane.appendChild(d);
+  }
+
+  /* ==========================================================
+     OARS中階練習｜認識你的教室夥伴
+     兩人一組：傾聽者用 OARS 問四段，分享者談自己的教學或輔導經驗。
+     訪談分頁一次顯示一步：第 1 到 4 段、整理與摘要、換你問。
+     教學版、輔導版在訪談分頁最上面切換，這支手機會記住上次的選擇。
+     ========================================================== */
+  var PSTEPS=["1","2","3","4","摘要","換你問"];
+  var pnotes=(function(){ try{ return JSON.parse(sessionStorage.getItem("mi_pnotes")||"{}")||{}; }catch(e){ return {}; } })();
+  function keepNotes(){ try{ sessionStorage.setItem("mi_pnotes",JSON.stringify(pnotes)); }catch(e){} }
+  function peerVer(){ return state.pv==="counsel" ? "counsel" : "teach"; }
+  function verLabel(v){ var o=null; PEER.versions.forEach(function(x){ if(x.id===v) o=x; }); return o ? o.label : ""; }
+
+  function peerPage(mode){
+    var y=window.scrollY;
+    app.innerHTML="";
+    var w=el("div","wrap");
+    w.appendChild(backBtn("回首頁","#/"));
+    var hd=el("div","head");
+    hd.appendChild(el("div","head-n","融入"));
+    hd.appendChild(el("h1","head-t","OARS中階練習"));
+    hd.appendChild(el("div","head-s","認識你的教室夥伴"));
+    hd.appendChild(el("p","head-p","兩人一組。傾聽者用 OARS 提問，分享者談自己的教學或輔導經驗。"));
+    w.appendChild(hd);
+    w.appendChild(tabBar([["intro","說明"],["talk","訪談"],["review","回顧"]], state.pt,
+      function(v){ state.pt=v; peerPage("tab"); }));
+    var pane=el("div","pane");
+    if(state.pt==="talk") peerTalk(pane);
+    else if(state.pt==="review") peerReview(pane);
+    else peerIntro(pane);
+    w.appendChild(pane);
+    app.appendChild(w);
+    settle(mode,y,hd);
+  }
+
+  function peerIntro(pane){
+    var hk=el("div","hook");
+    hk.appendChild(el("div","hook-q",PEER.hook[0]));
+    hk.appendChild(el("p","hook-p",PEER.hook[1]));
+    pane.appendChild(hk);
+
+    pane.appendChild(el("h3","sec","今天的任務"));
+    pane.appendChild(el("p","task-pre",PEER.taskPre));
+    var ol=el("ol","steps");
+    PEER.task.forEach(function(t,i){
+      var last=i===PEER.task.length-1;
+      var li=el("li",last?"key":null);
+      li.appendChild(el("span","step-n",String(i+1)));
+      var b=el("span");
+      b.appendChild(el("span","task-t",t));
+      if(last) b.appendChild(el("span","task-d",PEER.taskKey));
+      li.appendChild(b);
+      ol.appendChild(li);
+    });
+    pane.appendChild(ol);
+    pane.appendChild(el("p","quote",PEER.quote));
+
+    pane.appendChild(el("h3","sec","兩個角色"));
+    var rg=el("div","roles2");
+    PEER.roles.forEach(function(r){
+      var c=el("div","role2");
+      c.appendChild(el("div","role2-t",r.name));
+      c.appendChild(el("div","role2-d",r.d));
+      rg.appendChild(c);
+    });
+    pane.appendChild(rg);
+
+    pane.appendChild(el("h3","sec","怎麼進行"));
+    var ol2=el("ol","steps");
+    PEER.how.forEach(function(t,i){
+      var li=el("li");
+      li.appendChild(el("span","step-n",String(i+1)));
+      li.appendChild(el("span",null,t));
+      ol2.appendChild(li);
+    });
+    pane.appendChild(ol2);
+
+    var refs=el("div","refs2");
+    [["OARS｜對話的四個方式",PEER.oars],["RULE｜對話時的四個提醒",PEER.rule]].forEach(function(g){
+      var d=el("details","role grp");
+      d.appendChild(el("summary",null,g[0]));
+      var b=el("div","role-b");
+      var cues=el("div","cues"); cues.style.marginTop="12px";
+      g[1].forEach(function(o){
+        var c=el("div","cue");
+        c.appendChild(el("div","cue-k",o.k));
+        var t=el("div");
+        t.appendChild(el("div","cue-n",o.n));
+        t.appendChild(el("div","cue-h",o.d));
+        c.appendChild(t);
+        cues.appendChild(c);
+      });
+      b.appendChild(cues);
+      d.appendChild(b);
+      refs.appendChild(d);
+    });
+    pane.appendChild(refs);
+
+    var cta=el("div","cta");
+    var start=el("button","btn1","開始訪談");
+    start.onclick=function(){ state.pt="talk"; peerPage("tab"); };
+    cta.appendChild(start);
+    pane.appendChild(cta);
+  }
+
+  function peerTalk(pane){
+    var ver=peerVer();
+    var sw=el("div","seg2");
+    sw.setAttribute("role","group"); sw.setAttribute("aria-label","分享者要談的內容");
+    PEER.versions.forEach(function(v){
+      var b=el("button",null,v.label);
+      b.setAttribute("aria-pressed", ver===v.id);
+      b.onclick=function(){ state.pv=v.id; store.set("pv",v.id); peerPage("keep"); };
+      sw.appendChild(b);
+    });
+    pane.appendChild(sw);
+    pane.appendChild(el("p","seg2-h",PEER.versions.map(function(v){ return v.who+"，選"+v.label; }).join("；")+"。"));
+
+    var ps=el("div","psteps");
+    PSTEPS.forEach(function(lb,i){
+      var b=el("button",i<state.ps?"done":null,lb);
+      if(i===state.ps) b.setAttribute("aria-current","step");
+      b.setAttribute("aria-label", i<4 ? "第 "+lb+" 段" : lb);
+      b.onclick=function(){ state.ps=i; peerPage("tab"); };
+      ps.appendChild(b);
+    });
+    pane.appendChild(ps);
+
+    var c=el("div","stage");
+    if(state.ps<4) stageBody(c,PEER.stages[state.ps],ver);
+    else if(state.ps===4) sumBody(c,ver);
+    else swapBody(c);
+    c.appendChild(peerNav());
+    pane.appendChild(c);
+  }
+
+  function stageHead(c,n,t,m){
+    var h=el("div","stage-h");
+    if(n) h.appendChild(el("span","stage-n",n));
+    h.appendChild(el("span","stage-t",t));
+    h.appendChild(el("span","stage-m",m));
+    c.appendChild(h);
+  }
+
+  function stageBody(c,st,ver){
+    var q=st.q[ver];
+    stageHead(c,"第 "+st.n+" 段",st.name,"約 "+st.min+" 分鐘");
+    q.main.forEach(function(t){ c.appendChild(el("p","stage-q",t)); });
+    var lb=el("div","listen");
+    lb.appendChild(el("div","listen-l","這段要聽"));
+    lb.appendChild(el("div","listen-t",st.listen));
+    if(st.listenD) lb.appendChild(el("div","listen-d",st.listenD));
+    lb.appendChild(el("div","listen-e","可以留意的話："+st.cues.join("　")));
+    c.appendChild(lb);
+    var d=el("details","role");
+    d.appendChild(el("summary",null,"備用問題（"+q.more.length+"）"));
+    var b=el("div","role-b");
+    var ul=el("ul","more-q");
+    q.more.forEach(function(t){ ul.appendChild(el("li",null,t)); });
+    b.appendChild(ul);
+    d.appendChild(b);
+    c.appendChild(d);
+  }
+
+  function sumBody(c,ver){
+    var sm=PEER.sum;
+    stageHead(c,null,"整理與摘要","傾聽者．約 "+sm.min+" 分鐘");
+    c.appendChild(el("p","stage-p",sm.pre));
+    var g=el("div","notes4");
+    sm.boxes.forEach(function(lb,i){
+      var f=el("div");
+      var l=el("label",null,lb); l.htmlFor="pn"+i;
+      var ta=el("textarea"); ta.id="pn"+i; ta.rows=3; ta.value=pnotes[i]||"";
+      ta.oninput=function(){ pnotes[i]=ta.value; keepNotes(); };
+      f.appendChild(l); f.appendChild(ta);
+      g.appendChild(f);
+    });
+    c.appendChild(g);
+    var na=el("div","notes-act");
+    var clr=el("button",null,"清空筆記");
+    clr.onclick=function(){ pnotes={}; keepNotes(); peerPage("keep"); };
+    na.appendChild(clr);
+    c.appendChild(na);
+    c.appendChild(el("p","stage-p",sm.how));
+    var d=el("details","role");
+    d.appendChild(el("summary",null,"看一個例子｜"+verLabel(ver)));
+    var b=el("div","role-b");
+    b.appendChild(el("p","ex-p",sm.ex[ver]));
+    d.appendChild(b);
+    c.appendChild(d);
+    c.appendChild(el("p","stage-check",sm.check));
+  }
+
+  function swapBody(c){
+    stageHead(c,null,"換你問","分享者問傾聽者．約 "+PEER.swap.min+" 分鐘");
+    c.appendChild(el("p","stage-q",PEER.swap.q));
+  }
+
+  function peerNav(){
+    var last=PSTEPS.length-1;
+    var nav=el("div","round-b stage-nav");
+    var prev=el("button","btn2","上一步");
+    prev.disabled = state.ps===0;
+    prev.onclick=function(){ if(state.ps>0){ state.ps--; peerPage("tab"); } };
+    var label = state.ps<3 ? "下一段" : state.ps===3 ? "整理與摘要" : state.ps===4 ? "換你問" : "到回顧";
+    var next=el("button","btn1",label);
+    next.onclick=function(){ if(state.ps<last) state.ps++; else state.pt="review"; peerPage("tab"); };
+    nav.appendChild(prev); nav.appendChild(next);
+    return nav;
+  }
+
+  // 揭曉卡：DARN、CATs 各一張，用詞與例句同工作坊簡報
+  function ctCard(g,cls){
+    var c=el("div","ct"+(cls?" "+cls:""));
+    c.appendChild(el("div","ct-h",g.name));
+    c.appendChild(el("div","ct-d",g.d));
+    g.items.forEach(function(it){
+      var r=el("div","ct-row");
+      r.appendChild(el("div","ct-k",it.k));
+      var b=el("div");
+      b.appendChild(el("div","ct-n",it.en+" "+it.zh));
+      if(it.stage) b.appendChild(el("div","ct-from","第 "+it.stage+" 段｜"+it.from));
+      b.appendChild(el("div","ct-ex",it.ex));
+      r.appendChild(b);
+      c.appendChild(r);
+    });
+    if(g.note) c.appendChild(el("div","ct-note",g.note));
+    return c;
+  }
+
+  function peerReview(pane){
+    var ver=peerVer();
+    pane.appendChild(el("h3","sec","先在心裡想兩件事"));
+    var ul=el("ul","think");
+    PEER.think.forEach(function(t){ ul.appendChild(el("li",null,t)); });
+    pane.appendChild(ul);
+
+    pane.appendChild(el("h3","sec","經驗整理"));
+    [["問分享者",PEER.debrief.share],["問傾聽者",PEER.debrief.listen]].forEach(function(g){
+      var c=el("div","fbq");
+      c.appendChild(el("div","fbq-w",g[0]));
+      var l=el("ul","fbq-l");
+      g[1].forEach(function(t){ l.appendChild(el("li",null,t)); });
+      c.appendChild(l);
+      pane.appendChild(c);
+    });
+
+    var box=el("div","reveal");
+    if(state.prv){
+      box.appendChild(ctCard(PEER.reveal.darn,""));
+      box.appendChild(ctCard(PEER.reveal.cats,"cats"));
+      box.appendChild(el("p","ct-ask",PEER.reveal.ask));
+    } else {
+      var b=el("button","btn1",PEER.reveal.btn);
+      b.onclick=function(){ state.prv=true; peerPage("keep"); };
+      box.appendChild(b);
+    }
+    pane.appendChild(box);
   }
 
   /* ==========================================================
@@ -3019,6 +3700,7 @@ window.BASICBOT = {
   function pageLabel(){
     var p=location.hash.replace(/^#\/?/,"").split("/"), id=parseInt(p[1],10);
     if(p[0]==="basic") return "OARS初階練習";
+    if(p[0]==="peer") return "OARS中階練習｜認識你的教室夥伴";
     if(p[0]==="oars"){ var m=find(M,id); return m ? "OARS諮詢情境練習｜獨白"+m.num+"　"+m.title : "OARS諮詢情境練習"; }
     if(p[0]==="talk"){ var s=find(S,id); return s ? "辨識改變型對話｜段落"+s.num+"　"+s.title : "辨識改變型對話"; }
     if(p[0]==="ai"){
@@ -3237,7 +3919,8 @@ window.BASICBOT = {
 
   function isOpen(id){
     var a=actById(id), d = a ? a.def!==false : true;
-    if(!BACKEND || !CFG) return d;
+    if(!BACKEND) return true;            // 沒有後台：全部開放
+    if(!CFG) return d;
     return Object.prototype.hasOwnProperty.call(CFG.acts,id) ? CFG.acts[id] : d;
   }
   function isAdmin(){ return !!adm.token; }
@@ -3460,7 +4143,7 @@ window.BASICBOT = {
     if(adm.busy) return;
     var d=adm.draft || admSaved();
     var payload={ action:"save", token:adm.token, title:d.title.trim(),
-      acts:ACTS.map(function(a){ return { id:a.id, name:a.title, on:!!d.acts[a.id] }; }) };
+      acts:ACTS.map(function(a){ return { id:a.id, name:a.sub ? a.title+"｜"+a.sub : a.title, on:!!d.acts[a.id] }; }) };
     adm.busy=true; btn.disabled=true; btn.textContent="儲存中…";
     api("POST",payload,25000).then(function(j){
       adm.busy=false;
@@ -3493,6 +4176,7 @@ window.BASICBOT = {
      路由
      #/              首頁
      #/basic         OARS初階練習
+     #/peer          OARS中階練習｜認識你的教室夥伴
      #/oars、#/oars/3   OARS諮詢情境練習
      #/talk、#/talk/7   辨識改變型對話
      #/ai、#/ai/C       AI諮詢技巧練習機器人（C 是卡片代號，會捲到那張卡並標出來）
@@ -3507,6 +4191,7 @@ window.BASICBOT = {
     if(p[0]==="admin"){ adminPage(); }
     else if(actById(p[0]) && !canSee(p[0])){ view="closed"; closedPage(p[0]); }
     else if(p[0]==="basic"){ view="page"; basicPage(); }
+    else if(p[0]==="peer"){ view="page"; state.prv=false; peerPage(); }
     else if(p[0]==="oars"){
       view="page";
       var m=find(M,parseInt(p[1],10));
@@ -3525,6 +4210,7 @@ window.BASICBOT = {
     }
     else { view="home"; home(); }
     if(gearBtn){ if(view==="admin") gearBtn.setAttribute("aria-current","page"); else gearBtn.removeAttribute("aria-current"); }
+    document.body.classList.toggle("is-home", view==="home");
   }
 
   window.addEventListener("hashchange",function(){
