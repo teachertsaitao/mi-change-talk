@@ -1,9 +1,11 @@
-// Build: 20261102003221
-const CACHE_NAME = 'mi-practice-20261102003221';
+// Build: 20261102224056
+const CACHE_NAME = 'mi-practice-20261102224056';
 const ASSETS = ['./', './index.html', './manifest.json', './icon-192.png', './icon-512.png', './icon-maskable-512.png', './apple-touch-icon.png'];
+const OPTIONAL = ['./backend.js'];   // 講師後台網址；沒有這個檔也照常安裝
 
 self.addEventListener('install', e => {
-  e.waitUntil(caches.open(CACHE_NAME).then(c => c.addAll(ASSETS)));
+  e.waitUntil(caches.open(CACHE_NAME).then(c => c.addAll(ASSETS).then(() =>
+    Promise.all(OPTIONAL.map(u => c.add(u).catch(() => {}))))));
   self.skipWaiting();
 });
 
@@ -27,6 +29,7 @@ self.addEventListener('fetch', e => {
         caches.open(CACHE_NAME).then(c => c.put(req, copy));
       }
       return resp;
-    }).catch(() => caches.match(req, { ignoreSearch: true }).then(r => r || caches.match('./index.html')))
+    }).catch(() => caches.match(req, { ignoreSearch: true }).then(r =>
+      r || (req.mode === 'navigate' ? caches.match('./index.html') : Response.error())))
   );
 });

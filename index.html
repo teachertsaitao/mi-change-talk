@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- 動機式晤談練習　v11　2026-11-02 -->
+<!-- 動機式晤談練習　v12　2026-11-02 -->
 <html lang="zh-Hant">
 <head>
 <meta charset="utf-8">
@@ -55,7 +55,7 @@ a.brand small{display:block;font-family:var(--sans);font-size:11.5px;font-weight
 .act{display:block;width:100%;text-align:left;background:var(--card);border:1px solid var(--line);
   border-radius:14px;padding:20px 20px 18px;transition:.16s}
 .act:hover,.act:focus-visible{border-color:var(--taupe);transform:translateY(-1px)}
-.act-eye{font-size:12px;letter-spacing:.14em;color:var(--taupe);margin-bottom:6px}
+.act-eye{display:flex;align-items:center;gap:8px;font-size:12px;letter-spacing:.14em;color:var(--taupe);margin-bottom:6px}
 .act-t{font-family:var(--serif);font-size:22px;font-weight:700;color:var(--ink);line-height:1.35;margin-bottom:8px}
 .act-d{font-size:14px;color:#5F6670;line-height:1.8;margin-bottom:12px}
 .act-m{font-size:12px;color:var(--taupe)}
@@ -160,6 +160,7 @@ details.role[open] summary::after{content:"收起"}
 .btn1{background:var(--slate);color:#fff}
 .btn2{background:var(--card);border:1px solid var(--line);color:#6A7280}
 .btn2[disabled]{opacity:.45;cursor:default}
+.btn1[disabled]{opacity:.6;cursor:default}
 
 .cues{display:flex;flex-direction:column;gap:9px}
 .cue{display:flex;gap:13px;align-items:flex-start;background:var(--card);border:1px solid var(--line);
@@ -354,6 +355,66 @@ table.refs td.v{white-space:nowrap;font-family:var(--serif);font-weight:700}
 .qr-opts button[aria-pressed="true"]{background:var(--slate);border-color:var(--slate);color:#fff}
 .qr-close{display:block;width:100%;max-width:320px;margin:20px auto 0}
 
+/* ---------- 講師設定 ---------- */
+.top-btns{flex:none;display:flex;align-items:center;gap:8px}
+a.brand{white-space:nowrap}
+a.brand small{white-space:normal}
+@media(max-width:374px){
+  .qr-btn{width:32px;height:32px;padding:0;justify-content:center}
+  .qr-btn span{display:none}
+}
+.gear-btn{flex:none;display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;
+  border:1px solid rgba(255,255,255,.3);border-radius:50%;color:rgba(255,255,255,.85);transition:.16s}
+.gear-btn:hover,.gear-btn[aria-current="page"]{background:rgba(255,255,255,.14);color:#fff}
+.act.off{border-style:dashed;background:#FCFBF9}
+.act.off .act-t,.act.off .act-d{color:#8A9099}
+.tag-off{margin-left:auto;font-size:11.5px;letter-spacing:.04em;padding:2px 8px;border-radius:4px;
+  background:var(--sand);color:#6E6257}
+.adm-bar{display:flex;flex-wrap:wrap;align-items:center;gap:4px 14px;margin:22px 0 -6px;padding:10px 14px;
+  background:var(--sand);border-radius:10px;font-size:13px;line-height:1.7;color:#5F5449}
+.adm-bar span{flex:1 1 15em}
+.adm-bar button{font-size:13px;font-weight:600;color:var(--slate);padding:2px 0;border-bottom:1px solid #CFC8C0}
+.closed{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:28px 20px 22px;text-align:center}
+.wrap > .closed{margin:14px 0 44px}
+.closed-eye{font-size:12.5px;letter-spacing:.08em;color:var(--taupe);margin-bottom:6px}
+.closed-t{font-family:var(--serif);font-size:21px;font-weight:700;color:var(--ink);line-height:1.45;margin-bottom:6px}
+.closed-p{margin:0 0 18px;font-size:14px;color:#6A7280;line-height:1.8}
+.closed .btn1{display:block;width:100%;max-width:320px;margin:0 auto}
+.loading{padding:80px 0;text-align:center;font-size:13.5px;letter-spacing:.08em;color:var(--taupe)}
+.loading::before{content:"";display:block;width:24px;height:24px;margin:0 auto 12px;border-radius:50%;
+  border:2px solid var(--line);border-top-color:var(--slate);animation:spin .9s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.adm-sec{margin-bottom:26px}
+.fld-l{display:block;font-size:14px;font-weight:700;color:var(--ink);margin:0 0 8px}
+.fld{display:block;width:100%;font-family:var(--sans);font-size:16px;line-height:1.5;color:var(--ink);background:#fff;
+  border:1px solid var(--line);border-radius:10px;padding:11px 13px;-webkit-appearance:none;appearance:none}
+.fld:focus{outline:none;border-color:var(--slate);box-shadow:0 0 0 3px rgba(90,100,114,.14)}
+.fld::placeholder{color:#B3ADA5}
+.fld-h{margin:7px 0 0;font-size:12.5px;color:var(--taupe);line-height:1.7}
+.adm-form .btn1{display:block;width:100%}
+.adm-err{min-height:1.7em;margin:8px 0 10px;font-size:13.5px;line-height:1.7;color:var(--sus)}
+.sw-list{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.sw-row{position:relative;display:flex;align-items:center;gap:12px;padding:13px 16px;border-bottom:1px solid var(--line);cursor:pointer}
+.sw-row:last-child{border-bottom:none}
+.sw-b{flex:1;min-width:0}
+.sw-eye{display:block;font-size:11.5px;letter-spacing:.14em;color:var(--taupe);line-height:1.6}
+.sw-t{display:block;font-size:15.5px;font-weight:600;color:var(--ink);line-height:1.5}
+.sw-st{flex:none;font-size:12.5px;font-weight:600;color:var(--slate)}
+.sw-row.off .sw-t{color:#8A9099}
+.sw-row.off .sw-st{color:var(--taupe);font-weight:400}
+.sw-in{position:absolute;opacity:0;width:1px;height:1px;margin:0;pointer-events:none}
+.sw-ui{flex:none;position:relative;width:46px;height:28px;border-radius:999px;background:#D6CFC6;transition:background .18s}
+.sw-ui::after{content:"";position:absolute;top:3px;left:3px;width:22px;height:22px;border-radius:50%;background:#fff;
+  box-shadow:0 1px 3px rgba(46,52,61,.22);transition:transform .18s}
+.sw-in:checked + .sw-ui{background:var(--slate)}
+.sw-in:checked + .sw-ui::after{transform:translateX(18px)}
+.sw-in:focus-visible + .sw-ui{outline:2px solid var(--slate);outline-offset:3px}
+.adm-act .btn1{display:block;width:100%}
+.adm-hint{margin:9px 0 0;font-size:13px;line-height:1.7;color:var(--taupe);text-align:center}
+.adm-hint.dirty{color:var(--sus);font-weight:600}
+.adm-more{display:flex;gap:10px;margin-top:22px}
+.adm-fn{margin:22px 0 0;font-size:12.5px;line-height:1.8;color:var(--taupe)}
+
 @media(max-width:520px){
   .head-t{font-size:22px}
   .counter-v{font-size:44px}
@@ -363,7 +424,7 @@ table.refs td.v{white-space:nowrap;font-family:var(--serif);font-weight:700}
   *{animation:none!important;transition:none!important}
 }
 @media print{
-  .top,.tabs,.tools,.back,.filters,.foot,.count-row,.round-b,.qr-btn{display:none!important}
+  .top,.tabs,.tools,.back,.filters,.foot,.count-row,.round-b,.qr-btn,.gear-btn,.adm-bar{display:none!important}
   body{background:#fff;font-size:12pt}
   .script p,.mono p{font-size:12pt;line-height:1.9}
   .pane{padding:0}
@@ -376,12 +437,17 @@ table.refs td.v{white-space:nowrap;font-family:var(--serif);font-weight:700}
 <header class="top">
   <div class="wrap">
     <a class="brand" href="#/">動機式晤談練習
-      <small>運用動機式晤談於學校諮詢工作</small>
+      <small id="brandSub">運用動機式晤談於學校諮詢工作</small>
     </a>
-    <button class="qr-btn" id="qrBtn" type="button" aria-label="顯示這一頁的 QR code">
-      <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3h-3z"/><path d="M21 14v.01"/><path d="M14 21h.01"/><path d="M17 21h4v-4"/></svg>
-      <span>QR code</span>
-    </button>
+    <div class="top-btns">
+      <button class="qr-btn" id="qrBtn" type="button" aria-label="顯示這一頁的 QR code">
+        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3h-3z"/><path d="M21 14v.01"/><path d="M14 21h.01"/><path d="M17 21h4v-4"/></svg>
+        <span>QR code</span>
+      </button>
+      <button class="gear-btn" id="gearBtn" type="button" aria-label="講師設定" title="講師設定">
+        <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
+      </button>
+    </div>
   </div>
 </header>
 
@@ -392,9 +458,11 @@ table.refs td.v{white-space:nowrap;font-family:var(--serif);font-weight:700}
   <div class="ttl"><span class="seg">淡江大學通核中心、實踐大學社工系 講師</span><span class="sep">｜</span><span class="seg">臺師大社會情緒教育與發展研究中心 講師兼課程發展委員</span></div>
   <div class="ttl"><span class="seg">國小專輔教師</span><span class="sep">｜</span><span class="seg">臺北市立大學教育學系心輔組博士候選人</span></div>
   <div class="fb"><a href="https://www.facebook.com/share/1JGymQQPBy/" target="_blank" rel="noopener">菜桃老師的遊聊室</a></div>
-  <div class="ver">練習素材，非真實個案。v11．2026-11-02</div>
+  <div class="ver">練習素材，非真實個案。v12．2026-11-02</div>
 </div>
 
+<!-- 講師後台的網址寫在 backend.js（沒有這個檔案時，所有練習都開放） -->
+<script src="backend.js"></script>
 <script>
 /* QR Code Generator for JavaScript（qrcode-generator 2.0.4）
    Copyright (c) 2009 Kazuhiko Arase. Licensed under the MIT license:
@@ -2125,37 +2193,98 @@ window.BASICBOT = {
 
   /* ==========================================================
      首頁
+     ACTS 是練習清單：首頁的卡片、講師設定的開關都從這裡來。
+       id    代碼。和網址（#/basic）、後台試算表的「代碼」欄一樣，不要改
+       def   後台還沒有這個練習的設定時，預設開放（true）或不開放（false）
+     之後新增練習：在這裡加一項、在 route() 接上它的頁面，講師設定就會多一個開關。
      ========================================================== */
+  var ACTS = [
+    { id:"basic", eye:"融入", title:"OARS初階練習", def:true,
+      desc:"跟 ChatGPT 練日常對話。它扮演你要陪伴的人，你練問、肯認、反映、摘要四個傾聽動作，練完當場拿到回饋報告。",
+      meta:function(){ return "五組角色．共 "+BASIC.groups.reduce(function(n,g){ return n+g.roles.length; },0)+" 個"; } },
+    { id:"oars", eye:"融入", title:"OARS諮詢情境練習", def:true,
+      desc:"先把人接住，再談改變。一人念獨白、扮演教師或家長，另一人只用 OARS 回應，連續來回五輪。",
+      meta:function(){ return M.length+" 段獨白．教師 "+count(M,"教師")+"．家長 "+count(M,"家長"); } },
+    { id:"talk", eye:"誘發", title:"辨識改變型對話", def:true,
+      desc:"一人念、一人聽，找出改變型對話與維持型對話，念完一起對答案。",
+      meta:function(){ return S.length+" 段朗讀稿．教師 "+count(S,"教師")+"．家長 "+count(S,"家長"); } },
+    { id:"ai", eye:"誘發", title:"AI諮詢技巧練習機器人", def:true,
+      desc:"ChatGPT 扮演來談的教師或家長，你當諮詢者，練辨識、邀請、強化完整的一輪。複製主 prompt 和情境卡，貼進 ChatGPT 就能開始。",
+      meta:function(){ return AI.cards.length+" 張情境卡．教師 "+count(AI.cards,"教師")+"．家長 "+count(AI.cards,"家長"); } }
+  ];
+  function actById(id){ for(var i=0;i<ACTS.length;i++){ if(ACTS[i].id===id) return ACTS[i]; } return null; }
+
   function home(){
     app.innerHTML="";
     var w=el("div","wrap");
-    var acts=el("div","acts");
-    [
-      { hash:"#/basic", eye:"融入", title:"OARS初階練習",
-        desc:"跟 ChatGPT 練日常對話。它扮演你要陪伴的人，你練問、肯認、反映、摘要四個傾聽動作，練完當場拿到回饋報告。",
-        meta:"五組角色．共 "+BASIC.groups.reduce(function(n,g){ return n+g.roles.length; },0)+" 個" },
-      { hash:"#/oars", eye:"融入", title:"OARS諮詢情境練習",
-        desc:"先把人接住，再談改變。一人念獨白、扮演教師或家長，另一人只用 OARS 回應，連續來回五輪。",
-        meta:M.length+" 段獨白．教師 "+count(M,"教師")+"．家長 "+count(M,"家長") },
-      { hash:"#/talk", eye:"誘發", title:"辨識改變型對話",
-        desc:"一人念、一人聽，找出改變型對話與維持型對話，念完一起對答案。",
-        meta:S.length+" 段朗讀稿．教師 "+count(S,"教師")+"．家長 "+count(S,"家長") },
-      { hash:"#/ai", eye:"誘發", title:"AI諮詢技巧練習機器人",
-        desc:"ChatGPT 扮演來談的教師或家長，你當諮詢者，練辨識、邀請、強化完整的一輪。複製主 prompt 和情境卡，貼進 ChatGPT 就能開始。",
-        meta:AI.cards.length+" 張情境卡．教師 "+count(AI.cards,"教師")+"．家長 "+count(AI.cards,"家長") }
-    ].forEach(function(a){
-      var c=el("button","act");
-      c.onclick=function(){ go(a.hash); };
-      c.appendChild(el("div","act-eye",a.eye));
+    var admin=isAdmin();
+    if(admin) w.appendChild(adminBar());
+    var acts=el("div","acts"), shown=0;
+    ACTS.forEach(function(a){
+      var open=isOpen(a.id);
+      if(!open && !admin) return;
+      var c=el("button","act"+(open?"":" off"));
+      c.onclick=function(){ go("#/"+a.id); };
+      var eye=el("div","act-eye");
+      eye.appendChild(el("span",null,a.eye));
+      if(!open) eye.appendChild(el("span","tag-off","這次未開放"));
+      c.appendChild(eye);
       c.appendChild(el("div","act-t",a.title));
       c.appendChild(el("div","act-d",a.desc));
-      c.appendChild(el("div","act-m",a.meta));
+      c.appendChild(el("div","act-m",a.meta()));
       acts.appendChild(c);
+      shown++;
     });
+    if(!shown) acts.appendChild(waitCard());
     w.appendChild(acts);
     if(!isStandalone()) w.appendChild(installCard());
     app.appendChild(w);
     window.scrollTo(0,0);
+  }
+
+  // 一個練習都還沒開放
+  function waitCard(){
+    var c=el("div","closed");
+    c.appendChild(el("div","closed-t","練習還沒開放"));
+    c.appendChild(el("p","closed-p","講師開放之後，按「重新整理」就會出現。"));
+    var b=el("button","btn1","重新整理");
+    b.onclick=function(){
+      b.disabled=true; b.textContent="讀取中…";
+      refreshCfg(true).then(function(){
+        if(!document.body.contains(b)) return;
+        b.disabled=false; b.textContent="重新整理";
+        toast("還沒開放，請稍候");
+      });
+    };
+    c.appendChild(b);
+    return c;
+  }
+
+  // 學員打開這次沒開放的練習（舊的 QR code、書籤、同組夥伴傳來的連結）
+  function closedPage(id){
+    var a=actById(id);
+    app.innerHTML="";
+    var w=el("div","wrap");
+    w.appendChild(backBtn("回首頁","#/"));
+    var c=el("div","closed");
+    if(a) c.appendChild(el("div","closed-eye",a.title));
+    c.appendChild(el("div","closed-t","這個練習這次沒有開放"));
+    c.appendChild(el("p","closed-p","請回首頁，選講師說的練習。"));
+    var b=el("button","btn1","回首頁");
+    b.onclick=function(){ go("#/"); };
+    c.appendChild(b);
+    w.appendChild(c);
+    app.appendChild(w);
+    window.scrollTo(0,0);
+  }
+
+  function loadingView(){
+    app.innerHTML="";
+    var w=el("div","wrap");
+    var l=el("div","loading","載入中…");
+    l.setAttribute("role","status");
+    w.appendChild(l);
+    app.appendChild(w);
   }
 
   /* ==========================================================
@@ -2556,7 +2685,7 @@ window.BASICBOT = {
 
     var card=null;
     AI.cards.forEach(function(c){ if(c.seg===seg.id) card=c; });
-    if(card){
+    if(card && canSee("ai")){
       var who = seg.audience==="教師" ? "這位老師" : "這位家長";
       var nx=el("div","next");
       nx.appendChild(el("div","next-l","同一個人，換你來談"));
@@ -2897,6 +3026,7 @@ window.BASICBOT = {
       AI.cards.forEach(function(x){ if(x.id===k) c=x; });
       return c ? "AI諮詢技巧練習機器人｜卡片 "+c.id+"　"+c.title : "AI諮詢技巧練習機器人";
     }
+    if(p[0]==="admin") return "講師設定";
     return "首頁";
   }
 
@@ -3077,38 +3207,347 @@ window.BASICBOT = {
   }
 
   /* ==========================================================
+     講師設定：這次工作坊開放哪些練習
+     設定存在 Google 試算表，透過 Apps Script 讀寫；網址寫在 backend.js。
+     backend.js 沒有網址時，所有練習都開放，講師設定頁會說明怎麼接上。
+     學員：先用上次存下的設定立刻顯示，再到後台拿最新的；
+           回到首頁、切回這個網頁時會重新讀取（15 秒內不重複讀）。
+     講師登入後，首頁列出全部練習，沒開放的標「這次未開放」，點進去可以預覽。
+     ========================================================== */
+  var BACKEND = (typeof window.MI_BACKEND==="string") ? window.MI_BACKEND.trim() : "";
+  var CFG=null, cfgAt=0, cfgBusy=null, view="", booted=false;
+  var sess = {
+    get:function(k){ try{ return sessionStorage.getItem("mi_"+k); }catch(e){ return null; } },
+    set:function(k,v){ try{ if(v===null) sessionStorage.removeItem("mi_"+k); else sessionStorage.setItem("mi_"+k,v); }catch(e){} }
+  };
+  var adm = { token:BACKEND ? sess.get("tok") : null, sheet:sess.get("sheet"), draft:null, busy:false, msg:"" };
+
+  function normCfg(c){
+    var o={ title:"", acts:{} };
+    if(c && typeof c.title==="string") o.title=c.title.replace(/\s+/g," ").trim().slice(0,60);
+    if(c && c.acts && typeof c.acts==="object"){
+      Object.keys(c.acts).forEach(function(k){ if(/^[a-z][a-z0-9_-]{0,30}$/.test(k)) o.acts[k]=c.acts[k]===true; });
+    }
+    return o;
+  }
+  (function(){
+    var saved=store.get("cfg",null);
+    if(BACKEND && saved && saved.src===BACKEND && saved.cfg) CFG=normCfg(saved.cfg);
+  })();
+
+  function isOpen(id){
+    var a=actById(id), d = a ? a.def!==false : true;
+    if(!BACKEND || !CFG) return d;
+    return Object.prototype.hasOwnProperty.call(CFG.acts,id) ? CFG.acts[id] : d;
+  }
+  function isAdmin(){ return !!adm.token; }
+  function canSee(id){ return isAdmin() || isOpen(id); }
+
+  var brandSub=document.getElementById("brandSub");
+  var SUB_DEFAULT=brandSub ? brandSub.textContent : "";
+  function applyTitle(){ if(brandSub) brandSub.textContent=(CFG && CFG.title) || SUB_DEFAULT; }
+  applyTitle();
+
+  // 跟後台講話。Apps Script 會先 302 轉址到 googleusercontent.com 再回 JSON；
+  // POST 用 text/plain，瀏覽器才不會先送 OPTIONS 預檢（Apps Script 不回應預檢）。
+  function api(method,body,ms){
+    return new Promise(function(resolve,reject){
+      var done=false, ctl=window.AbortController ? new AbortController() : null;
+      function finish(fn,v){ if(done) return; done=true; clearTimeout(timer); fn(v); }
+      var timer=setTimeout(function(){ finish(reject,new Error("timeout")); if(ctl) ctl.abort(); }, ms||12000);
+      var url=BACKEND, opt={ method:method, redirect:"follow", credentials:"omit" };
+      if(ctl) opt.signal=ctl.signal;
+      if(method==="GET") url+=(url.indexOf("?")<0 ? "?" : "&")+"t="+Date.now();
+      else { opt.headers={"Content-Type":"text/plain;charset=utf-8"}; opt.body=JSON.stringify(body||{}); }
+      fetch(url,opt).then(function(r){
+        if(!r.ok) throw new Error("HTTP "+r.status);
+        return r.json();
+      }).then(function(j){ finish(resolve,j); },function(e){ finish(reject,e); });
+    });
+  }
+
+  function refreshCfg(force){
+    if(!BACKEND) return Promise.resolve(false);
+    if(cfgBusy) return cfgBusy;
+    if(!force && Date.now()-cfgAt<15000) return Promise.resolve(false);
+    cfgAt=Date.now();
+    cfgBusy=api("GET",null,10000).then(function(j){
+      cfgBusy=null;
+      if(j && j.ok && j.cfg){ setCfg(j.cfg); return true; }
+      return false;
+    },function(){ cfgBusy=null; return false; });
+    return cfgBusy;
+  }
+
+  function cfgSig(){ return ACTS.map(function(a){ return isOpen(a.id)?1:0; }).join("")+"|"+((CFG && CFG.title)||""); }
+  function keepScroll(fn){ var y=window.pageYOffset; fn(); window.scrollTo(0,y); }
+  function setCfg(c,quiet){
+    var before=cfgSig();
+    CFG=normCfg(c);
+    store.set("cfg",{src:BACKEND,cfg:CFG});
+    applyTitle();
+    if(quiet || !booted || cfgSig()===before) return;
+    if(view==="home" || view==="closed") route();
+    else if(view==="admin" && !adm.draft && !adm.busy) keepScroll(adminPage);
+  }
+
+  function adminBar(){
+    var b=el("div","adm-bar");
+    b.appendChild(el("span",null,"講師模式：你看得到全部練習，學員只看得到開放的。"));
+    var s=el("button",null,"講師設定"); s.onclick=function(){ go("#/admin"); };
+    var o=el("button",null,"登出"); o.onclick=logout;
+    b.appendChild(s); b.appendChild(o);
+    return b;
+  }
+
+  function logout(){
+    var t=adm.token;
+    adm.token=null; adm.draft=null; adm.msg=""; sess.set("tok",null);
+    if(t && BACKEND) api("POST",{action:"logout",token:t},8000).catch(function(){});
+    toast("已登出");
+    route();
+  }
+
+  function adminPage(){
+    view="admin";
+    app.innerHTML="";
+    var w=el("div","wrap");
+    w.appendChild(backBtn("回首頁","#/"));
+    var hd=el("div","head");
+    hd.appendChild(el("div","head-n","講師"));
+    hd.appendChild(el("h1","head-t","講師設定"));
+    hd.appendChild(el("p","head-p","決定這次工作坊開放哪些練習。學員的首頁只會出現開放的練習。"));
+    w.appendChild(hd);
+    var pane=el("div","pane");
+    if(!BACKEND) admNoBackend(pane);
+    else if(!isAdmin()) admLogin(pane);
+    else admSettings(pane);
+    w.appendChild(pane);
+    app.appendChild(w);
+    window.scrollTo(0,0);
+  }
+
+  function admNoBackend(pane){
+    var n=el("div","note");
+    n.innerHTML="<b>還沒連上後台，所以現在所有練習都開放。</b><br>把 Apps Script 部署好的網址（結尾是 /exec）貼進網站的 backend.js，重新部署之後，這裡就能登入設定。";
+    pane.appendChild(n);
+  }
+
+  function admLogin(pane){
+    if(/\/dev(\?|$)/.test(BACKEND)){
+      var warn=el("div","note");
+      warn.innerHTML="<b>backend.js 的網址結尾是 /dev。</b>那是測試用的網址，只有你自己打得開。請改用部署後拿到、結尾是 /exec 的網址。";
+      pane.appendChild(warn);
+    }
+    var f=el("form","adm-form"); f.noValidate=true;
+    var lb=el("label","fld-l","管理密碼"); lb.htmlFor="admPw";
+    var ip=el("input","fld"); ip.type="password"; ip.id="admPw"; ip.name="password";
+    ip.setAttribute("autocomplete","current-password");
+    ip.setAttribute("enterkeyhint","go");
+    var err=el("p","adm-err",adm.msg||""); err.setAttribute("role","alert");
+    var btn=el("button","btn1","登入"); btn.type="submit";
+    f.appendChild(lb); f.appendChild(ip); f.appendChild(err); f.appendChild(btn);
+    f.onsubmit=function(e){
+      e.preventDefault();
+      if(adm.busy) return;
+      var pw=ip.value.trim();
+      if(!pw){ err.textContent="請輸入密碼。"; ip.focus(); return; }
+      adm.busy=true; btn.disabled=true; btn.textContent="登入中…"; err.textContent="";
+      api("POST",{action:"login",pw:pw},20000).then(function(j){
+        adm.busy=false;
+        if(j && j.ok && j.token){
+          adm.token=j.token; sess.set("tok",j.token);
+          if(j.sheet){ adm.sheet=j.sheet; sess.set("sheet",j.sheet); }
+          adm.msg="";
+          if(j.cfg) setCfg(j.cfg,true);
+          if(view==="admin") adminPage();
+          return;
+        }
+        btn.disabled=false; btn.textContent="登入";
+        err.textContent=(j && j.err) || "沒有登入成功，請再試一次。";
+        ip.focus(); ip.select();
+      },function(){
+        adm.busy=false; btn.disabled=false; btn.textContent="登入";
+        err.textContent="連不上後台。請確認網路，以及 backend.js 的網址正確、部署時「誰可以存取」選了「所有人」。";
+      });
+    };
+    pane.appendChild(f);
+    pane.appendChild(el("p","adm-fn","密碼寫在 Apps Script 程式碼最上面的 ADMIN_PASSWORD。"));
+    if(window.matchMedia && window.matchMedia("(hover:hover)").matches) setTimeout(function(){ ip.focus(); },0);
+  }
+
+  function admSaved(){
+    var o={ title:(CFG && CFG.title) || "", acts:{} };
+    ACTS.forEach(function(a){ o.acts[a.id]=isOpen(a.id); });
+    return o;
+  }
+  function admSame(a,b){
+    if(a.title.trim()!==b.title.trim()) return false;
+    for(var i=0;i<ACTS.length;i++){ var id=ACTS[i].id; if(!!a.acts[id]!==!!b.acts[id]) return false; }
+    return true;
+  }
+
+  function admSettings(pane){
+    var cur=adm.draft || admSaved();
+    function draft(){
+      if(!adm.draft){
+        var d={ title:cur.title, acts:{} };
+        Object.keys(cur.acts).forEach(function(k){ d.acts[k]=cur.acts[k]; });
+        adm.draft=d; cur=d;
+      }
+      return adm.draft;
+    }
+
+    var s1=el("div","adm-sec");
+    var tl=el("label","fld-l","工作坊名稱"); tl.htmlFor="admTitle";
+    var ti=el("input","fld"); ti.type="text"; ti.id="admTitle"; ti.maxLength=60;
+    ti.value=cur.title; ti.placeholder=SUB_DEFAULT;
+    ti.oninput=function(){ draft().title=ti.value; mark(); };
+    s1.appendChild(tl); s1.appendChild(ti);
+    s1.appendChild(el("p","fld-h","顯示在網頁標題下方。留白就用「"+SUB_DEFAULT+"」。"));
+    pane.appendChild(s1);
+
+    var s2=el("div","adm-sec");
+    s2.appendChild(el("div","fld-l","開放的練習"));
+    var list=el("div","sw-list");
+    ACTS.forEach(function(a){
+      var on=!!cur.acts[a.id];
+      var row=el("label","sw-row"+(on?"":" off"));
+      var b=el("span","sw-b");
+      b.appendChild(el("span","sw-eye",a.eye));
+      b.appendChild(el("span","sw-t",a.title));
+      var st=el("span","sw-st",on?"開放":"不開放");
+      var cb=el("input","sw-in"); cb.type="checkbox"; cb.checked=on;
+      cb.setAttribute("role","switch"); cb.setAttribute("aria-label",a.title);
+      cb.onchange=function(){
+        draft().acts[a.id]=cb.checked;
+        st.textContent=cb.checked?"開放":"不開放";
+        row.className="sw-row"+(cb.checked?"":" off");
+        mark();
+      };
+      row.appendChild(b); row.appendChild(st); row.appendChild(cb); row.appendChild(el("span","sw-ui"));
+      list.appendChild(row);
+    });
+    s2.appendChild(list);
+    pane.appendChild(s2);
+
+    var act=el("div","adm-act");
+    var save=el("button","btn1","儲存設定");
+    var hint=el("p","adm-hint");
+    function mark(){
+      var dirty=!!adm.draft && !admSame(adm.draft,admSaved());
+      hint.className="adm-hint"+(dirty?" dirty":"");
+      hint.textContent=dirty ? "有變更還沒儲存。" : "這就是學員現在看到的設定。";
+    }
+    save.onclick=function(){ admSave(save,hint); };
+    act.appendChild(save); act.appendChild(hint);
+    pane.appendChild(act);
+    mark();
+
+    var more=el("div","adm-more");
+    if(adm.sheet){
+      var sh=el("a","btn2","打開試算表"); sh.href=adm.sheet; sh.target="_blank"; sh.rel="noopener";
+      more.appendChild(sh);
+    }
+    var out=el("button","btn2","登出"); out.onclick=logout;
+    more.appendChild(out);
+    pane.appendChild(more);
+
+    pane.appendChild(el("p","adm-fn","關閉的練習只是從首頁收起來，內容仍在網頁裡，不是保密用。學員回到首頁或重新整理，就會看到新的設定。"));
+  }
+
+  function admSave(btn,hint){
+    if(adm.busy) return;
+    var d=adm.draft || admSaved();
+    var payload={ action:"save", token:adm.token, title:d.title.trim(),
+      acts:ACTS.map(function(a){ return { id:a.id, name:a.title, on:!!d.acts[a.id] }; }) };
+    adm.busy=true; btn.disabled=true; btn.textContent="儲存中…";
+    api("POST",payload,25000).then(function(j){
+      adm.busy=false;
+      if(j && j.ok && j.cfg){
+        adm.draft=null;
+        if(j.sheet){ adm.sheet=j.sheet; sess.set("sheet",j.sheet); }
+        setCfg(j.cfg,true);
+        if(view==="admin") keepScroll(adminPage);
+        toast("已儲存。學員回到首頁就會看到新的設定。");
+        return;
+      }
+      if(j && j.code==="auth"){
+        adm.token=null; sess.set("tok",null);
+        adm.msg="登入逾時，請重新登入。剛才的變更還留著，登入後再按一次「儲存設定」。";
+        if(view==="admin") adminPage();
+        return;
+      }
+      btn.disabled=false; btn.textContent="儲存設定";
+      hint.className="adm-hint dirty"; hint.textContent=(j && j.err) || "沒有存到，請再試一次。";
+    },function(){
+      adm.busy=false; btn.disabled=false; btn.textContent="儲存設定";
+      hint.className="adm-hint dirty"; hint.textContent="連不上後台，設定沒有存到。請檢查網路後再試一次。";
+    });
+  }
+
+  var gearBtn=document.getElementById("gearBtn");
+  if(gearBtn) gearBtn.onclick=function(){ go("#/admin"); };
+
+  /* ==========================================================
      路由
      #/              首頁
      #/basic         OARS初階練習
      #/oars、#/oars/3   OARS諮詢情境練習
      #/talk、#/talk/7   辨識改變型對話
      #/ai、#/ai/C       AI諮詢技巧練習機器人（C 是卡片代號，會捲到那張卡並標出來）
+     #/admin         講師設定
      #/7             舊版網址，自動轉到 #/talk/7
+     沒開放的練習：學員看到「這次沒有開放」；講師登入後照常打開。
      ========================================================== */
   function route(){
+    booted=true;
     var p=location.hash.replace(/^#\/?/,"").split("/");
     if(/^\d+$/.test(p[0])){ location.replace("#/talk/"+p[0]); return; }
-    if(p[0]==="basic"){ basicPage(); return; }
-    if(p[0]==="oars"){
+    if(p[0]==="admin"){ adminPage(); }
+    else if(actById(p[0]) && !canSee(p[0])){ view="closed"; closedPage(p[0]); }
+    else if(p[0]==="basic"){ view="page"; basicPage(); }
+    else if(p[0]==="oars"){
+      view="page";
       var m=find(M,parseInt(p[1],10));
       if(m) oarsDetail(m); else oarsList();
-      return;
     }
-    if(p[0]==="talk"){
+    else if(p[0]==="talk"){
+      view="page";
       var s=find(S,parseInt(p[1],10));
       if(s) talkDetail(s); else talkList();
-      return;
     }
-    if(p[0]==="ai"){
+    else if(p[0]==="ai"){
+      view="page";
       var hl = p[1] ? p[1].toUpperCase() : null;
       if(hl) state.aa="全部";
       aiPage(hl);
-      return;
     }
-    home();
+    else { view="home"; home(); }
+    if(gearBtn){ if(view==="admin") gearBtn.setAttribute("aria-current","page"); else gearBtn.removeAttribute("aria-current"); }
   }
-  window.addEventListener("hashchange",function(){ closeQR(); route(); });
-  route();
+
+  window.addEventListener("hashchange",function(){
+    closeQR(); route();
+    if(view==="home") refreshCfg(false);
+    else if(view==="admin" && isAdmin()) refreshCfg(true);
+  });
+  document.addEventListener("visibilitychange",function(){ if(document.visibilityState==="visible") refreshCfg(false); });
+  window.addEventListener("pageshow",function(e){ if(e.persisted) refreshCfg(false); });
+  window.addEventListener("online",function(){ refreshCfg(true); });
+
+  if(BACKEND && !CFG){
+    // 第一次打開、手上還沒有設定：等後台回覆（最多 6 秒），免得學員先看到沒開放的練習
+    loadingView();
+    var bootTimer=setTimeout(function(){ bootTimer=null; route(); },6000);
+    refreshCfg(true).then(function(ok){
+      if(ok) return true;
+      return new Promise(function(r){ setTimeout(r,1000+Math.random()*1500); }).then(function(){ return refreshCfg(true); });
+    }).then(function(){ if(bootTimer){ clearTimeout(bootTimer); bootTimer=null; route(); } });
+  } else {
+    route();
+    refreshCfg(true);
+  }
 })();
 </script>
 </body>
