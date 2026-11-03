@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<!-- 動機式晤談練習　v13　2026-11-03 -->
+<!-- 動機式晤談練習　v14　2026-11-03 -->
 <html lang="zh-Hant">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>動機式晤談練習</title>
-<meta name="description" content="OARS初階練習、OARS中階練習、OARS諮詢情境練習、辨識改變型對話與 AI諮詢技巧練習機器人，工作坊用的練習工具">
+<meta name="description" content="OARS日常對話練習、OARS訪談練習、OARS諮詢情境練習、辨識改變型對話與 AI諮詢技巧練習機器人，工作坊用的練習工具">
 <meta name="theme-color" content="#5A6472">
 <link rel="manifest" href="manifest.json">
 <link rel="icon" type="image/png" href="icon-192.png">
@@ -296,7 +296,7 @@ pre.prompt{white-space:pre-wrap;word-break:break-word;font-family:var(--sans);fo
   border:1px solid var(--line);border-radius:10px;padding:12px;background:#fff;color:var(--ink);margin-bottom:12px}
 .sheet .btn1{display:block;width:100%}
 
-/* ---------- OARS初階練習 ---------- */
+/* ---------- OARS日常對話練習 ---------- */
 details.role.grp{margin-top:10px}
 .grp-k{font-family:Georgia,"Times New Roman",serif;font-size:18px;font-weight:700;color:var(--slate);margin-right:9px}
 .grp-d{font-size:12.5px;font-weight:400;color:var(--taupe)}
@@ -419,7 +419,7 @@ a.brand small{white-space:normal}
 .adm-more{display:flex;gap:10px;margin-top:22px}
 .adm-fn{margin:22px 0 0;font-size:12.5px;line-height:1.8;color:var(--taupe)}
 
-/* ---------- OARS中階練習 ---------- */
+/* ---------- OARS訪談練習 ---------- */
 .act-s{font-family:var(--serif);font-size:15px;font-weight:700;color:var(--slate);margin:-4px 0 8px}
 .head-s{font-family:var(--serif);font-size:16.5px;font-weight:700;color:var(--slate);margin:-6px 0 10px}
 .hook{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px}
@@ -450,9 +450,14 @@ a.brand small{white-space:normal}
 .stage-m{margin-left:auto;flex:none;font-size:12.5px;color:var(--taupe)}
 .stage-q{margin:0 0 12px;font-family:var(--serif);font-size:20px;font-weight:700;line-height:1.65;color:var(--ink)}
 .stage-p{margin:0 0 10px;font-size:14.5px;line-height:1.8;color:#5F6670}
-.listen{background:#EEF0F3;border-radius:11px;padding:13px 15px;margin:4px 0 12px}
-.listen-l{font-size:12px;font-weight:700;letter-spacing:.12em;color:var(--slate)}
-.listen-t{margin-top:3px;font-size:15.5px;font-weight:700;line-height:1.6;color:var(--ink)}
+details.hint{margin-top:10px}
+details.hint summary{cursor:pointer;list-style:none;display:inline-flex;align-items:center;gap:8px;padding:4px 0;
+  font-size:13px;color:var(--taupe)}
+details.hint summary::-webkit-details-marker{display:none}
+details.hint summary::after{content:"展開";font-size:12px;color:#B3ADA5;border-bottom:1px solid #D9D2C9;line-height:1.3}
+details.hint[open] summary::after{content:"收起"}
+.listen{background:#EEF0F3;border-radius:11px;padding:12px 15px;margin:6px 0 0}
+.listen-t{font-size:15px;font-weight:700;line-height:1.6;color:var(--ink)}
 .listen-d{margin-top:3px;font-size:13.5px;line-height:1.75;color:#5F6670}
 .listen-e{margin-top:7px;font-size:13px;line-height:1.75;color:var(--taupe)}
 .more-q{margin:10px 0 0;padding-left:1.2em;font-size:15px;line-height:1.85;color:var(--ink)}
@@ -537,7 +542,7 @@ a.brand small{white-space:normal}
   <div class="ttl"><span class="seg">國小專輔教師</span><span class="sep">｜</span><span class="seg">臺北市立大學教育學系心輔組博士候選人</span></div>
   <div class="fb"><a href="https://www.facebook.com/share/1JGymQQPBy/" target="_blank" rel="noopener">菜桃老師的遊聊室</a></div>
   </div>
-  <div class="ver">練習素材，非真實個案。v13．2026-11-03</div>
+  <div class="ver">練習素材，非真實個案。v14．2026-11-03</div>
 </div>
 
 <!-- 講師後台的網址寫在 backend.js（沒有這個檔案時，所有練習都開放） -->
@@ -564,12 +569,12 @@ var qrcode=function(){var t=function(t,r){var e=t,n=g[r],o=null,i=0,a=null,u=[],
                    類型　c = 改變型對話　s = 維持型對話　n = 中性
        key         判讀欄開頭必須是「改變」或「維持」，程式靠這個上色
 
-     BASICBOT：OARS初階練習
+     BASICBOT：OARS日常對話練習
        prompt      Prompt 全文，學員按「複製 Prompt」拿到的就是這段
        groups      角色池 A–E，要和 Prompt 第六節一致
        其他欄位    頁面上的說明文字，取自操作說明簡報
 
-     PEER：OARS中階練習｜認識你的教室夥伴
+     PEER：OARS訪談練習｜認識你的教室夥伴
        stages      四段訪談；q.teach 是教學版、q.counsel 是輔導版，main 主問題、more 備用問題
        listen      「這段要聽」；listenD 補充說明，cues 是可以留意的話
        sum、swap   整理與摘要、換你問
@@ -2541,8 +2546,8 @@ window.PEER = {
     fa:  "全部", tab:"read",           // 改變型對話：篩選、分頁
     tally:{c:0,s:0}, tallyId:null,     // 改變型對話：計數
     aa:  "全部",                       // AI諮詢技巧練習機器人：篩選
-    pt:"intro", ps:0, prv:false,       // OARS中階練習：分頁、第幾段、是否已揭曉
-    pv:  store.get("pv","teach")       // OARS中階練習：教學版或輔導版
+    pt:"intro", ps:0, prv:false,       // OARS訪談練習：分頁、第幾段、是否已揭曉
+    pv:  store.get("pv","teach")       // OARS訪談練習：教學版或輔導版
   };
   var FS=["17px","19px","22px"], LH=["1.95","2.0","2.05"];
   function applyFS(){
@@ -2617,10 +2622,10 @@ window.PEER = {
      之後新增練習：在這裡加一項、在 route() 接上它的頁面，講師設定就會多一個開關。
      ========================================================== */
   var ACTS = [
-    { id:"basic", eye:"融入", title:"OARS初階練習", def:true,
+    { id:"basic", eye:"融入", title:"OARS日常對話練習", def:true,
       desc:"跟 ChatGPT 練日常對話。它扮演你要陪伴的人，你練問、肯認、反映、摘要四個傾聽動作，練完當場拿到回饋報告。",
       meta:function(){ return "五組角色．共 "+BASIC.groups.reduce(function(n,g){ return n+g.roles.length; },0)+" 個"; } },
-    { id:"peer", eye:"融入", title:"OARS中階練習", sub:"認識你的教室夥伴", def:false,
+    { id:"peer", eye:"融入", title:"OARS訪談練習", sub:"認識你的教室夥伴", def:false,
       desc:"兩人一組，傾聽者用 OARS 問四段，分享者談自己的教學或輔導經驗。傾聽者要找出能連到對方改變動機的資訊，最後用摘要說給對方聽。",
       meta:function(){ return PEER.stages.length+" 段訪談．教學版、輔導版"; } },
     { id:"oars", eye:"融入", title:"OARS諮詢情境練習", def:true,
@@ -2911,7 +2916,7 @@ window.PEER = {
   }
 
   /* ==========================================================
-     OARS中階練習｜認識你的教室夥伴
+     OARS訪談練習｜認識你的教室夥伴
      兩人一組：傾聽者用 OARS 問四段，分享者談自己的教學或輔導經驗。
      訪談分頁一次顯示一步：第 1 到 4 段、整理與摘要、換你問。
      教學版、輔導版在訪談分頁最上面切換，這支手機會記住上次的選擇。
@@ -2929,7 +2934,7 @@ window.PEER = {
     w.appendChild(backBtn("回首頁","#/"));
     var hd=el("div","head");
     hd.appendChild(el("div","head-n","融入"));
-    hd.appendChild(el("h1","head-t","OARS中階練習"));
+    hd.appendChild(el("h1","head-t","OARS訪談練習"));
     hd.appendChild(el("div","head-s","認識你的教室夥伴"));
     hd.appendChild(el("p","head-p","兩人一組。傾聽者用 OARS 提問，分享者談自己的教學或輔導經驗。"));
     w.appendChild(hd);
@@ -3057,12 +3062,6 @@ window.PEER = {
     var q=st.q[ver];
     stageHead(c,"第 "+st.n+" 段",st.name,"約 "+st.min+" 分鐘");
     q.main.forEach(function(t){ c.appendChild(el("p","stage-q",t)); });
-    var lb=el("div","listen");
-    lb.appendChild(el("div","listen-l","這段要聽"));
-    lb.appendChild(el("div","listen-t",st.listen));
-    if(st.listenD) lb.appendChild(el("div","listen-d",st.listenD));
-    lb.appendChild(el("div","listen-e","可以留意的話："+st.cues.join("　")));
-    c.appendChild(lb);
     var d=el("details","role");
     d.appendChild(el("summary",null,"備用問題（"+q.more.length+"）"));
     var b=el("div","role-b");
@@ -3071,6 +3070,15 @@ window.PEER = {
     b.appendChild(ul);
     d.appendChild(b);
     c.appendChild(d);
+    // 小提示預設收起：傾聽者先專心聽，需要時再打開，免得被提示帶著走
+    var h=el("details","hint");
+    h.appendChild(el("summary",null,"小提示｜這段要聽"));
+    var lb=el("div","listen");
+    lb.appendChild(el("div","listen-t",st.listen));
+    if(st.listenD) lb.appendChild(el("div","listen-d",st.listenD));
+    lb.appendChild(el("div","listen-e","可以留意的話："+st.cues.join("　")));
+    h.appendChild(lb);
+    c.appendChild(h);
   }
 
   function sumBody(c,ver){
@@ -3543,7 +3551,7 @@ window.PEER = {
   }
 
   /* ==========================================================
-     OARS初階練習
+     OARS日常對話練習
      ========================================================== */
   function basicPage(){
     app.innerHTML="";
@@ -3552,7 +3560,7 @@ window.PEER = {
 
     var hd=el("div","head");
     hd.appendChild(el("div","head-n","融入"));
-    hd.appendChild(el("h1","head-t","OARS初階練習"));
+    hd.appendChild(el("h1","head-t","OARS日常對話練習"));
     hd.appendChild(el("p","head-p","跟 ChatGPT 練日常對話。它扮演你要陪伴的人，你練問、肯認、反映、摘要四個傾聽動作，練完當場拿到回饋報告。"));
     hd.appendChild(el("p","head-p","來回 8 到 10 輪就夠。太短抓不到你的習慣，太長回饋會失焦。"));
     w.appendChild(hd);
@@ -3584,7 +3592,7 @@ window.PEER = {
     var cta=el("div","cta");
     var cp=el("button","btn1","複製 Prompt");
     cp.onclick=function(){
-      copyText(BASIC.prompt,"OARS初階練習 Prompt",function(){
+      copyText(BASIC.prompt,"OARS日常對話練習 Prompt",function(){
         markDone(cp,"複製 Prompt");
         toast("已複製 Prompt。到 ChatGPT 開新對話，貼上送出。");
       });
@@ -3699,8 +3707,8 @@ window.PEER = {
      ========================================================== */
   function pageLabel(){
     var p=location.hash.replace(/^#\/?/,"").split("/"), id=parseInt(p[1],10);
-    if(p[0]==="basic") return "OARS初階練習";
-    if(p[0]==="peer") return "OARS中階練習｜認識你的教室夥伴";
+    if(p[0]==="basic") return "OARS日常對話練習";
+    if(p[0]==="peer") return "OARS訪談練習｜認識你的教室夥伴";
     if(p[0]==="oars"){ var m=find(M,id); return m ? "OARS諮詢情境練習｜獨白"+m.num+"　"+m.title : "OARS諮詢情境練習"; }
     if(p[0]==="talk"){ var s=find(S,id); return s ? "辨識改變型對話｜段落"+s.num+"　"+s.title : "辨識改變型對話"; }
     if(p[0]==="ai"){
@@ -4175,8 +4183,8 @@ window.PEER = {
   /* ==========================================================
      路由
      #/              首頁
-     #/basic         OARS初階練習
-     #/peer          OARS中階練習｜認識你的教室夥伴
+     #/basic         OARS日常對話練習
+     #/peer          OARS訪談練習｜認識你的教室夥伴
      #/oars、#/oars/3   OARS諮詢情境練習
      #/talk、#/talk/7   辨識改變型對話
      #/ai、#/ai/C       AI諮詢技巧練習機器人（C 是卡片代號，會捲到那張卡並標出來）
