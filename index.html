@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<!-- 動機式晤談練習　v14　2026-11-03 -->
+<!-- 動機式晤談練習　v16　2026-11-04 -->
 <html lang="zh-Hant">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>動機式晤談練習</title>
-<meta name="description" content="OARS日常對話練習、OARS訪談練習、OARS諮詢情境練習、辨識改變型對話與 AI諮詢技巧練習機器人，工作坊用的練習工具">
+<meta name="description" content="OARS日常對話練習、OARS訪談練習、OARS諮詢情境練習、辨識改變型對話、AI諮詢技巧練習機器人與諮詢實務演練，工作坊用的練習工具">
 <meta name="theme-color" content="#5A6472">
 <link rel="manifest" href="manifest.json">
 <link rel="icon" type="image/png" href="icon-192.png">
@@ -497,6 +497,45 @@ details.hint[open] summary::after{content:"收起"}
 .ct-note{padding:6px 0 10px;font-size:13px;line-height:1.7;color:var(--chg)}
 .ct-ask{margin:14px 0 0;font-size:15px;font-weight:700;line-height:1.75;color:var(--ink)}
 
+/* ---------- 諮詢實務演練 ---------- */
+.lot{padding:20px 0 2px}
+.lot-btn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:15px 10px;font-size:17px;letter-spacing:.12em}
+.or{display:flex;align-items:center;gap:12px;margin:18px 0 0;font-size:12px;color:#B3ADA5}
+.or::before,.or::after{content:"";flex:1;height:1px;background:var(--line)}
+.drill-foot{margin:-24px 0 0;font-size:12.5px;color:var(--taupe);text-align:center}
+.drill-lock{display:block;margin:16px auto 44px;font-size:12.5px;color:var(--taupe);border-bottom:1px solid #D9D2C9;padding:0}
+details.role.dr{margin-bottom:10px}
+details.role.dr .role-b{padding:2px 16px 14px}
+.dr-p{margin:12px 0 0;font-size:15.5px;line-height:1.9;color:var(--ink)}
+.dr-h{margin:12px 0 2px;font-size:12.5px;line-height:1.7;color:var(--taupe)}
+.dr-q{margin:8px 0 0;border-radius:12px;padding:11px 15px;font-size:16px;line-height:1.8}
+.dr-q.open{margin-top:12px;background:var(--sand);color:var(--ink);font-family:var(--serif);font-weight:700;font-size:17px}
+.dr-q.sus{background:var(--sus-bg);color:#5E3A40}
+.dr-q.chg{background:var(--chg-bg);color:#2F4F3A}
+.dr-tag{display:inline-block;margin-left:8px;padding:0 9px;border-radius:999px;background:#fff;border:1px solid #C6DACB;
+  color:var(--chg);font-family:var(--sans);font-size:12px;font-weight:700;line-height:1.7;vertical-align:1px;white-space:nowrap}
+.dr-score{margin-top:12px}
+.lot-bg{position:fixed;inset:0;z-index:75;background:rgba(46,52,61,.55);display:flex;align-items:center;justify-content:center;
+  padding:calc(20px + env(safe-area-inset-top)) 20px calc(20px + env(safe-area-inset-bottom))}
+.lot-box{position:relative;width:100%;max-width:400px;max-height:100%;overflow:auto;background:var(--paper);border-radius:20px;
+  padding:26px 22px 22px;text-align:center;box-shadow:0 18px 50px rgba(0,0,0,.25)}
+.lot-x{position:absolute;top:12px;right:14px;font-size:13px;color:var(--taupe);padding:4px 6px}
+.lot-t{font-family:var(--serif);font-size:19px;font-weight:700;color:var(--ink);letter-spacing:.12em}
+.lot-left{margin:2px 0 16px;font-size:12.5px;color:var(--taupe)}
+.lot-card{background:var(--card);border:2px dashed var(--line);border-radius:16px;padding:22px 16px;margin-bottom:18px}
+.lot-card.spin{animation:drawPulse .15s ease-in-out infinite alternate}
+.lot-card.done{border:2px solid var(--slate);background:#F3F4F6}
+@keyframes drawPulse{from{transform:scale(.97)}to{transform:scale(1.02)}}
+.lot-num{font-family:var(--serif);font-size:44px;font-weight:700;line-height:1.1;color:var(--slate)}
+.lot-k{margin-top:4px;font-size:12px;color:var(--taupe)}
+.lot-title{margin-top:2px;font-family:var(--serif);font-size:21px;font-weight:700;line-height:1.45;color:var(--ink)}
+.lot-stu{margin-top:4px;font-size:13.5px;color:#6A7280}
+.lot-go{display:block;width:100%}
+.lot-act{display:flex;gap:10px}
+.lot-act .btn2{flex:1}
+.lot-act .btn1{flex:2}
+.lot-wait{padding:12px 0;font-size:15px;color:var(--taupe)}
+
 @media(max-width:520px){
   .head-t{font-size:22px}
   .counter-v{font-size:44px}
@@ -542,7 +581,7 @@ details.hint[open] summary::after{content:"收起"}
   <div class="ttl"><span class="seg">國小專輔教師</span><span class="sep">｜</span><span class="seg">臺北市立大學教育學系心輔組博士候選人</span></div>
   <div class="fb"><a href="https://www.facebook.com/share/1JGymQQPBy/" target="_blank" rel="noopener">菜桃老師的遊聊室</a></div>
   </div>
-  <div class="ver">練習素材，非真實個案。v14．2026-11-03</div>
+  <div class="ver">練習素材，非真實個案。v16．2026-11-04</div>
 </div>
 
 <!-- 講師後台的網址寫在 backend.js（沒有這個檔案時，所有練習都開放） -->
@@ -579,6 +618,11 @@ var qrcode=function(){var t=function(t,r){var e=t,n=g[r],o=null,i=0,a=null,u=[],
        listen      「這段要聽」；listenD 補充說明，cues 是可以留意的話
        sum、swap   整理與摘要、換你問
        reveal      回顧最後揭曉的改變型對話類型（DARN、CATs），用詞與例句同工作坊簡報
+
+     DRILL：諮詢實務演練（模擬個案腳本）
+       topics      七題；s1 第一次諮詢、s2 第二次（追蹤），只有 s1 有導師角色設定 role
+       change.tag  改變型對話的類型，用中文寫（渴望、能力、理由、需要、承諾、啟動、行動）
+       labels、hints  區塊標題與說明；「演練者」指接受演練的人
 
      AIBOT：AI諮詢技巧練習機器人
        prompt      主 prompt 全文，學員按「複製主 prompt」拿到的就是這段
@@ -2516,6 +2560,495 @@ window.PEER = {
   "ask": "回頭看你的四格筆記：哪些是對方自己說出口的改變型對話？"
  }
 };
+window.DRILL = {
+ "eyebrow": "諮詢能力演練口試",
+ "subtitle": "模擬個案腳本",
+ "meta": "型式 C ｜ 6 題 × 2 次 ＝ 12 場景 ｜ 國小導師（中度抗拒）",
+ "footer": "點選議題，邊看腳本邊演",
+ "sessions": [
+  "第一次諮詢",
+  "第二次（追蹤）"
+ ],
+ "labels": {
+  "situation1": "情境設定",
+  "situation2": "情境推進",
+  "role": "導師角色設定",
+  "opening": "開場台詞",
+  "sustain": "維持型對話（演練者做不好時丟出）",
+  "change": "改變型對話（演練者做對時釋放）",
+  "scoring": "關鍵轉折點／評分重點"
+ },
+ "hints": {
+  "sustain1": "當演練者掉入專家陷阱、急著給建議、或未能接住情緒時",
+  "sustain2": "當演練者未能看到進展、急著換策略、或忽略導師的挫折感時",
+  "change1": "當演練者展現好奇提問、肯認、反映等技巧時",
+  "change2": "當演練者能做表現回饋、肯認進展、或用資料引導討論時"
+ },
+ "topics": [
+  {
+   "id": 1,
+   "num": "一",
+   "title": "情緒爆發／攻擊行為",
+   "student": "小宇（三年級男生）",
+   "s1": {
+    "situation": "三年級導師，班上有一位男生「小宇」，經常因為小事情緒爆發，會摔東西、吼叫、推同學。最近一次在美勞課因為作品被同學不小心碰到，直接把對方的作品撕毀，還踢翻椅子。其他家長開始抱怨，導師壓力很大。",
+    "opening": "老師，不好意思來找你，我真的是被小宇搞到快崩潰了。上禮拜他又爆發了，我真的不知道該怎麼辦，其他家長也開始來跟我反映了……",
+    "sustain": [
+     "我也試過獎勵制度了，根本沒用",
+     "其他 27 個小孩也要顧，我不可能只顧他一個",
+     "他就是那種脾氣，我覺得是家裡的問題",
+     "我怕對他太特別，其他家長會不滿"
+    ],
+    "change": [
+     {
+      "text": "其實他不發作的時候蠻貼心的",
+      "tag": "渴望"
+     },
+     {
+      "text": "上次我冷處理讓他自己冷靜，好像有比較快恢復",
+      "tag": "能力"
+     },
+     {
+      "text": "如果能讓他少爆發，其他小朋友上課也比較安心",
+      "tag": "理由"
+     },
+     {
+      "text": "再這樣下去，我怕他到高年級更嚴重",
+      "tag": "需要"
+     }
+    ],
+    "scoring": [
+     "融入建立關係：能否先接住導師的情緒，不急著給建議",
+     "問題澄清：能否用好奇提問讓導師描述具體行為（脫離紅旗詞彙）",
+     "辨識與強化改變型對話：聽到「冷處理有效」時能否抓住並延伸",
+     "回應維持型對話：面對「什麼都試過」時不掉入專家陷阱",
+     "目標聚焦：能否協助導師從「什麼都不行」收斂到一個可行目標"
+    ],
+    "role": "教學年資 8 年，認真負責型，覺得自己已經「什麼都試過了」。對輔導教師有些期待但又怕被說教，內心希望有人幫忙但嘴上會說「我也不知道你們能幫什麼」。"
+   },
+   "s2": {
+    "situation": "上次諮詢後，導師嘗試了「爆發前讓小宇到教室後方冷靜角」的策略。執行一週，小宇有 2 次成功使用冷靜角，但有 1 次反而在冷靜角踢牆壁。另外有家長私下問導師「為什麼那個小孩可以不用上課」。",
+    "opening": "老師，你上次教我的那個冷靜角，有時候有用、有時候沒用。然後有家長來問我為什麼他可以特別待遇，我都不知道怎麼回……",
+    "sustain": [
+     "才成功兩次而已，這樣算有效嗎？",
+     "他在冷靜角踢牆壁，我怕其他小孩學他",
+     "家長那邊我真的不知道怎麼解釋",
+     "是不是這個方法本來就不適合他"
+    ],
+    "change": [
+     {
+      "text": "不過那兩次他自己走過去冷靜的時候，我其實蠻驚訝的",
+      "tag": "能力"
+     },
+     {
+      "text": "比起之前直接爆發打人，至少他現在有一個可以去的地方",
+      "tag": "理由"
+     },
+     {
+      "text": "我想繼續試，但可能需要調整一下做法",
+      "tag": "渴望＋承諾"
+     },
+     {
+      "text": "如果我能讓家長理解，我就不用這麼擔心了",
+      "tag": "需要"
+     }
+    ],
+    "scoring": [
+     "表現回饋：能否協助導師看到「2 次成功」的意義，而非只聚焦失敗",
+     "資料決策：能否引導導師用具體數據（頻率、強度）來評估策略成效",
+     "策略調整：能否針對「冷靜角踢牆壁」討論下一步微調（而非放棄）",
+     "系統支持：能否協助導師準備回應其他家長的說法",
+     "激勵支持：能否鼓勵導師持續執行，標記她做對的部分"
+    ]
+   }
+  },
+  {
+   "id": 2,
+   "num": "二",
+   "title": "拒學／出席困難",
+   "student": "小恩（二年級女生）",
+   "s1": {
+    "situation": "二年級導師，班上女生「小恩」從這學期開始頻繁請假，每週大約缺席 2-3 天。媽媽都用「肚子痛」「頭痛」請假，但來學校的日子小恩黏著導師不肯進教室，常在走廊哭。導師跟媽媽通話時，媽媽語氣也很疲憊，說「她就是不肯出門，我也拖不動她」。",
+    "opening": "老師，我想問一下小恩的事情。她最近一直請假，來的時候又一直哭，我真的很擔心她，可是我又不確定我應該怎麼做……是要堅持叫她進教室，還是就讓她在外面等她準備好？",
+    "sustain": [
+     "我怕逼她會讓她更不想來",
+     "媽媽那邊我也不好意思一直打電話催",
+     "搞不好是分離焦慮，這應該要看醫生吧？",
+     "我又不是心理師，我能做什麼"
+    ],
+    "change": [
+     {
+      "text": "她上週有一天自己走進教室耶，那天我有特別在門口等她",
+      "tag": "能力＋行動"
+     },
+     {
+      "text": "我希望她至少可以不要怕來學校",
+      "tag": "渴望"
+     },
+     {
+      "text": "如果她一直缺課，功課會越來越跟不上，她可能更不想來",
+      "tag": "理由"
+     },
+     {
+      "text": "其實我有想過在教室裡弄一個她的安全角落",
+      "tag": "承諾"
+     }
+    ],
+    "scoring": [
+     "融入建立關係：能否肯認導師的心疼與用心，而非只聚焦在「怎麼讓學生來」",
+     "去病理化：面對「應該看醫生」時能否先拉回教室端可以做的事",
+     "辨識改變型對話：聽到「門口等她那天她自己進教室」時能否強化",
+     "提供資訊：能否用 EPE（引出、提供、再引出） 方式適時分享漸進式返校策略",
+     "目標聚焦：能否協助導師設定具體的階段性目標（而非一步到位）"
+    ],
+    "role": "教學年資 3 年，年輕有熱忱但經驗不足，很心疼小恩但不知道該堅持要求出席還是放寬。內心有罪惡感，覺得「是不是我的班讓她不想來」。"
+   },
+   "s2": {
+    "situation": "導師在教室設了一個「小恩的安心角」，並且每天早上在校門口等小恩。第一週小恩出席 4 天，但第二週因為換了一堂課的代課老師，小恩又連續三天沒來。媽媽傳訊息說「她又開始說肚子痛了」。",
+    "opening": "老師，第一個禮拜真的很有進步，我好開心。結果第二個禮拜代課老師一來，她又不來了。我覺得好像功虧一簣……",
+    "sustain": [
+     "我不可能每天都在，代課老師來她就打回原形",
+     "這樣好像只是依賴我，不是真的好了",
+     "媽媽也很配合了，但她也說她快沒力氣了",
+     "是不是她的問題比我們想的更嚴重"
+    ],
+    "change": [
+     {
+      "text": "但第一週她真的出席四天耶，這是開學以來最好的",
+      "tag": "行動"
+     },
+     {
+      "text": "那天她進教室的時候有跟旁邊的同學說早安，以前不會這樣",
+      "tag": "能力"
+     },
+     {
+      "text": "我覺得安心角有用，她到教室第一件事就是去那邊待一下",
+      "tag": "理由"
+     },
+     {
+      "text": "或許我可以提前跟代課老師溝通小恩的狀況",
+      "tag": "承諾＋啟動"
+     }
+    ],
+    "scoring": [
+     "表現回饋：能否幫導師看到「第一週四天」是重大進展",
+     "正常化挫折：能否說明進步非線性，回退是預期內的",
+     "資料決策：能否引導導師建立簡單的出席追蹤紀錄",
+     "策略延伸：能否協助導師預防未來的中斷（如代課、假期後）",
+     "激勵支持：能否強化「安心角」策略的成功，連結到導師的用心"
+    ]
+   }
+  },
+  {
+   "id": 3,
+   "num": "三",
+   "title": "ADHD 行為干擾",
+   "student": "小凱（四年級男生）",
+   "s1": {
+    "situation": "四年級導師，班上男生「小凱」疑似 ADHD（尚未就醫），上課坐不住、頻繁插嘴、干擾鄰座同學、下課衝來衝去撞到人。導師已經被其他家長投訴三次「為什麼不處理那個小孩」，最近家長群組也在討論。小凱的家長則認為「小孩子本來就活潑，長大就好了」，拒絕帶去評估。",
+    "opening": "輔導老師，我直說好了，小凱的問題我已經跟學務處反映很多次了，也跟他家長談過了但家長不配合。今天來找你是因為主任叫我來的，看你們有什麼辦法。",
+    "sustain": [
+     "包容到什麼程度？其他家長都在看",
+     "我帶了十幾年的班，這種小孩就是要規矩",
+     "你們說的那些策略，一個班 28 個人，我怎麼做",
+     "家長都不處理了，我們老師能怎樣"
+    ],
+    "change": [
+     {
+      "text": "其實他不是故意的，我也看得出來他控制不住",
+      "tag": "理由"
+     },
+     {
+      "text": "有時候我讓他去幫我跑腿送簿子，他回來反而可以坐比較久",
+      "tag": "能力＋行動"
+     },
+     {
+      "text": "我也不想一直罵他，罵了他也沒變好，我自己也很累",
+      "tag": "需要"
+     },
+     {
+      "text": "如果真的有什麼小方法可以試，不要太麻煩的話……",
+      "tag": "渴望"
+     }
+    ],
+    "scoring": [
+     "融入建立關係：面對「主任叫我來的」能否不卑不亢地建立合作關係",
+     "回應抗拒：面對資深老師的不耐，能否避免掉入說服陷阱",
+     "辨識改變型對話：聽到「跑腿之後坐比較久」時能否強化這個經驗",
+     "雙面反映：能否呈現「要維持秩序」vs「也看到他控制不住」的矛盾",
+     "EPE 提供策略：能否先問再提供，不直接給答案"
+    ],
+    "role": "教學年資 15 年，資深老師，帶班風格偏嚴謹有秩序，對「特殊對待」一個學生有些抗拒。覺得輔導老師「只會跟我說要包容」，來諮詢帶著一點不耐。"
+   },
+   "s2": {
+    "situation": "導師嘗試了「課堂中給小凱固定任務（發作業、擦黑板）」以及「用計時器提示專注時間」。干擾行為從每節課 5-6 次降到 2-3 次。但導師在執行中碰到問題：其他學生開始說「為什麼都是他當小幫手」，小凱拿到計時器之後開始玩計時器。",
+    "opening": "上次你說的那個方法，說實話有一點效果啦，干擾確實有變少。但現在變成其他問題了，其他小孩在抱怨，然後他把計時器當玩具……",
+    "sustain": [
+     "效果是有，但製造了新的問題，這樣值得嗎",
+     "我現在等於在幫全班解釋為什麼他有特權",
+     "計時器那個我大概要收回來了，他根本不會好好用",
+     "他家長到現在還是不肯帶去評估"
+    ],
+    "change": [
+     {
+      "text": "不過數學課的時候他真的可以專心比較久了，我有注意到",
+      "tag": "行動"
+     },
+     {
+      "text": "從五六次降到兩三次，仔細想想也差蠻多的",
+      "tag": "理由"
+     },
+     {
+      "text": "或許小幫手可以輪流，不要只給他一個人",
+      "tag": "承諾"
+     },
+     {
+      "text": "其實我有點好奇，如果我把座位調一下，會不會也有幫助",
+      "tag": "渴望＋啟動"
+     }
+    ],
+    "scoring": [
+     "表現回饋：能否用數據（5-6 次→2-3 次）讓導師看到策略是有效的",
+     "策略調整：能否針對「計時器被玩」和「公平性」討論微調方案",
+     "回應維持型對話：面對「家長不配合」時能否轉移焦點到教室端可控的事",
+     "辨識改變型對話：聽到「座位調整」的主動想法時能否強化",
+     "資料決策：能否引導導師建立簡單的行為頻率紀錄來追蹤"
+    ]
+   }
+  },
+  {
+   "id": 4,
+   "num": "四",
+   "title": "親師衝突／家長不配合",
+   "student": "小維（五年級男生）",
+   "s1": {
+    "situation": "五年級導師，班上男生「小維」上課常趴在桌上、作業經常缺交、考試成績從中段掉到後段。導師多次聯絡家長，媽媽第一次還有回應，後來已讀不回。上週導師家訪發現小維放學後都自己在家，媽媽要到晚上九點才下班。導師懷疑家庭功能不足，想通報但又擔心破壞親師關係。",
+    "opening": "老師，我有一個學生的狀況想跟你討論。小維最近表現越來越差，我上週去家訪才發現他每天都自己一個人在家……我覺得應該要做什麼，可是我又很怕處理不好會讓事情變更糟。",
+    "sustain": [
+     "通報了，媽媽會覺得我在告她的狀",
+     "搞不好媽媽也是沒辦法，她一個人帶小孩又要工作",
+     "我怕通報之後社工來，小維反而會被帶走",
+     "或許我多盯著他功課就好了"
+    ],
+    "change": [
+     {
+      "text": "可是他一個人在家真的不安全，他才五年級",
+      "tag": "需要"
+     },
+     {
+      "text": "我覺得小維其實很想被關心，每次我多問他幾句他就很開心",
+      "tag": "理由"
+     },
+     {
+      "text": "如果有社工可以幫忙連結資源，媽媽也許壓力會小一點",
+      "tag": "渴望"
+     },
+     {
+      "text": "上次我有幫他留在學校寫完功課再回家，他那天作業全部交了",
+      "tag": "行動"
+     }
+    ],
+    "scoring": [
+     "融入建立關係：能否肯認導師家訪的用心與對學生的關懷",
+     "釐清需求優先順序：能否協助導師區分「通報評估」vs「教室端支持」",
+     "提供資訊：能否用 EPE 方式說明通報的目的與流程（非懲罰性）",
+     "回應維持型對話：面對「通報了關係就毀了」能否重新框架",
+     "決策天平：能否引導導師思考「不通報的代價」vs「通報的好處」"
+    ],
+    "role": "教學年資 6 年，有同理心但容易把所有事攬在自己身上，覺得「如果我不管他就沒人管了」。對通報很猶豫，擔心「通報了家長就不信任我了」。"
+   },
+   "s2": {
+    "situation": "上次諮詢後導師做了通報，社工已進行家訪。媽媽得知被通報後打電話給導師，語氣冷淡地說「我知道了，謝謝老師關心」然後就掛了。小維在學校跟導師說「老師你是不是去告我媽」。導師現在很自責，覺得親師關係果然被破壞了。",
+    "opening": "老師，我就說吧，通報之後媽媽果然不理我了。小維還跑來問我是不是去告他媽……我現在覺得好後悔，是不是不應該通報的。",
+    "sustain": [
+     "早知道就不要通報了，現在關係整個毀了",
+     "小維現在看到我的眼神都不一樣了",
+     "社工來了一次也沒什麼改變啊",
+     "我覺得我做了一個錯誤的決定"
+    ],
+    "change": [
+     {
+      "text": "可是社工說他們會持續追蹤，至少有人在關注了",
+      "tag": "理由"
+     },
+     {
+      "text": "小維最近作業有開始交了，雖然品質還不太好",
+      "tag": "行動"
+     },
+     {
+      "text": "我不想讓小維覺得沒有大人在乎他",
+      "tag": "渴望"
+     },
+     {
+      "text": "也許我可以找個時間親自跟媽媽談，讓她知道我是真的擔心小維",
+      "tag": "承諾＋啟動"
+     }
+    ],
+    "scoring": [
+     "情緒支持：能否接住導師的後悔與自責，不急著說「你做對了」",
+     "重新框架：能否幫導師從「關係被毀了」看到「關係需要修復但通報是必要的」",
+     "回應小維：能否協助導師準備如何回應「你是不是去告我媽」",
+     "系統合作：能否引導導師理解社工介入的節奏，不是一次就有效",
+     "行動計畫：能否協助導師規劃跟媽媽重建關係的具體步驟"
+    ]
+   }
+  },
+  {
+   "id": 5,
+   "num": "五",
+   "title": "霸凌（關係攻擊）",
+   "student": "小琪（五年級女生）",
+   "s1": {
+    "situation": "五年級導師，班上最近出現關係霸凌的狀況。一群女生以「小圈圈」的方式孤立一位女生「小琪」，在社群軟體上成立不包含小琪的群組、故意在她面前竊竊私語、午餐時間集體換位子不跟她坐。小琪開始常常請假，媽媽打電話來質問導師「為什麼不處理」。帶頭的女生是班長，而且「她們沒有動手打人，也沒有明顯罵人」。",
+    "opening": "老師，小琪媽媽昨天打電話來罵我，說我放任她女兒被霸凌。可是我真的覺得那些女生就是感情比較好會黏在一起，這樣算霸凌嗎？我現在被家長罵也很無辜……",
+    "sustain": [
+     "她們又沒打人沒罵人，我要怎麼處理？",
+     "如果我去找那些女生談，她們一定說沒有啊我們只是玩",
+     "小琪本身個性也比較敏感，不是每件事都是霸凌",
+     "處理了怕她們私底下更排擠，小琪更慘"
+    ],
+    "change": [
+     {
+      "text": "可是小琪真的越來越不想來學校，這我看得出來",
+      "tag": "需要"
+     },
+     {
+      "text": "我以前也被排擠過，我知道那種感覺很痛苦",
+      "tag": "理由"
+     },
+     {
+      "text": "其實上次我有找班長私下聊過，她有承認她們確實有故意不找小琪",
+      "tag": "行動"
+     },
+     {
+      "text": "我覺得應該要做些什麼，至少讓小琪感覺有人在意她",
+      "tag": "渴望"
+     }
+    ],
+    "scoring": [
+     "融入建立關係：能否先接住「被家長罵很委屈」的情緒",
+     "問題澄清：能否用好奇提問讓導師描述具體的排擠行為",
+     "提供資訊：能否用 EPE 方式補充關係霸凌的定義與影響",
+     "辨識改變型對話：聽到「我以前也被排擠過」時能否連結到導師的價值觀",
+     "目標聚焦：能否協助導師想出教室端的具體行動"
+    ],
+    "role": "教學年資 10 年，覺得自己帶班有一套，對關係霸凌的認知偏向「小女生就是這樣」。被家長指責後覺得委屈，也擔心處理了反而讓小琪被報復。"
+   },
+   "s2": {
+    "situation": "導師進行了一次「友善教室」主題班會，也私下找了帶頭的班長談。班長表面上答應會改，但之後那群女生的排擠行為變得更隱蔽，改在校外的社群軟體上罵小琪。小琪的媽媽擷取了對話截圖傳給導師，要求「給一個交代」。",
+    "opening": "老師，我上次處理之後好像更糟了……她們表面上在學校沒事，結果跑到網路上去罵小琪。小琪媽媽截圖傳給我，叫我給交代，我現在壓力真的很大。",
+    "sustain": [
+     "網路上的事我管得到嗎？那又不是在學校發生的",
+     "我去找她們談，她們就嘴上說好，私底下更過分",
+     "小琪媽媽要我給交代，我能怎麼交代",
+     "我開始覺得這已經超出我能處理的範圍了"
+    ],
+    "change": [
+     {
+      "text": "至少在學校的時候，小琪現在午餐有人跟她坐了",
+      "tag": "行動"
+     },
+     {
+      "text": "我覺得那次班會不是完全沒有用，有些旁觀的同學開始會主動找小琪",
+      "tag": "理由"
+     },
+     {
+      "text": "我應該要讓行政知道網路霸凌的事",
+      "tag": "需要＋啟動"
+     },
+     {
+      "text": "如果能有一個比較完整的處理方式，而不是只有我一個人在擋",
+      "tag": "渴望"
+     }
+    ],
+    "scoring": [
+     "情緒支持：能否接住導師「更糟了」的挫敗感",
+     "重新框架：能否協助導師看到班會帶來的正向改變（旁觀者行為）",
+     "系統思考：能否引導討論校園霸凌需要行政層級介入",
+     "策略調整：能否區分「校內行為管理」vs「網路霸凌通報處理」",
+     "激勵支持：能否肯定導師已經做了很多，並協助看到下一步方向"
+    ]
+   }
+  },
+  {
+   "id": 6,
+   "num": "六",
+   "title": "憂鬱自傷",
+   "student": "小涵（六年級女生）",
+   "s1": {
+    "situation": "六年級導師，班上女生「小涵」最近變得沉默、常趴在桌上、不跟同學互動。上體育課換衣服時被同學發現手臂上有劃痕，同學來跟導師報告。導師找小涵談，小涵只說「不要告訴我媽」就哭了。導師很焦慮，不知道該怎麼處理，怕做錯任何一步。",
+    "opening": "老師老師，我有一個很緊急的事情要跟你說。小涵手上有割的痕跡，是同學跟我講的。我有找她談但她只說不要告訴她媽就哭了。我現在完全不知道怎麼辦，這種事我真的沒處理過……你能不能趕快介入？",
+    "sustain": [
+     "這種事情應該是你們輔導室處理的吧",
+     "我真的很怕跟她談的時候說錯話，讓她想不開",
+     "她說不要告訴媽媽，那我到底要不要說？",
+     "我覺得她是不是要去看精神科"
+    ],
+    "change": [
+     {
+      "text": "我知道她信任我，所以同學才會來跟我說",
+      "tag": "能力"
+     },
+     {
+      "text": "我不希望她覺得沒有人在乎她",
+      "tag": "渴望"
+     },
+     {
+      "text": "其實我想知道我在班上可以做什麼，讓她至少覺得安全",
+      "tag": "需要＋啟動"
+     },
+     {
+      "text": "如果你教我怎麼跟她說話，我可以試試看",
+      "tag": "承諾"
+     }
+    ],
+    "scoring": [
+     "融入建立關係：能否接住導師的焦慮與害怕，正常化「不知道怎麼辦」",
+     "回應轉介期待：面對「你趕快介入」時，能否說明導師仍是關鍵角色",
+     "提供資訊：能否用 EPE 說明安全評估的基本概念與通報流程",
+     "辨識改變型對話：聽到「她信任我」時能否強化導師的角色價值",
+     "具體指導：能否提供導師「在班級裡可以做的事」的具體方向"
+    ],
+    "role": "教學年資 12 年，平常帶班穩定，但遇到自傷議題非常害怕，覺得「這超出我的能力範圍了」。很想趕快把學生轉給輔導教師處理，但又擔心自己在過渡期「說錯話讓她更嚴重」。"
+   },
+   "s2": {
+    "situation": "輔導教師已開始跟小涵晤談，也通知了家長。導師每天在聯絡簿寫一句關心的話給小涵，小涵有時候會在聯絡簿上畫一個小圖案回應。但上週體育課，同學又說看到小涵手臂上有新的痕跡。導師很緊張，覺得「是不是你們輔導的效果不好」。",
+    "opening": "老師，你不是已經在跟小涵談了嗎？為什麼她手上又有新的痕跡？我每天在聯絡簿寫東西給她，她也有回我，我以為她有好一點了……是不是我們做的都沒有用？",
+    "sustain": [
+     "你們專業的在處理了，怎麼還是有新的傷痕",
+     "我真的很害怕哪一天出事，我負不了這個責任",
+     "是不是應該要直接送醫",
+     "聯絡簿寫那些，搞不好根本沒有用"
+    ],
+    "change": [
+     {
+      "text": "不過她有在聯絡簿上畫圖回我，至少她願意回應",
+      "tag": "能力＋行動"
+     },
+     {
+      "text": "我知道這種事情不是一兩個禮拜就會好的",
+      "tag": "理由"
+     },
+     {
+      "text": "我想繼續寫聯絡簿，至少她知道有人在意",
+      "tag": "承諾"
+     },
+     {
+      "text": "我只是想知道我還能做什麼，讓她在學校是安全的",
+      "tag": "渴望＋需要"
+     }
+    ],
+    "scoring": [
+     "回應質疑：面對「你們輔導的效果不好」能否不防衛、先接住焦慮",
+     "正常化歷程：能否說明自傷行為的改變需要時間，不是線性進展",
+     "表現回饋：能否幫導師看到「聯絡簿互動」的治療意義",
+     "安全評估更新：能否向導師說明目前的安全計畫與監測機制",
+     "角色定位：能否讓導師理解「導師日常關懷」跟「輔導專業介入」是互補的"
+    ]
+   }
+  }
+ ]
+};
 </script>
 <script>
 (function(){
@@ -2525,6 +3058,7 @@ window.PEER = {
   var AI = window.AIBOT || {prompt:"", cards:[]};
   var BASIC = window.BASICBOT || {prompt:"", moves:[], steps:[], groups:[], cmds:[], stuck:[], refs:[], safety:[]};
   var PEER = window.PEER || {stages:[], versions:[]};
+  var DRILL = window.DRILL || {topics:[], labels:{}, hints:{}, sessions:[]};
   var app = document.getElementById("app");
 
   if(!M.length && !S.length){
@@ -2539,6 +3073,7 @@ window.PEER = {
     get:function(k,d){ try{ var v=localStorage.getItem("mi_"+k); return v===null?d:JSON.parse(v); }catch(e){ return d; } },
     set:function(k,v){ try{ localStorage.setItem("mi_"+k, JSON.stringify(v)); }catch(e){} }
   };
+  try{ localStorage.removeItem("mi_drawn"); }catch(e){}   // v15 的抽籤紀錄，v16 起不再記錄
   var state = {
     fs:  store.get("fs",1),            // 字級：0 小 1 中 2 大
     oa:  "全部", ot:"mono",            // OARS：篩選、分頁
@@ -2546,6 +3081,7 @@ window.PEER = {
     fa:  "全部", tab:"read",           // 改變型對話：篩選、分頁
     tally:{c:0,s:0}, tallyId:null,     // 改變型對話：計數
     aa:  "全部",                       // AI諮詢技巧練習機器人：篩選
+    dsId:null, ds:1,                   // 諮詢實務演練：目前的題目、第一次或第二次諮詢
     pt:"intro", ps:0, prv:false,       // OARS訪談練習：分頁、第幾段、是否已揭曉
     pv:  store.get("pv","teach")       // OARS訪談練習：教學版或輔導版
   };
@@ -2636,7 +3172,10 @@ window.PEER = {
       meta:function(){ return S.length+" 段朗讀稿．教師 "+count(S,"教師")+"．家長 "+count(S,"家長"); } },
     { id:"ai", eye:"誘發", title:"AI諮詢技巧練習機器人", def:true,
       desc:"ChatGPT 扮演來談的教師或家長，你當諮詢者，練辨識、邀請、強化完整的一輪。複製主 prompt 和情境卡，貼進 ChatGPT 就能開始。",
-      meta:function(){ return AI.cards.length+" 張情境卡．教師 "+count(AI.cards,"教師")+"．家長 "+count(AI.cards,"家長"); } }
+      meta:function(){ return AI.cards.length+" 張情境卡．教師 "+count(AI.cards,"教師")+"．家長 "+count(AI.cards,"家長"); } },
+    { id:"drill", eye:"綜合", title:"諮詢實務演練", sub:"模擬個案腳本", def:true,
+      desc:"諮詢能力演練口試用的模擬個案。扮演導師的人看腳本：演練者做不好時丟出維持型對話，做對時釋放改變型對話，再對照評分重點。",
+      meta:function(){ return "需要密碼．"+DRILL.topics.length+" 題 × 2 次諮詢．國小導師"; } }
   ];
   function actById(id){ for(var i=0;i<ACTS.length;i++){ if(ACTS[i].id===id) return ACTS[i]; } return null; }
 
@@ -3703,6 +4242,234 @@ window.PEER = {
   }
 
   /* ==========================================================
+     諮詢實務演練｜模擬個案腳本
+     口試用：腳本給扮演導師的人看，接受演練的人稱「演練者」。
+     要輸入密碼才能開啟（和講師設定同一組密碼，由後台確認）；這支手機登入講師設定時直接開啟。
+     開啟後在這個分頁一直有效，關掉 App 或按「鎖上這個練習」就要重新輸入。
+     #/drill 題目列表與抽籤；#/drill/3 第三題的腳本。抽籤每次都從全部題目裡抽，不記錄抽過的題目。
+     ========================================================== */
+  function findTopic(id){ for(var i=0;i<DRILL.topics.length;i++){ if(DRILL.topics[i].id===id) return DRILL.topics[i]; } return null; }
+  function drillOpen(){ return !BACKEND || isAdmin() || sess.get("drill")==="1"; }
+
+  function drillPage(id){
+    if(!drillOpen()){ drillLock(); return; }
+    var t=findTopic(id);
+    if(t) drillScript(t); else drillList();
+  }
+
+  function drillHead(w){
+    var hd=el("div","head");
+    hd.appendChild(el("div","head-n","綜合"));
+    hd.appendChild(el("h1","head-t","諮詢實務演練"));
+    hd.appendChild(el("div","head-s",DRILL.subtitle));
+    hd.appendChild(el("p","head-p",DRILL.eyebrow+"｜"+DRILL.meta.replace(/\s*｜\s*/g,"｜")));
+    w.appendChild(hd);
+  }
+
+  function drillLock(){
+    app.innerHTML="";
+    var w=el("div","wrap");
+    w.appendChild(backBtn("回首頁","#/"));
+    drillHead(w);
+    var pane=el("div","pane");
+    pane.appendChild(el("p","stage-p","這是口試用的腳本，給扮演導師的人使用。請輸入密碼。"));
+    var f=el("form","adm-form"); f.noValidate=true;
+    var lb=el("label","fld-l","密碼"); lb.htmlFor="drPw";
+    var ip=el("input","fld"); ip.type="password"; ip.id="drPw"; ip.name="password";
+    ip.setAttribute("autocomplete","current-password"); ip.setAttribute("enterkeyhint","go");
+    var err=el("p","adm-err",""); err.setAttribute("role","alert");
+    var btn=el("button","btn1","開啟"); btn.type="submit";
+    f.appendChild(lb); f.appendChild(ip); f.appendChild(err); f.appendChild(btn);
+    var busy=false;
+    f.onsubmit=function(e){
+      e.preventDefault();
+      if(busy) return;
+      var pw=ip.value.trim();
+      if(!pw){ err.textContent="請輸入密碼。"; ip.focus(); return; }
+      busy=true; btn.disabled=true; btn.textContent="確認中…"; err.textContent="";
+      api("POST",{action:"login",pw:pw},20000).then(function(j){
+        busy=false;
+        if(j && j.ok && j.token){
+          sess.set("drill","1");
+          // 只用來確認密碼：馬上登出，這支手機不會因此進入講師模式
+          api("POST",{action:"logout",token:j.token},8000).catch(function(){});
+          if(j.cfg) setCfg(j.cfg,true);
+          route();
+          return;
+        }
+        btn.disabled=false; btn.textContent="開啟";
+        err.textContent=(j && j.err) || "沒有開啟成功，請再試一次。";
+        ip.focus(); ip.select();
+      },function(){
+        busy=false; btn.disabled=false; btn.textContent="開啟";
+        err.textContent="連不上後台，沒辦法確認密碼。請檢查網路後再試一次。";
+      });
+    };
+    pane.appendChild(f);
+    w.appendChild(pane);
+    app.appendChild(w);
+    window.scrollTo(0,0);
+    if(window.matchMedia && window.matchMedia("(hover:hover)").matches) setTimeout(function(){ ip.focus(); },0);
+  }
+
+  function drillList(){
+    state.dsId=null;
+    app.innerHTML="";
+    var w=el("div","wrap");
+    w.appendChild(backBtn("回首頁","#/"));
+    drillHead(w);
+
+    var lot=el("div","lot");
+    var b=el("button","btn1 lot-btn","抽籤");
+    b.onclick=openLottery;
+    lot.appendChild(b);
+    w.appendChild(lot);
+    w.appendChild(el("div","or","或直接選題"));
+
+    var list=el("div","list");
+    DRILL.topics.forEach(function(t){
+      var c=el("button","card");
+      c.onclick=function(){ go("#/drill/"+t.id); };
+      var h=el("div","card-h");
+      h.appendChild(el("div","card-n",t.num));
+      h.appendChild(el("div","card-t",t.title));
+      c.appendChild(h);
+      var m=el("div","card-m");
+      m.appendChild(el("span","tag tag-a",t.student));
+      c.appendChild(m);
+      list.appendChild(c);
+    });
+    w.appendChild(list);
+    w.appendChild(el("p","drill-foot",DRILL.footer+"。"));
+    if(BACKEND && !isAdmin()){
+      var lk=el("button","drill-lock","鎖上這個練習");
+      lk.onclick=function(){ sess.set("drill",null); route(); };
+      w.appendChild(lk);
+    }
+    app.appendChild(w);
+    window.scrollTo(0,0);
+  }
+
+  function drSection(pane,label,nodes){
+    var d=el("details","role dr"); d.open=true;
+    d.appendChild(el("summary",null,label));
+    var b=el("div","role-b");
+    nodes.forEach(function(n){ b.appendChild(n); });
+    d.appendChild(b);
+    pane.appendChild(d);
+  }
+  function drQuote(text,cls,tag){
+    var q=el("div","dr-q "+cls,"「"+text+"」");
+    if(tag) q.appendChild(el("span","dr-tag",tag));
+    return q;
+  }
+
+  function drillScript(t,mode){
+    if(state.dsId!==t.id){ state.dsId=t.id; state.ds=1; }
+    var y=window.scrollY, n=state.ds, s = n===1 ? t.s1 : t.s2, L=DRILL.labels, H=DRILL.hints;
+    app.innerHTML="";
+    var w=el("div","wrap");
+    w.appendChild(backBtn("題目列表","#/drill"));
+    var hd=el("div","head");
+    hd.appendChild(el("div","head-n","題目"+t.num));
+    hd.appendChild(el("h1","head-t",t.title));
+    var mm=el("div","head-m"); mm.style.marginBottom="0";
+    mm.appendChild(el("span","tag tag-a",t.student));
+    hd.appendChild(mm);
+    w.appendChild(hd);
+    w.appendChild(tabBar([["1",DRILL.sessions[0]],["2",DRILL.sessions[1]]], String(n),
+      function(v){ state.ds=parseInt(v,10); drillScript(t,"tab"); }));
+
+    var pane=el("div","pane");
+    drSection(pane, n===1 ? L.situation1 : L.situation2, [el("p","dr-p",s.situation)]);
+    if(n===1 && s.role) drSection(pane, L.role, [el("p","dr-p",s.role)]);
+    drSection(pane, L.opening, [drQuote(s.opening,"open")]);
+    drSection(pane, L.sustain, [el("p","dr-h",H["sustain"+n])].concat(s.sustain.map(function(x){ return drQuote(x,"sus"); })));
+    drSection(pane, L.change, [el("p","dr-h",H["change"+n])].concat(s.change.map(function(c){ return drQuote(c.text,"chg",c.tag); })));
+    var ol=el("ol","steps dr-score");
+    s.scoring.forEach(function(x,i){
+      var li=el("li");
+      li.appendChild(el("span","step-n",String(i+1)));
+      li.appendChild(el("span",null,x));
+      ol.appendChild(li);
+    });
+    drSection(pane, L.scoring, [ol]);
+    w.appendChild(pane);
+    app.appendChild(w);
+    settle(mode,y,hd);
+  }
+
+  // 抽籤：每次都從全部題目裡抽一題，抽過的題目還會再抽到；不留紀錄
+  var lotOpen=null;
+  function closeLottery(){
+    if(!lotOpen) return;
+    clearTimeout(lotOpen.st.timer);
+    document.removeEventListener("keydown",lotOpen.onKey);
+    if(lotOpen.bg.parentNode) lotOpen.bg.parentNode.removeChild(lotOpen.bg);
+    lotOpen=null;
+  }
+  function openLottery(){
+    closeLottery();
+    var bg=el("div","lot-bg");
+    bg.setAttribute("role","dialog"); bg.setAttribute("aria-modal","true"); bg.setAttribute("aria-label","抽籤");
+    var box=el("div","lot-box");
+    bg.appendChild(box);
+    var st={ phase:"idle", show:null, pick:null, timer:null };
+    var av=DRILL.topics;
+    function draw(){
+      box.innerHTML="";
+      var x=el("button","lot-x","關閉"); x.onclick=closeLottery; box.appendChild(x);
+      box.appendChild(el("div","lot-t","抽籤"));
+      box.appendChild(el("div","lot-left","每次都從 "+av.length+" 題裡抽"));
+      var cur=st.show||av[0];
+      var card=el("div","lot-card"+(st.phase==="spin"?" spin":st.phase==="result"?" done":""));
+      card.appendChild(el("div","lot-num",cur.num));
+      card.appendChild(el("div","lot-k","題目"+cur.num));
+      card.appendChild(el("div","lot-title",cur.title));
+      card.appendChild(el("div","lot-stu",cur.student));
+      box.appendChild(card);
+      if(st.phase==="idle"){
+        var start=el("button","btn1 lot-go","開始抽籤"); start.onclick=spin; box.appendChild(start);
+      } else if(st.phase==="spin"){
+        box.appendChild(el("div","lot-wait","抽籤中…"));
+      } else {
+        var act=el("div","lot-act");
+        var again=el("button","btn2","重抽");
+        again.onclick=function(){ st.phase="idle"; st.pick=null; st.show=null; draw(); };
+        var ok=el("button","btn1","確認，進入腳本");
+        ok.onclick=function(){
+          var id=st.pick.id;
+          closeLottery();
+          go("#/drill/"+id);
+        };
+        act.appendChild(again); act.appendChild(ok);
+        box.appendChild(act);
+      }
+    }
+    function spin(){
+      st.pick=av[Math.floor(Math.random()*av.length)];
+      if(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches){
+        st.show=st.pick; st.phase="result"; draw(); return;
+      }
+      st.phase="spin";
+      var ticks=18+Math.floor(Math.random()*6), i=0;
+      (function step(){
+        i++;
+        if(i>=ticks){ st.show=st.pick; st.phase="result"; draw(); return; }
+        st.show=av[Math.floor(Math.random()*av.length)];
+        draw();
+        st.timer=setTimeout(step, 60+Math.round(Math.pow(i/ticks,2)*240));
+      })();
+    }
+    bg.onclick=function(e){ if(e.target===bg) closeLottery(); };
+    var onKey=function(e){ if(e.key==="Escape") closeLottery(); };
+    document.addEventListener("keydown",onKey);
+    lotOpen={ bg:bg, onKey:onKey, st:st };
+    document.body.appendChild(bg);
+    draw();
+  }
+
+  /* ==========================================================
      QR code：把目前這一頁（或首頁）的網址做成 QR code，投影給學員掃
      ========================================================== */
   function pageLabel(){
@@ -3717,6 +4484,7 @@ window.PEER = {
       return c ? "AI諮詢技巧練習機器人｜卡片 "+c.id+"　"+c.title : "AI諮詢技巧練習機器人";
     }
     if(p[0]==="admin") return "講師設定";
+    if(p[0]==="drill"){ var dt=findTopic(id); return dt ? "諮詢實務演練｜題目"+dt.num+"　"+dt.title : "諮詢實務演練"; }
     return "首頁";
   }
 
@@ -4188,6 +4956,7 @@ window.PEER = {
      #/oars、#/oars/3   OARS諮詢情境練習
      #/talk、#/talk/7   辨識改變型對話
      #/ai、#/ai/C       AI諮詢技巧練習機器人（C 是卡片代號，會捲到那張卡並標出來）
+     #/drill、#/drill/3 諮詢實務演練（要輸入密碼；3 是題目編號）
      #/admin         講師設定
      #/7             舊版網址，自動轉到 #/talk/7
      沒開放的練習：學員看到「這次沒有開放」；講師登入後照常打開。
@@ -4210,6 +4979,7 @@ window.PEER = {
       var s=find(S,parseInt(p[1],10));
       if(s) talkDetail(s); else talkList();
     }
+    else if(p[0]==="drill"){ view="page"; drillPage(parseInt(p[1],10)); }
     else if(p[0]==="ai"){
       view="page";
       var hl = p[1] ? p[1].toUpperCase() : null;
@@ -4222,7 +4992,7 @@ window.PEER = {
   }
 
   window.addEventListener("hashchange",function(){
-    closeQR(); route();
+    closeQR(); closeLottery(); route();
     if(view==="home") refreshCfg(false);
     else if(view==="admin" && isAdmin()) refreshCfg(true);
   });
